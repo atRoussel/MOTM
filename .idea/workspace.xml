@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54da0af2-437c-4927-8be0-5c8cacc8a1e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MOTM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/MOTM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp-front-and-back/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp-front-and-back/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp-front-and-back/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp-front-and-back/front/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,21 +41,54 @@
     </option>
   </component>
   <component name="ProjectId" id="1iVWWBfTpR3kqF8hcKG1zn7RrFx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/webapp-front-and-back/api/pom.xml" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\EPF\MOTM\MOTM\webapp-front-and-back" />
     </key>
+  </component>
+  <component name="RunManager" selected="Database Script.2_DEFAULT_ENTRIES.sql">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="1_TABLES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/webapp-front-and-back/api/initdb/1_TABLES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="130dc4a0-c205-43f1-b03d-fcb19e710de7" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2_DEFAULT_ENTRIES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/webapp-front-and-back/api/initdb/2_DEFAULT_ENTRIES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="130dc4a0-c205-43f1-b03d-fcb19e710de7" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.2_DEFAULT_ENTRIES.sql" />
+        <item itemvalue="Database Script.1_TABLES.sql" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,7 +99,8 @@
       <option name="presentableId" value="Default" />
       <updated>1601993269130</updated>
       <workItem from="1601993270183" duration="754000" />
-      <workItem from="1601994085931" duration="881000" />
+      <workItem from="1601994085931" duration="1555000" />
+      <workItem from="1602247721130" duration="1023000" />
     </task>
     <task id="LOCAL-00001" summary="Setup">
       <created>1601993703052</created>
@@ -77,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601993703052</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Setup serveur">
+      <created>1601995005483</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601995005483</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,16 +136,33 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup" />
+    <MESSAGE value="Setup serveur" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup serveur" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601993897357">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601995524395">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601993897357" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1601994024760">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601995524395" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602248752820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601994024760" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602248752820" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1602248754757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602248754757" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1602248754756">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602248754756" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1602248754756">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602248754756" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1602248754757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602248754757" />
   </component>
 </project>
