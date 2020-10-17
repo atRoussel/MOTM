@@ -8,13 +8,15 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
+import { SondageComponent } from './pages/sondage/sondage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListUsersComponent,
     AddUserComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SondageComponent
   ],
   imports: [
     BrowserModule,
