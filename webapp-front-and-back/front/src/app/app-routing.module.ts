@@ -4,6 +4,7 @@ import {ListUsersComponent} from './pages/list-users/list-users.component';
 import {AddUserComponent} from './pages/add-user/add-user.component';
 import {StatisticsComponent} from './pages/statistics/statistics.component';
 import {SondageComponent} from './pages/sondage/sondage.component';
+import {AddSurveyComponent} from './pages/add-survey/add-survey.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'user-list', component: ListUsersComponent },
   { path: 'list', component: ListUsersComponent },
   { path: 'add-user', component: AddUserComponent },
-  { path: 'statistics', component: StatisticsComponent },];
+  { path: 'statistics', component: StatisticsComponent },
+  { path: 'add-survey', component: AddSurveyComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

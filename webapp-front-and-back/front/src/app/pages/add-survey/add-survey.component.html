@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+    <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+    <span class="w3-bar-item w3-right">MOTM</span>
+</div>
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container w3-row">
+        <div class="w3-col s8 w3-bar">
+            <span>    Bienvenue, <strong>Administrateur</strong></span><br>
+        </div>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>Menu</h5>
+    </div>
+    <div class="w3-bar-block">
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="/statistics" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bar-chart-o fa-fw"></i> Statistiques</a>
+        <a href="/user-list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Utilisateurs</a>
+        <a href="/" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-plus fa-fw"></i> Ajouter un sondage</a>
+        <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i> Voir sondage en cours</a>
+    </div>
+</nav>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    <h1 class="text-center">Création d'un nouveau MOTM</h1>
+    <div class="col-sm-8 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="titre">
+                    Titre
+                </label>
+                <input type="text" id="titre" class="form-control" name="titre" ngModel>
+            </div>
+            <div class="form-group">
+                <div *ngFor="let a of questionList" class="form-group">
+                    <label for="question">
+                        Question
+                    </label>
+                    <input type="text" id="question" class="form-control" name="question" ngModel>
+                    <script>console.log(a.index)</script>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Ajouter</button>
+
+            <button class="btn btn-primary mt-3 float-right" (click)=addQuestion()>Ajouter Question</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
+<!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+    This is a success alert—check it out!
+  </div> -->
