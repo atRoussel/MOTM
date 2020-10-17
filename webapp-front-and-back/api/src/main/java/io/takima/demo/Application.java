@@ -41,10 +41,10 @@ public class Application implements CommandLineRunner {
 
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom("moodofthemonth.epf@gmail.com");
-        msg.setTo("athenais.roussel@epfedu.fr");
+        msg.setTo("lucas.drencevic@epfedu.fr");
 
-        msg.setSubject("Testing from Spring Boot");
-        msg.setText("C'est bon ca marche les emails \n Des bisous tout partout");
+        msg.setSubject("Sondage Mood Of The Month");
+        msg.setText("Salut à toi jeune entrepreneur ! Dis comment tu te sent \n Clique sur le lien allez clique http://localhost:4200/");
 
         javaMailSender.send(msg);
 
