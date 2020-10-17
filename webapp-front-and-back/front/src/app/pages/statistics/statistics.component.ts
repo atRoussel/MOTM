@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  {Chart} from 'chart.js'
+//import  {Chart} from 'chart.js'
 
 @Component({
   selector: 'app-statistics',
@@ -11,7 +11,7 @@ export class StatisticsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const myChart = new Chart("myChart", {
+    /*const myChart = new Chart("myChart", {
       type: 'bar',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -46,7 +46,7 @@ export class StatisticsComponent implements OnInit {
           }]
         }
       }
-    });
+    });*/
   }
 
 }
