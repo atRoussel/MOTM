@@ -4,12 +4,13 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {timeout} from 'rxjs/operators';
+import {Question} from '../models/question.models';
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class SurveyService {
+export class QuestionService {
 
     private url: string;
 
@@ -17,16 +18,9 @@ export class SurveyService {
         this.url = environment.url;
     }
 
-    getSurveys(): Observable<Survey[]> {
-        return this.http.get<Survey[]>(`${this.url}/surveys`).pipe(timeout(10000));
+     addQuestion(question: Question): Observable<Question> {
+        return this.http.post<any>(`${this.url}/questions`, question).pipe(timeout(10000));
     }
 
-    addSurvey(survey: Survey): Observable<Survey> {
-        return this.http.post<any>(`${this.url}/surveys`, survey).pipe(timeout(10000));
-    }
-
-    deleteSurvey(id: number): Observable<any> {
-        return this.http.delete(`${this.url}/surveys/${id}`).pipe(timeout(10000));
-    }
 
 }

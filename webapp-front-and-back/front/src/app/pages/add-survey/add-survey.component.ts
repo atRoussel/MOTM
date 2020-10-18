@@ -3,7 +3,10 @@ import {newArray} from '@angular/compiler/src/util';
 import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
-import {element} from 'protractor';
+import {SurveyService} from '../../services/survey.service';
+import {Survey} from '../../models/survey.model';
+import {Question} from '../../models/question.models';
+import {QuestionService} from '../../services/question.service';
 
 @Component({
   selector: 'app-add-survey',
@@ -11,19 +14,37 @@ import {element} from 'protractor';
   styleUrls: ['./add-survey.component.css']
 })
 export class AddSurveyComponent implements OnInit {
-  constructor() { }
+
+  surveys: Survey[];
+  questions: Question[];
+
+  constructor(private surveyService: SurveyService, private questionService: QuestionService) { }
 
   ngOnInit(): void {
+    this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
   }
+
+
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
-    const user = defaultsDeep({
-      id: null,
-      firstName: ngForm.form.value.firstName,
-      lastName: ngForm.form.value.lastName,
-      age: ngForm.form.value.age,
+
+    this.questions = []
+    const question = defaultsDeep({
+      questionId: null,
+      questionText : ngForm.form.value.question});
+    this.questions.push(question)
+
+
+    const survey = defaultsDeep({
+      surveyId: null,
+      surveyTitle: ngForm.form.value.title,
+      surveyDescription: ngForm.form.value.description,
+      questions: this.questions
+
     });
-    console.log(ngForm.form.value.titre);
-    console.log(ngForm.form.value.question);
+    // tslint:disable-next-line:no-shadowed-variable
+    this.surveyService.addSurvey(survey).subscribe(survey => console.log(survey));
+
+
+
   }
 }

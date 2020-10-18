@@ -1,9 +1,11 @@
 import { defaultsDeep } from 'lodash';
+import {Question} from './question.models';
 
 export class Survey {
-    id: number;
-    title: string;
-    description: string;
+    surveyId: number;
+    surveyTitle: string;
+    surveyDescription: string;
+    questions: Array<Question>;
 
     constructor(survey?: Partial<Survey>) {
         defaultsDeep(this, survey);

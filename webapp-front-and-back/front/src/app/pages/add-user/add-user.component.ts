@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-user',
@@ -11,14 +12,22 @@ import {Router} from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private _location: Location) { }
 
   ngOnInit() {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm.form.value.firstname);
-    console.log(ngForm.form.value.lastname);
-    console.log(ngForm.form.value.email);
+
+    const user = defaultsDeep({
+      userId: null,
+      userName: ngForm.form.value.name,
+      userMail: ngForm.form.value.mail,
+      userDate: ngForm.form.value.date
+    });
+
+    // tslint:disable-next-line:no-shadowed-variable
+    this.userService.addUser(user).subscribe(user => console.log(user));
+    this._location.back()
   }
 }
