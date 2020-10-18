@@ -13,10 +13,10 @@ data class User(
         @Column(name = "user_name") var userName: String?,
         @Column(name = "user_email") var userMail: String?,
         @Column(name = "user_date") var userDate: String?,
-        @ManyToMany(fetch = FetchType.LAZY)
+        @ManyToMany(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
         @JoinTable(name="users_surveys",
-        joinColumns = [JoinColumn(name = "user_id")],
-        inverseJoinColumns = [JoinColumn(name="survey_id")])
+        joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "userId")],
+        inverseJoinColumns = [JoinColumn(name="survey_id", referencedColumnName = "surveyId")])
         var surveys: List<Survey>? = mutableListOf()) {
         constructor (): this(null, null, null, null, null)
 
