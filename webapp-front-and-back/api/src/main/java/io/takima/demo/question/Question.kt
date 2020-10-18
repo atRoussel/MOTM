@@ -11,7 +11,7 @@ data class Question (
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var question_id: Long?,
         @Column(name = "question_text") var questionText: String?,
-        @ManyToOne
+        @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
         @JoinColumn(name ="survey_id", nullable = false)
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         var survey: Survey?,

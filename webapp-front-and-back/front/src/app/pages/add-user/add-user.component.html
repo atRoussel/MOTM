@@ -37,22 +37,22 @@
   <div class="col-sm-8 col-sm-offset-2">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="form-group">
-        <label for="lastname">
+        <label for="name">
           Nom
         </label>
-        <input type="text" id="lastname" class="form-control" name="lastname" ngModel>
+        <input type="text" id="name" class="form-control" name="name" ngModel>
       </div>
       <div class="form-group">
-        <label for="firstname">
+        <label for="mail">
           Prénom
         </label>
-        <input #box type="text" id="firstname" class="form-control" name="firstname" ngModel>
+        <input #box type="text" id="mail" class="form-control" name="mail" ngModel>
       </div>
       <div class="form-group">
-        <label for="email">
+        <label for="date">
           Email
         </label>
-        <input #box type="text" id="email" class="form-control" name="email" ngModel>
+        <input #box type="text" id="date" class="form-control" name="date" ngModel>
       </div>
       <button class="btn btn-primary" type="submit">Enregistrer</button>
     </form>
