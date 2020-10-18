@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-users',
@@ -22,5 +23,4 @@ export class ListUsersComponent implements OnInit {
       this.users = this.users.filter(user => user.userId !== id)
     });
   }
-
 }

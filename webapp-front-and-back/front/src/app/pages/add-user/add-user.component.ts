@@ -17,16 +17,8 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
-    const user = defaultsDeep({
-      id: null,
-      firstName: ngForm.form.value.firstName,
-      lastName: ngForm.form.value.lastName,
-      age: ngForm.form.value.age,
-    });
-
-    this.userService.addUser(user).subscribe(user => console.log(user));
-
-    this.router.navigateByUrl('/');
+    console.log(ngForm.form.value.firstname);
+    console.log(ngForm.form.value.lastname);
+    console.log(ngForm.form.value.email);
   }
 }

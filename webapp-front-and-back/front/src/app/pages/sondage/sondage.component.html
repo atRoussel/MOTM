@@ -23,22 +23,22 @@
 <body>
 
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-    <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
     <a href="/statistics" class="w3-button w3-left"> Accéder à l'espace administrateur</a>
     <span class="w3-bar-item w3-right">MOTM</span>
 </div>
 
 <div class="container-contact100">
     <div class="wrap-contact100">
-        <form class="contact100-form validate-form">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
 				<span class="contact100-form-title">
 					Mood Of The Month
 				</span>
-
-            <div class="wrap-input100 input100-select">
-                <span class="label-input100">Comment vous êtes vous senti ce mois çi ?</span>
+            <div class="form-group">
+                <label for="mood">
+                    Comment vous êtes vous senti ce mois çi ?
+                </label>
                 <div>
-                    <select class="selection-2" name="mood">
+                    <select (change)="selectChangeHandler($event)" id="mood" class="form-control" name="mood">
                         <option value="0">--Sélectionner une réponse--</option>
                         <option value="1">Super !</option>
                         <option value="2">Bien</option>
@@ -47,22 +47,21 @@
                         <option value="5">Je ne veux plus vivre</option>
                     </select>
                 </div>
-                <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Message is required">
                 <span class="label-input100">Commentaire</span>
-                <textarea class="input100" name="comment" placeholder="Votre commentaire ici..."></textarea>
+                <textarea #comment class="input100" name="comment" placeholder="Votre commentaire ici..."></textarea>
                 <span class="focus-input100"></span>
             </div>
 
             <div class="container-contact100-form-btn">
                 <div class="wrap-contact100-form-btn">
                     <div class="contact100-form-bgbtn"></div>
-                    <button class="contact100-form-btn">
+                    <button class="contact100-form-btn" (click)='getValue(comment.value)'>
 							<span>
                                 Envoyer
-								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true" type="submit"></i>
 							</span>
                     </button>
                 </div>

@@ -11,7 +11,6 @@ import {element} from 'protractor';
   styleUrls: ['./add-survey.component.css']
 })
 export class AddSurveyComponent implements OnInit {
-  question;
   constructor() { }
 
   ngOnInit(): void {
