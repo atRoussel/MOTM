@@ -1,4 +1,4 @@
-package io.takima.demo;
+package io.takima.demo.user;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +20,7 @@ public class UserController {
     public List<User> getUsers() {
         Iterable<User> it = this.userDAO.findAll();
         List<User> users = new ArrayList<>();
-        it.forEach(e -> users.add(e));
-
+        it.forEach(users::add);
         return users;
     }
 
