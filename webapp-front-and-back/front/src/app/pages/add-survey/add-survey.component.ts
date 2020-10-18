@@ -3,6 +3,7 @@ import {newArray} from '@angular/compiler/src/util';
 import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-add-survey',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-survey.component.css']
 })
 export class AddSurveyComponent implements OnInit {
-  questionList = newArray(1);
+  question;
   constructor() { }
 
   ngOnInit(): void {
@@ -25,8 +26,5 @@ export class AddSurveyComponent implements OnInit {
     });
     console.log(ngForm.form.value.titre);
     console.log(ngForm.form.value.question);
-  }
-  addQuestion() {
-    this.questionList.push(1);
   }
 }
