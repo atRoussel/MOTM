@@ -39,19 +39,19 @@
     <thead class="thead">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">FirstName</th>
-      <th scope="col">LastName</th>
-      <th scope="col">Age</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Date</th>
       <th scope="col">Supprimer un utilisateur</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
-      <td>{{user.id}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.age}}</td>
-      <td><button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.id)">Delete</button></td>
+      <td>{{user.userId}}</td>
+      <td>{{user.userName}}</td>
+      <td>{{user.userMail}}</td>
+      <td>{{user.userDate}}</td>
+      <td><button type="button" class="btn btn-danger deleteButton" (click)="deleteUser(user.userId)">Delete</button></td>
     </tr>
     </tbody>
   </table>
