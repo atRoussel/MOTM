@@ -9,11 +9,19 @@ import javax.persistence.*
 @Entity(name = "questions")
 data class Question (
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id var question_id: Long?,
-        @Column(name = "question_text") var questionText: String?,
-        @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+        @Id var id: Long?,
+        @Column(name = "text") var text: String?,
+
+        // Liaison entre questions et surveys
+        // Une question appartient à un seul survey
+        @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name ="survey_id", nullable = false)
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         var survey: Survey?,
-        @OneToMany(mappedBy = "question") var answers: List<Answer>? = mutableListOf()){
+
+        // Liaison entre questions et answers
+        // Une question peut avoir plusieurs answers
+        @OneToMany(mappedBy = "question") var answers: List<Answer>? = mutableListOf())
+
+{
     constructor() : this(null, null, null)}

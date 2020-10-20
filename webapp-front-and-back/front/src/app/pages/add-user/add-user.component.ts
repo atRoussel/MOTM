@@ -20,10 +20,10 @@ export class AddUserComponent implements OnInit {
   onSubmit(ngForm: NgForm) {
 
     const user = defaultsDeep({
-      userId: null,
-      userName: ngForm.form.value.name,
-      userMail: ngForm.form.value.mail,
-      userDate: ngForm.form.value.date
+      id: null,
+      name: ngForm.form.value.name,
+      mail: ngForm.form.value.mail,
+      date: ngForm.form.value.date
     });
 
     // tslint:disable-next-line:no-shadowed-variable

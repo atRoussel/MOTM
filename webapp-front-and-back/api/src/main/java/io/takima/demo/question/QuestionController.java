@@ -21,7 +21,7 @@ public class QuestionController {
     public List<Question> getQuestions() {
         Iterable<Question> it = this.questionDAO.findAll();
         List<Question> questions = new ArrayList<>();
-        it.forEach(e -> questions.add(e));
+        it.forEach(questions::add);
 
         return questions;
     }
@@ -33,8 +33,8 @@ public class QuestionController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteQuestion(@PathVariable Long question_id) {
-        this.questionDAO.deleteById(question_id);
+    public void deleteQuestion(@PathVariable Long id) {
+        this.questionDAO.deleteById(id);
     }
 
 

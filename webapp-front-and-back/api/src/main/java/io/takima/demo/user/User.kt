@@ -9,15 +9,21 @@ import javax.persistence.*
 @Entity(name = "users")
 data class User(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id var userId: Long?,
-        @Column(name = "user_name") var userName: String?,
-        @Column(name = "user_email") var userMail: String?,
-        @Column(name = "user_date") var userDate: String?,
+        @Id var id: Long?,
+        @Column(name = "name") var name: String?,
+        @Column(name = "mail") var mail: String?,
+        @Column(name = "date") var date: String?,
+
+        // Liaison entre users et surveys
+        // -> Un user peut répondre à plusieurs surveys
+        // -> Un survey peut être remplis par plusieurs users
         @ManyToMany(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
         @JoinTable(name="users_surveys",
-        joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "userId")],
-        inverseJoinColumns = [JoinColumn(name="survey_id", referencedColumnName = "surveyId")])
-        var surveys: List<Survey>? = mutableListOf()) {
+        joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")],
+        inverseJoinColumns = [JoinColumn(name="survey_id", referencedColumnName = "id")])
+        var surveys: List<Survey>? = mutableListOf())
+
+{
         constructor (): this(null, null, null, null, null)
 
 }

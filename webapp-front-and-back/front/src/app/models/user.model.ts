@@ -1,10 +1,10 @@
 import { defaultsDeep } from 'lodash';
 
 export class User {
-  userId: number;
-  userName: string;
-  userMail: string;
-  userDate: string;
+  id: number;
+  name: string;
+  mail: string;
+  date: string;
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);

@@ -1,9 +1,5 @@
 package io.takima.demo.survey;
 
-import io.takima.demo.question.Question;
-import io.takima.demo.question.QuestionController;
-import io.takima.demo.question.QuestionDAO;
-import io.takima.demo.user.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,9 +30,9 @@ public class SurveyController {
         return this.surveyDAO.save(survey);
     }
 
-    @DeleteMapping("/{survey_id}")
-    public void deleteSurvey(@PathVariable Long survey_id) {
-        this.surveyDAO.deleteById(survey_id);
+    @DeleteMapping("/{id}")
+    public void deleteSurvey(@PathVariable Long id) {
+        this.surveyDAO.deleteById(id);
     }
 }
 

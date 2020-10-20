@@ -8,8 +8,11 @@ import javax.persistence.*
 @Entity(name = "answers")
 data class Answer (
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id var answer_id: Long?,
-        @Column(name = "answer_value") var answerValue: String?,
+        @Id var id: Long?,
+        @Column(name = "value") var value: String?,
+
+        // Liaison entre answers et questions
+        // Une answer ne peut appartenir qu'à une seule question
         @ManyToOne
         @JoinColumn(name = "question_id", nullable = false)
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

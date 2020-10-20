@@ -7,8 +7,11 @@ import javax.persistence.*
 @Entity(name = "comments")
 data class Comment (
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id var comment_id: Long?,
-        @Column (name = "comment_value") var commentValue : String?,
+        @Id var id: Long?,
+        @Column (name = "value") var value : String?,
+
+        // Liaison entre comments et survey
+        // Un comment appartient à un seul survey
         @ManyToOne
         @JoinColumn(name = "survey_id", nullable = false)
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

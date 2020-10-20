@@ -1,1 +1,12 @@
+.w3-bar {
+}
 
+.card-header {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alert{
+    margin-top: 20px;
+}

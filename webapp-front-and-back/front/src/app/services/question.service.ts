@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {timeout} from 'rxjs/operators';
-import {Question} from '../models/question.models';
+import {Question} from '../models/question.model';
 
 
 @Injectable({
