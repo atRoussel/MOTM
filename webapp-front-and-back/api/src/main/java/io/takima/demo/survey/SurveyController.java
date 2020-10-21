@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/surveys")
@@ -33,6 +34,11 @@ public class SurveyController {
     @DeleteMapping("/{id}")
     public void deleteSurvey(@PathVariable Long id) {
         this.surveyDAO.deleteById(id);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Survey> getSurveyById(@PathVariable Long survey_id) {
+        return this.surveyDAO.findById(survey_id);
     }
 }
 

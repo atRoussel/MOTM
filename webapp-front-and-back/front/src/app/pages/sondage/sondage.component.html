@@ -21,21 +21,20 @@
     <link rel="stylesheet" type="text/css" href="./sondage.component.css">
 </head>
 <body>
-
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
     <a href="/statistics" class="w3-button w3-left"> Accéder à l'espace administrateur</a>
     <span class="w3-bar-item w3-right">MOTM</span>
 </div>
-
 <div class="container-contact100">
     <div class="wrap-contact100">
         <form (ngSubmit)="onSubmit()" #f="ngForm">
-				<span class="contact100-form-title">
-					Mood Of The Month
-				</span>
+            <span class="contact100-form-title">
+               {{lastSurvey.title}}
+                <h3>{{lastSurvey.description}}</h3>
+            </span>
             <div class="form-group">
                 <label for="mood">
-                    Comment vous êtes vous senti ce mois çi ?
+                    {{lastSurvey.questions[0]}}
                 </label>
                 <div>
                     <select (change)="selectChangeHandler($event)" id="mood" class="form-control" name="mood">
@@ -48,21 +47,19 @@
                     </select>
                 </div>
             </div>
-
             <div class="wrap-input100 validate-input" data-validate = "Message is required">
                 <span class="label-input100">Commentaire</span>
                 <textarea #comment class="input100" name="comment" placeholder="Votre commentaire ici..."></textarea>
                 <span class="focus-input100"></span>
             </div>
-
             <div class="container-contact100-form-btn">
                 <div class="wrap-contact100-form-btn">
                     <div class="contact100-form-bgbtn"></div>
                     <button class="contact100-form-btn" (click)='getValue(comment.value)'>
-							<span>
+                     <span>
                                 Envoyer
-								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true" type="submit"></i>
-							</span>
+                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true" type="submit"></i>
+                     </span>
                     </button>
                 </div>
             </div>
@@ -70,10 +67,7 @@
     </div>
 </div>
 
-
-
 <div id="dropDownSelect1"></div>
-
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="vendor/animsition/js/animsition.min.js"></script>
 <script src="vendor/bootstrap/js/popper.js"></script>
@@ -89,16 +83,13 @@
 <script src="vendor/daterangepicker/daterangepicker.js"></script>
 <script src="vendor/countdowntime/countdowntime.js"></script>
 <script src="js/main.js"></script>
-
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-23581568-13');
 </script>
-
 </body>
 </html>
