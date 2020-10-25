@@ -16,7 +16,7 @@ data class Survey (
 
         // Liaison entre surveys et questions
         // Un survey contient plusieurs questions
-        @OneToMany(cascade = [CascadeType.MERGE], mappedBy = "survey", fetch = FetchType.LAZY)
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "survey")
         var questions: List<Question>? = mutableListOf(),
 
         //Liaison entre surveys et comments
