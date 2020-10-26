@@ -3,7 +3,7 @@ import {Question} from './question.model';
 
 export class Answer {
     id: number;
-    value: string;
+    value: number;
     question: Question;
 
     constructor(answer?: Partial<Answer>) {

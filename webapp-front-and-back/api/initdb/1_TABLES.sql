@@ -1,4 +1,4 @@
-create table answers (id bigint not null auto_increment, value varchar(255), question_id bigint not null, primary key (id)) engine=InnoDB;
+create table answers (id bigint not null auto_increment, value bigint not null, question_id bigint not null, primary key (id)) engine=InnoDB;
 create table comments (id bigint not null auto_increment, value varchar(255), survey_id bigint not null, primary key (id)) engine=InnoDB;
 create table questions (id bigint not null auto_increment, text varchar(255), survey_id bigint, primary key (id)) engine=InnoDB;
 create table surveys (id bigint auto_increment, description varchar(255), title varchar(255), primary key (id)) engine=InnoDB;
