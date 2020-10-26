@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentService} from "../../services/comment.service";
-import {Comment} from "../../models/comment.model";
+import {CommentService} from '../../services/comment.service';
+import {Comment} from '../../models/comment.model';
 
-//import  {Chart} from 'chart.js'
+// import  {Chart} from 'chart.js'
 
 @Component({
   selector: 'app-statistics',
@@ -16,7 +16,7 @@ export class StatisticsComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit(){
-    this.commentService.getComments().subscribe(comments => this.comments = comments);
+    // this.commentService.getComments().subscribe(comments => this.comments = comments);
   }
 
 }
