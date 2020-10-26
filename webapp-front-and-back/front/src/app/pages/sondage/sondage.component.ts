@@ -5,6 +5,8 @@ import {CommentService} from '../../services/comment.service';
 import { defaultsDeep } from 'lodash';
 import {Observable} from 'rxjs';
 import {AnswerService} from '../../services/answer.service';
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-sondage',
@@ -17,7 +19,8 @@ export class SondageComponent implements OnInit {
   surveys: Survey[];
   lastSurvey: Survey;
   lastId;
-  constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService) { }
+  constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService,
+              private router: Router, private _location: Location) { }
   ngOnInit(): void {
     this.surveyService.getSurveys().subscribe(surveys => this.lastSurvey = surveys[surveys.length-1]);
   }
@@ -41,5 +44,8 @@ export class SondageComponent implements OnInit {
   }
   getValue(str) {
     this.myTextarea = str;
+  }
+  refresh() {
+    window.location.reload();
   }
 }

@@ -49,6 +49,7 @@ export class AddSurveyComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.surveyService.addSurvey(survey).subscribe(survey => console.log(survey));
       window.alert('reussi') ;
+      window.location.reload();
     } catch (e) {
      window.alert('PB') ;
     }
