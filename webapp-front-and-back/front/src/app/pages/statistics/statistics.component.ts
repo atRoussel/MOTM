@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentService} from "../../services/comment.service";
-import {AnswerService} from "../../services/answer.service";
-import {Comment} from "../../models/comment.model";
-import {Answer} from "../../models/answer.model";
-import  {Chart} from 'chart.js'
+import {CommentService} from '../../services/comment.service';
+import {AnswerService} from '../../services/answer.service';
+import {Answer} from '../../models/answer.model';
+import  {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-statistics',
@@ -18,18 +17,16 @@ export class StatisticsComponent implements OnInit {
   average;
 
   constructor(private commentService: CommentService,private answerService: AnswerService) { }
+  ngOnInit(): void{
 
-  sumGrades(){
     this.answerService.getAnswers().subscribe(answers => {
       this.answers = answers;
       answers.forEach(answer => this.sum = this.sum + +answer.value);
-      });
-  }
-
-  ngOnInit(): void{
+    });
     this.commentService.getComments().subscribe(comments => this.comments = comments);
 
-    new Chart("myChart", {
+    // tslint:disable-next-line:no-unused-expression
+    new Chart('myChart', {
       type: 'bar',
       data: {
         labels: ['Je ne veux plus vivre', 'Mal', 'Bof', 'Bien', 'Super!'],
