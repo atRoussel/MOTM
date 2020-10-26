@@ -23,7 +23,6 @@ public class CommentController {
         Iterable<Comment> it = this.commentDAO.findAll();
         List<Comment> comments = new ArrayList<>();
         it.forEach(e -> comments.add(e));
-
         return comments;
     }
 

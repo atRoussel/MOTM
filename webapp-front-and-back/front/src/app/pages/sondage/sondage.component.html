@@ -34,7 +34,7 @@
             </span>
             <div class="form-group">
                 <label for="mood">
-                    {{lastSurvey.questions[0]}}
+                    {{lastSurvey.questions[0].text}}
                 </label>
                 <div>
                     <select (change)="selectChangeHandler($event)" id="mood" class="form-control" name="mood">

@@ -21,6 +21,10 @@ export class SurveyService {
          return this.http.get<Survey[]>(`${this.url}/surveys`).pipe(timeout(10000));
     }
 
+    getSurveyById(id: number): Observable<Survey> {
+         return this.http.get<Survey>(`${this.url}/surveys/${id}`).pipe(timeout(10000));
+    }
+
      addSurvey(survey: Survey): Observable<Survey> {
          return this.http.post<any>(`${this.url}/surveys`, survey).pipe(timeout(10000));
     }
