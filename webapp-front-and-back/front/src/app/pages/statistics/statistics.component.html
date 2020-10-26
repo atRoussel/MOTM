@@ -81,17 +81,8 @@
             <div class="w3-twothird">
                 <h5><i class="fa fa-commenting"></i><strong>   Commentaires</strong></h5>
                 <table class="w3-table w3-striped w3-white">
-                    <tr>
-                        <td>Je suis si heureux !!</td>
-                    </tr>
-                    <tr>
-                        <td>La vie est belle.</td>
-                    </tr>
-                    <tr>
-                        <td>Pas de frites à la cantine.</td>
-                    </tr>
-                    <tr>
-                        <td>Oui.</td>
+                    <tr *ngFor="let comment of comments">
+                        <td>{{comment.value}}</td>
                     </tr>
                 </table>
             </div>

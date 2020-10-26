@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { SondageComponent } from './pages/sondage/sondage.component';
 import { AddSurveyComponent } from './pages/add-survey/add-survey.component';
@@ -24,7 +24,8 @@ import { AddSurveyComponent } from './pages/add-survey/add-survey.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

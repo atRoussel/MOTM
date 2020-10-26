@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {newArray} from '@angular/compiler/src/util';
-import {NgForm} from '@angular/forms';
+import {NgForm, ReactiveFormsModule} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
 import {SurveyService} from '../../services/survey.service';
