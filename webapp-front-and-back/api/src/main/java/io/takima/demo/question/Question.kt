@@ -15,7 +15,7 @@ data class Question (
         // Liaison entre questions et surveys
         // Une question appartient à un seul survey
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name ="survey_id", nullable = false)
+        @JoinColumn(name ="survey_id")
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         var survey: Survey?,
 

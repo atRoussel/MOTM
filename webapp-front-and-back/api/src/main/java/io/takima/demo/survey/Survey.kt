@@ -16,19 +16,20 @@ data class Survey (
 
         // Liaison entre surveys et questions
         // Un survey contient plusieurs questions
-        @OneToMany(cascade = [CascadeType.MERGE], mappedBy = "survey", fetch = FetchType.LAZY)
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "survey")
         var questions: List<Question>? = mutableListOf(),
 
         //Liaison entre surveys et comments
         // Un survey contient plusieurs commentaires
-        @OneToMany(mappedBy = "survey") var comments: List<Comment>? = mutableListOf(),
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "survey")
+        var comments: List<Comment>? = mutableListOf(),
 
         //Liaison entre surveys et users
         @JsonIgnore
         @ManyToMany(fetch = FetchType.LAZY, mappedBy = "surveys")
         var users: List<User>? = mutableListOf())
         {
-        constructor() : this(null, null, null, null ,null,null)
+        constructor() : this(null, null, null, null ,null)
 }
 
 

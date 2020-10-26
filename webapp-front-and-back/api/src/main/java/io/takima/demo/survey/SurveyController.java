@@ -1,5 +1,7 @@
 package io.takima.demo.survey;
 
+import io.takima.demo.comment.Comment;
+import io.takima.demo.question.Question;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -21,13 +23,13 @@ public class SurveyController {
         Iterable<Survey> it = this.surveyDAO.findAll();
         List<Survey> surveys = new ArrayList<>();
         it.forEach(surveys::add);
-
         return surveys;
     }
 
     @PostMapping()
-
     public Survey addSurvey(@RequestBody Survey survey) {
+        List<Question> questionList = survey.getQuestions();
+        questionList.forEach(question -> question.setSurvey(survey));
         return this.surveyDAO.save(survey);
     }
 
