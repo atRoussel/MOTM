@@ -17,7 +17,7 @@ export class StatisticsComponent implements OnInit {
   sum = 0;
   average;
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService,private answerService: AnswerService) { }
 
   sumGrades(){
     this.answerService.getAnswers().subscribe(answers => {
@@ -27,10 +27,6 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit(): void{
-    //this.answerService.getAnswers().subscribe(answers => {
-      //this.answers = answers;
-      //answers.forEach(answer => this.sum = this.sum + +answer.value);
-    //});
     this.commentService.getComments().subscribe(comments => this.comments = comments);
 
     new Chart("myChart", {
