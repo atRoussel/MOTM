@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
 
@@ -22,4 +22,9 @@ export class ListUsersComponent implements OnInit {
       this.users = this.users.filter(user => user.id !== id)
     });
   }
+
+  updateUser(is:number){
+
+  }
+
 }

@@ -1,5 +1,19 @@
-.w3-bar {
+.body{
+    background-color: aliceblue;
+    padding-bottom: 100px;
 }
+
+
+.w3-bar {
+    height: 50px;
+}
+
+.w3-sidebar{
+    width:300px;
+
+}
+
+
 
 .card-header {
     text-transform: uppercase;
