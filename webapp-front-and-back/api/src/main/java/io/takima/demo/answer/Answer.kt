@@ -9,7 +9,7 @@ import javax.persistence.*
 data class Answer (
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var id: Long?,
-        @Column(name = "value") var value: String?,
+        @Column(name = "value") var value: Long?,
 
         // Liaison entre answers et questions
         // Une answer ne peut appartenir qu'à une seule question

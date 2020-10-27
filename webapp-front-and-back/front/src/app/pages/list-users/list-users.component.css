@@ -13,7 +13,9 @@
 
 }
 
-
+.modal-backdrop.out {
+    opacity: 1 !important;
+}
 
 .card-header {
     text-transform: uppercase;

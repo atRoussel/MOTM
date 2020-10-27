@@ -36,7 +36,7 @@
 
 
 <div class="container-fluid" style="width:60%;height:100%;margin-left:30%;margin-top:43px;padding-top: 50px">
-  <div class="card  shadow-sm" style="margin-top: 100px;align-self: center">
+  <div class="card" style="margin-top: 100px;align-self: center">
     <div class="card-header"> Ajout d'un utilisateur </div>
     <div class="card-body" style="padding-right: 5%">
       <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
@@ -50,7 +50,7 @@
           <label style="margin-top: 20px" for="mail">
             Adresse-mail
           </label>
-          <input type="email"  placeholder="example@gmail.com" id="mail" class="form-control" name="mail" ngModel required="true"/>
+          <input type="email"  placeholder="Mail" id="mail" class="form-control" name="mail" ngModel required/>
         </div>
         <div class="form-group">
           <label style="margin-top: 20px" for="date">
@@ -64,9 +64,7 @@
   </div>
 
 </div>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
 <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
     This is a success alert—check it out!

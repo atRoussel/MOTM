@@ -4,6 +4,7 @@ import {UserService} from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {User} from '../../models/user.model';
 
 @Component({
   selector: 'app-add-user',
@@ -11,6 +12,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+  userToUpdate: User;
 
   constructor(private userService: UserService, private router: Router, private _location: Location) { }
 
