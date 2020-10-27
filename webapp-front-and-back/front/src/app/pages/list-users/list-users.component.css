@@ -13,8 +13,8 @@
 
 }
 
-.modal-backdrop.out {
-    opacity: 1 !important;
+.modal-backdrop{
+    background-color: rgba(203, 214, 219, 0.9);
 }
 
 .card-header {
