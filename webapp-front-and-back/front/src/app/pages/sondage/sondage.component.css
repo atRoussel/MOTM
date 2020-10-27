@@ -111,6 +111,17 @@ ul, li {
     padding-bottom: 44px;
 }
 
+a:hover {
+    background-color: darkgrey;
+
+}
+
+.modal-backdrop {
+    filter:alpha(opacity=50);
+    opacity:.5
+
+}
+
 
 
 
