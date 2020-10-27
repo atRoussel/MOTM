@@ -22,14 +22,17 @@ export class StatisticsComponent implements OnInit {
     this.answerService.getAnswers().subscribe(answers => {
       this.answers = answers;
       answers.forEach(answer => this.sum = this.sum + +answer.value);
+      this.average = this.sum / answers.length
     });
+
+
     this.commentService.getComments().subscribe(comments => this.comments = comments);
 
     // tslint:disable-next-line:no-unused-expression
     new Chart('myChart', {
       type: 'bar',
       data: {
-        labels: ['Je ne veux plus vivre', 'Mal', 'Bof', 'Bien', 'Super!'],
+        labels: ['1', '2', '3', '4', '5'],
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
