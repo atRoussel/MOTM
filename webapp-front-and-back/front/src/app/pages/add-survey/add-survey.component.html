@@ -79,11 +79,37 @@
         <div class="card-body" style="padding-right: 5%">
             <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
                 <div class="form-group">
-                    <label style="margin-top: 20px" for="name">
+                    <label style="margin-top: 20px" for="name1">
                         Titre
                     </label>
-                    <input type="text" id="name" class="form-control" placeholder="Le MOTM de Janvier" name="name" ngModel required/>
+                    <input type="text" id="name1" class="form-control" placeholder="Le MOTM de Janvier" name="name" ngModel required/>
                 </div>
+
+
+                <form [formGroup]="questionForm" (ngSubmit)="onSubmit2()">
+                    <table class="table table-bordered" formArrayName="quantities">
+                        <tr>
+                            <th colspan="2">Add Multiple Quantity:</th>
+                            <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th>
+                        </tr>
+                        <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+                            <td>
+                                Quantity :
+                                <input type="text" formControlName="qty" class="form-control">
+                            </td>
+                            <td>
+                                Price:
+                                <input type="text" formControlName="price" class="form-control">
+                            </td>
+                            <td>
+                                <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+                <br/>
+                {{this.questionForm.value | json}}
                 <div class="form-group">
                     <label style="margin-top: 20px" for="description">
                         Description
@@ -102,8 +128,8 @@
     </div>
 
 
-
 </div>
+
 </body>
 
 </html>

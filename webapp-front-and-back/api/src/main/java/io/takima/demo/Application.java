@@ -2,6 +2,7 @@ package io.takima.demo;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.util.Properties;
 import java.util.*;
 import javax.mail.*;
@@ -41,7 +43,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Sending Email...");
-        //sendStaticMail();
+        sendStaticMail();
         System.out.println("Done");
     }
     void sendEmail() {
@@ -61,11 +63,33 @@ public class Application implements CommandLineRunner {
 
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
         helper.setFrom("moodofthemonth.epf@gmail.com");
-        helper.setTo("shadd412@gmail.com");
+        helper.setTo("athenaisroussel@gmail.com");
         helper.setSubject("Mood Of The Month");
-        helper.setText("<html><body style='background-color:red;background: linear-gradient(#e66465, #9198e5);'><div style='margin-left:100px;margin-top:30px;height:400px;width:800px'><h1 style='color:black;'>Mood Of The Month !</h1><h3>Réponds au sondage et donne ton avis sur le mois qui vient de s'écouler !</h3> \n <h3>Clique vite sur ce lien : http://localhost:4200/</h3></div></body></html>", true);
+      /* helper.setText("" +
+                "<html>" +
+                "<body style='background-color:red'>" +
+                "<div class='card'>"+
+                "<div style='margin-left:100px;margin-top:30px;height:400px;width:800px'><h1 style='color:black;'>Mood Of The Month !</h1>" +
+                "<h3>Réponds au sondage et donne ton avis sur le mois qui vient de s'écouler !</h3> \n " +
+                "<h3>Clique vite sur ce lien : http://localhost:4200/</h3>" +
+                "</div>" +
+                "</div>" +
+                "</body>" +
+                "</html>", true);*/
 
-        javaMailSender.send(mimeMessage);
+        helper.setText("<html>"+
+"<body style='background-color: aliceblue; padding-top: 20px; padding-bottom:30px'>"+
+"<div class='card' style=' text-align:center; width:75%; margin-top:30px; margin-left:12%; padding-top:20px; padding-bottom:10px; background-color: white; border-radius:5px'>"+
+"<div class='card-body'>"+
+"<h1 class='card-title' style='color:black; margin-bottom:30px; margin-top:10px'>Mood Of The Month !</h1>"+
+ "<p class='card-text' style='text-align:center; color: black'>Réponds au sondage et donne ton avis sur le mois qui vient de s'écouler !</p>"+ " " +
+                "<a style='margin-bottom:30px' href='#' class='card-link'>http://localhost:4200/</a>"+
+"</div>"+
+"</div>"+
+"</body>"+
+"</html>", true);
+
+                javaMailSender.send(mimeMessage);
 
     }
 

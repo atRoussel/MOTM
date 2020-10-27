@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {newArray} from '@angular/compiler/src/util';
-import {NgForm, ReactiveFormsModule} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, NgForm, ReactiveFormsModule} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
 import {SurveyService} from '../../services/survey.service';
@@ -16,14 +16,69 @@ import {tryCatch} from 'rxjs/internal-compatibility';
 })
 export class AddSurveyComponent implements OnInit {
 
+  questionForm: FormGroup;
   surveys: Survey[];
   questions: Question[];
 
-  constructor(private surveyService: SurveyService) { }
+  constructor(private surveyService: SurveyService, private fb: FormBuilder) {
+    this.questionForm = this.fb.group({
+
+      name: '',
+
+      quantities: this.fb.array([]) ,
+
+    });
+  }
+
+  quantities() : FormArray {
+
+    return this.questionForm.get('quantities') as FormArray
+
+  }
+
+
+
+  newQuantity(): FormGroup {
+
+    return this.fb.group({
+
+      qty: '',
+
+      price: '',
+
+    })
+
+  }
+
+
+
+  addQuantity() {
+
+    this.quantities().push(this.newQuantity());
+
+  }
+
+
+
+  removeQuantity(i:number) {
+
+    this.quantities().removeAt(i);
+
+  }
+
 
   ngOnInit(): void {
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
+    this.questions=[];
   }
+
+  onSubmit2() {
+
+    console.log(this.productForm.value);
+
+  }
+
+
 
 
   onSubmit(ngForm: NgForm) {
@@ -53,6 +108,9 @@ export class AddSurveyComponent implements OnInit {
     } catch (e) {
      window.alert('PB') ;
     }
+
+
+
 
 
 

@@ -99,7 +99,7 @@
                 <label style="margin-top: 20px" for="name">
                   Nom et Prénom
                 </label>
-                <input #name minlength="4" id="name" name="name" class="form-control" ngModel required minlength="2" />
+                <input #name minlength="4" id="name" name="name" class="form-control" ngModel />
                 <div *ngIf="name.invalid && (name.dirty || name.touched)"
                      class="alert alert-danger">
 
