@@ -11,7 +11,7 @@ import { defaultsDeep } from 'lodash';
 })
 export class ListUsersComponent implements OnInit {
   users: User[];
-  newName;
+  newName = 'Patrick';
 
   constructor(private userService: UserService) { }
 
