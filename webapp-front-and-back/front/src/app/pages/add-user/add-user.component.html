@@ -12,8 +12,9 @@
 
 
 <body style="background-color: aliceblue; padding-bottom: 100px; height: 100%; padding-bottom: 20%">
-<div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057;">
-  <span class="w3-bar-item w3-right" style="color: white"><strong>MOTM</strong></span></div>
+<div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057; height: 8%">
+  <img src="/assets/logo.png" class="w3-right" style="width:10%; margin-top: 1px; margin-right: 0" >
+</div>
 
 <nav class="w3-sidebar w3-white w3-collapse w3-animate-left" style="z-index:3;width:20%;" id="mySidebar"><br>
   <div class="w3-container w3-row">
@@ -35,7 +36,7 @@
 
 
 <div class="container-fluid" style="width:60%;height:100%;margin-left:30%;margin-top:43px;padding-top: 50px">
-  <div class="card" style="margin-top: 100px;align-self: center">
+  <div class="card  shadow-sm" style="margin-top: 100px;align-self: center">
     <div class="card-header"> Ajout d'un utilisateur </div>
     <div class="card-body" style="padding-right: 5%">
       <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
@@ -49,7 +50,7 @@
           <label style="margin-top: 20px" for="mail">
             Adresse-mail
           </label>
-          <input type="email"  placeholder="Mail" id="mail" class="form-control" name="mail" ngModel required/>
+          <input type="email"  placeholder="example@gmail.com" id="mail" class="form-control" name="mail" ngModel required="true"/>
         </div>
         <div class="form-group">
           <label style="margin-top: 20px" for="date">
@@ -63,7 +64,9 @@
   </div>
 
 </div>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
     This is a success alert—check it out!
