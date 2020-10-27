@@ -23,6 +23,27 @@
     </a>
 </nav>
 
+<div class="modal modal-backdrop-co" id="id02"  tabindex="-1" role="dialog" style="align-self: center">
+    <div class="modal-dialog "role="document">
+        <div class="modal-content">
+            <div class="card-header "> Identification </div>
+            <div class="card-body" style="padding-right: 5%">
+                    <div class="form-group">
+                        <label style="margin-top: 20px" for="email">
+                            Adresse mail
+                        </label>
+                        <input #text type="email" minlength="4" id="email" name="email" class="form-control" ngModel required />
+                        <span *ngIf="(text.value.length < 4)||(!text.value.includes('@'))" style="color: red">
+                            L'adresse-mail doit contenir "@".
+                        </span>
+                    </div>
+                    <button *ngIf="(text.value.length > 0)" (click)="checkEmail(text.value)" class="btn btn-info" role="button" type="submit" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</button>
+                    <span *ngIf="(text.value.length < 1)" class="btn btn-secondary" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-contact100">
     <div class="wrap-contact100 shadow">
         <form (ngSubmit)="onSubmit()" #f="ngForm">
@@ -71,9 +92,7 @@
     </div>
 </div>
 
-
-
-<div class="modal modal-backdrop" id="id01"  tabindex="-1" role="dialog" style="align-self: center; opacity: 1!important;">
+<div class="modal modal-backdrop-co" id="id01"  tabindex="-1" role="dialog" style="align-self: center; opacity: 1!important;">
     <div class="modal-dialog "role="document">
         <div class="modal-content">
             <div class="modal-header">

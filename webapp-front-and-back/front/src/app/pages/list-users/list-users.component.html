@@ -104,7 +104,7 @@
                   La date est au mauvais format.
                 </div>
               </div>
-              <button *ngIf="(date.value.length > 9)&&(text.value.length > 1)&&(mail.value.length > 1) && (mail.value.includes('@'))" class="btn btn-info" role="button" type="submit" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</button>
+              <button *ngIf="(date.value.length > 9)&&(text.value.length > 0)&&(mail.value.length > 0) && (mail.value.includes('@'))" class="btn btn-info" role="button" type="submit" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</button>
               <span *ngIf="(date.value.length < 10)||(text.value.length < 1)||(mail.value.length < 1)||(!mail.value.includes('@'))" class="btn btn-secondary" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</span>
             </form>
           </div>
