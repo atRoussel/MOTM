@@ -117,8 +117,7 @@ a:hover {
 }
 
 .modal-backdrop {
-    filter:alpha(opacity=50);
-    opacity:.5
+    background-color: rgba(0,0,0,.0001) !important;
 
 }
 
