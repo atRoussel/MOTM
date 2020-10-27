@@ -15,6 +15,7 @@ export class StatisticsComponent implements OnInit {
   answers: Answer[];
   sum = 0;
   average;
+  image;
 
   constructor(private commentService: CommentService,private answerService: AnswerService) { }
   ngOnInit(): void{
@@ -23,6 +24,15 @@ export class StatisticsComponent implements OnInit {
       this.answers = answers;
       answers.forEach(answer => this.sum = this.sum + +answer.value);
       this.average = this.sum / answers.length
+      if (this.average <= 2){
+        this.image = "/assets/smiley_triste.jpg"
+      }
+      if (this.average > 2 && this.average < 4) {
+        this.image = "/assets/smiley_neutre.png"
+      }
+      if (this.average >= 4) {
+        this.image = "/assets/smiley_heureux.png"
+      }
     });
 
 
