@@ -26,36 +26,29 @@ export class AddSurveyComponent implements OnInit {
   }
 
 
-  onSubmit(ngForm: NgForm) {
-
+  addSurvey(surveyTitle, surveyDesc, surveyQuestions) {
     this.questions = []
     const question = defaultsDeep({
       id: null,
-      text : ngForm.form.value.question,
+      text : surveyQuestions,
       answers: null});
     this.questions.push(question)
 
-
     const survey = defaultsDeep({
       id: null,
-      title: ngForm.form.value.title,
-      description: ngForm.form.value.description,
+      title: surveyTitle,
+      description: surveyDesc,
       questions: this.questions,
       comments: null
-
     });
 
     try{
       // tslint:disable-next-line:no-shadowed-variable
       this.surveyService.addSurvey(survey).subscribe(survey => console.log(survey));
-      window.alert('reussi') ;
+      window.alert('Reussi') ;
       window.location.reload();
     } catch (e) {
-     window.alert('PB') ;
+      window.alert('PB') ;
     }
-
-
-
-
   }
 }

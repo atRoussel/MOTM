@@ -54,7 +54,7 @@
           <td>{{user.date}}</td>
           <td>
             <button type="button" class="btn btn-danger deleteButton" style="margin-right: 20px" (click)="deleteUser(user.id)">Supprimer</button>
-            <button type="button" class="btn btn-info" onclick="document.getElementById('id01').style.display='block'" >Modifier</button>
+            <button type="button" class="btn btn-info" onclick="document.getElementById('id01').style.display='block'" (click)="text.value = user.name; mail.value = user.mail; birthDate.value = user.date; selectedId = user.id" >Modifier</button>
           </td>
         </tr>
         </tbody>
@@ -68,7 +68,7 @@
     <div class="modal-dialog "role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <span onclick="document.getElementById('id01').style.display='none'">
+          <span onclick="document.getElementById('id01').style.display='none'" (click)="text.value = ''; mail.value = ''; birthDate.value = ''; selectedId = null">
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                  <span aria-hidden="true">&times;</span>
                  </button>
@@ -76,7 +76,7 @@
         </div>
           <div class="card-header "> Ajout d'un utilisateur </div>
           <div class="card-body" style="padding-right: 5%">
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+            <form >
               <div class="form-group">
                 <label style="margin-top: 20px" for="name">
                   Nom et Prénom
@@ -99,13 +99,13 @@
                 <label style="margin-top: 20px" for="date">
                   Date de Naissance
                 </label>
-                <input #date type="date" id="date" class="form-control" name="date" ngModel required/>
-                <div class="alert alert-danger" *ngIf="date.value.length < 10">
+                <input #birthDate type="date" id="date" class="form-control" name="date" ngModel required/>
+                <div class="alert alert-danger" *ngIf="birthDate.value.length < 10">
                   La date est au mauvais format.
                 </div>
               </div>
-              <button *ngIf="(date.value.length > 9)&&(text.value.length > 0)&&(mail.value.length > 0) && (mail.value.includes('@'))" class="btn btn-info" role="button" type="submit" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</button>
-              <span *ngIf="(date.value.length < 10)||(text.value.length < 1)||(mail.value.length < 1)||(!mail.value.includes('@'))" class="btn btn-secondary" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</span>
+              <button *ngIf="(birthDate.value.length > 9)&&(text.value.length > 0)&&(mail.value.length > 0) && (mail.value.includes('@'))" class="btn btn-info" role="button" type="submit" style="margin-left:70%;margin-bottom: 10px" (click)="addUser(text.value, mail.value, birthDate.value, selectedId)" >Enregistrer</button>
+              <span *ngIf="(birthDate.value.length < 10)||(text.value.length < 1)||(mail.value.length < 1)||(!mail.value.includes('@'))" class="btn btn-secondary" style="margin-left:70%;margin-bottom: 10px" >Enregistrer</span>
             </form>
           </div>
       </div>
