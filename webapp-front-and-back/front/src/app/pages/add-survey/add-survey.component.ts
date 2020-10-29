@@ -16,69 +16,18 @@ import {tryCatch} from 'rxjs/internal-compatibility';
 })
 export class AddSurveyComponent implements OnInit {
 
-  questionForm: FormGroup;
   surveys: Survey[];
   questions: Question[];
 
   constructor(private surveyService: SurveyService, private fb: FormBuilder) {
-    this.questionForm = this.fb.group({
-
-      name: '',
-
-      quantities: this.fb.array([]) ,
-
-    });
   }
 
-  quantities() : FormArray {
-
-    return this.questionForm.get('quantities') as FormArray
-
-  }
-
-
-
-  newQuantity(): FormGroup {
-
-    return this.fb.group({
-
-      qty: '',
-
-      price: '',
-
-    })
-
-  }
-
-
-
-  addQuantity() {
-
-    this.quantities().push(this.newQuantity());
-
-  }
-
-
-
-  removeQuantity(i:number) {
-
-    this.quantities().removeAt(i);
-
-  }
 
 
   ngOnInit(): void {
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
     this.questions=[];
   }
-
-  onSubmit2() {
-
-    console.log(this.productForm.value);
-
-  }
-
-
 
 
   onSubmit(ngForm: NgForm) {
