@@ -54,28 +54,27 @@
           <td>{{user.mail}}</td>
           <td>{{user.date}}</td>
           <td>
-            <button type="button" class="btn btn-danger deleteButton" style="margin-right: 20px" (click)="deleteUser(user.id)">Supprimer</button>
-            <button type="button" class="btn btn-info" onclick="document.getElementById('id01').style.display='block'" (click)="text.value = user.name; mail.value = user.mail; birthDate.value = user.date; selectedId = user.id" >Modifier</button>
+            <button type="button" class="btn btn-danger deleteButton" style="margin-left:10px; margin-right: 10px" (click)="deleteUser(user.id)"><i class="fa fa-trash"></i></button>
+            <button type="button" class="btn btn-info" style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057" onclick="document.getElementById('id01').style.display='block'" (click)="text.value = user.name; mail.value = user.mail; birthDate.value = user.date; selectedId = user.id" ><i class="fa fa-pencil-square-o"></i></button>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <a class="btn btn-info" onclick="document.getElementById('id01').style.display='block'" role="button" style="align-self: end;margin-right: 20px;margin-bottom: 10px">Ajouter utilisateur</a>
+    <button class="btn btn-info float-right" onclick="document.getElementById('id01').style.display='block'" role="button" style=" width: fit-content; align-self: flex-end; margin-right:20px; margin-bottom: 20px; background-color: #00587a;border-color: #00587a; color: white">Ajouter utilisateur</button>
 
   </div>
 
   <div class="modal modal-backdrop" id="id01"  tabindex="-1" role="dialog" style="align-self: center">
-    <div class="modal-dialog "role="document">
+    <div class="modal-dialog modal-dialog-centered "role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <span onclick="document.getElementById('id01').style.display='none'" (click)="text.value = ''; mail.value = ''; birthDate.value = ''; selectedId = null">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-          </span>
-        </div>
-          <div class="card-header "> Ajout d'un utilisateur </div>
+          <div class="card-header " style="background-color: #0f3057; color: white"> Ajout d'un utilisateur
+            <span onclick="document.getElementById('id01').style.display='none'" (click)="text.value = ''; mail.value = ''; birthDate.value = ''; selectedId = null">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </span>
+          </div>
           <div class="card-body" style="padding-right: 5%">
             <form >
               <div class="form-group">
@@ -123,5 +122,5 @@
 </html>
 
 
-//(click)="deleteUser(user.id)"
+
 
