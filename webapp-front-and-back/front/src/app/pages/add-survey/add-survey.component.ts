@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {newArray} from '@angular/compiler/src/util';
-import {FormArray, FormBuilder, FormGroup, NgForm, ReactiveFormsModule} from '@angular/forms';
+import {NgForm, ReactiveFormsModule} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
 import {SurveyService} from '../../services/survey.service';
@@ -19,50 +19,36 @@ export class AddSurveyComponent implements OnInit {
   surveys: Survey[];
   questions: Question[];
 
-  constructor(private surveyService: SurveyService, private fb: FormBuilder) {
-  }
-
-
+  constructor(private surveyService: SurveyService) { }
 
   ngOnInit(): void {
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
-    this.questions=[];
   }
 
 
-  onSubmit(ngForm: NgForm) {
-
+  addSurvey(surveyTitle, surveyDesc, surveyQuestions) {
     this.questions = []
     const question = defaultsDeep({
       id: null,
-      text : ngForm.form.value.question,
+      text : surveyQuestions,
       answers: null});
     this.questions.push(question)
 
-
     const survey = defaultsDeep({
       id: null,
-      title: ngForm.form.value.title,
-      description: ngForm.form.value.description,
+      title: surveyTitle,
+      description: surveyDesc,
       questions: this.questions,
       comments: null
-
     });
 
     try{
       // tslint:disable-next-line:no-shadowed-variable
       this.surveyService.addSurvey(survey).subscribe(survey => console.log(survey));
-      window.alert('reussi') ;
+      window.alert('Reussi') ;
       window.location.reload();
     } catch (e) {
-     window.alert('PB') ;
+      window.alert('PB') ;
     }
-
-
-
-
-
-
-
   }
 }

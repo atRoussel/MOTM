@@ -78,7 +78,7 @@
     <div class="card  shadow-sm" style="margin-top: 50px;align-self: center">
         <div class="card-header"> Ajout d'un sondage </div>
         <div class="card-body" style="padding-right: 5%">
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+            <form>
                 <div class="form-group">
                     <label style="margin-top: 20px" for="name">
                         Titre
@@ -89,7 +89,7 @@
                     <label style="margin-top: 20px" for="description">
                         Description
                     </label>
-                    <input #description type="text"  placeholder="Mon premier MOTM" id="description" class="form-control" name="description" ngModel required="true"/>
+                    <input #description type="text"  placeholder="Mon premier MOTM" id="description" class="form-control" name="description" ngModel required/>
                 </div>
                 <div class="form-group">
                     <label style="margin-top: 20px" for="question">
@@ -97,7 +97,7 @@
                     </label>
                     <input #question type="text" id="question" class="form-control" name="question" ngModel>
                 </div>
-                <button *ngIf="(title.value.length > 0)&&(description.value.length > 0)&&(question.value.length > 0)" class="btn btn-primary" type="submit">Enregistrer</button>
+                <span *ngIf="(title.value.length > 0)&&(description.value.length > 0)&&(question.value.length > 0)" class="btn btn-primary" (click)="addSurvey(title.value, description.value, question.value)">Enregistrer</span>
                 <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)" class="btn btn-secondary">Enregistrer</span>
                 <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)" style="color: red"> Tous les champs doivent être remplis</span>
             </form>

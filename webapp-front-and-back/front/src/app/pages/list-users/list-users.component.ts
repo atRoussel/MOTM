@@ -11,7 +11,7 @@ import { defaultsDeep } from 'lodash';
 })
 export class ListUsersComponent implements OnInit {
   users: User[];
-  newName = 'Patrick';
+  selectedId: number = null;
 
   constructor(private userService: UserService) { }
 
@@ -19,23 +19,21 @@ export class ListUsersComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
+  addUser(userName, userMail, userDate, userId) {
+    const user = defaultsDeep({
+      id: userId,
+      name: userName,
+      mail: userMail,
+      date: userDate
+    });
+    // tslint:disable-next-line:no-shadowed-variable
+    this.userService.addUser(user).subscribe(user => console.log(user));
+    window.location.reload();
+  }
+
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(succes => {
       this.users = this.users.filter(user => user.id !== id)
     });
-  }
-
-  onSubmit(ngForm: NgForm) {
-
-    const user = defaultsDeep({
-      id: null,
-      name: ngForm.form.value.name,
-      mail: ngForm.form.value.mail,
-      date: ngForm.form.value.date
-    });
-
-    // tslint:disable-next-line:no-shadowed-variable
-    this.userService.addUser(user).subscribe(user => console.log(user));
-    window.location.reload();
   }
 }
