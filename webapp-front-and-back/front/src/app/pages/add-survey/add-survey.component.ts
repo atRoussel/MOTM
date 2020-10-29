@@ -18,6 +18,7 @@ export class AddSurveyComponent implements OnInit {
 
   surveys: Survey[];
   questions: Question[];
+  selectedId: number = null;
 
   constructor(private surveyService: SurveyService) { }
 
@@ -26,7 +27,7 @@ export class AddSurveyComponent implements OnInit {
   }
 
 
-  addSurvey(surveyTitle, surveyDesc, surveyQuestions) {
+  addSurvey(surveyTitle, surveyDesc, surveyQuestions, surveyId) {
     this.questions = []
     const question = defaultsDeep({
       id: null,
@@ -35,7 +36,7 @@ export class AddSurveyComponent implements OnInit {
     this.questions.push(question)
 
     const survey = defaultsDeep({
-      id: null,
+      id: surveyId,
       title: surveyTitle,
       description: surveyDesc,
       questions: this.questions,
@@ -50,5 +51,11 @@ export class AddSurveyComponent implements OnInit {
     } catch (e) {
       window.alert('PB') ;
     }
+  }
+
+  deleteSurvey(id: number) {
+    this.surveyService.deleteSurvey(id).subscribe(succes => {
+      this.surveys = this.surveys.filter(survey => survey.id !== id)
+    });
   }
 }
