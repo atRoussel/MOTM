@@ -10,15 +10,3 @@ INSERT INTO defaultdb.users (id, name, mail, date) VALUES (9, 'Thomas', 'Ouaque@
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (10, 'Sacha', 'Telfriz@gmail.com','2000-12-01');
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (11, 'Patrick', 'admin@gmail.com','2000-12-01');
 
-INSERT INTO defaultdb.surveys(id, description, title) VALUES (1, 'Mon premier MOTM', 'MOTM de Noël');
-INSERT INTO defaultdb.surveys(id, description, title) VALUES (2, 'Un deuxième pour la route', 'MOTM du Nouvel An');
-
-INSERT INTO defaultdb.users_surveys(user_id, survey_id) VALUES (3,1);
-
-INSERT INTO defaultdb.questions(id, text, survey_id) VALUES (1, 'Comment allez-vous ce mois ci ?',1);
-INSERT INTO defaultdb.questions(id, text, survey_id) VALUES (2, 'Etes-vous satisfait de votre travail ?',1);
-INSERT INTO defaultdb.questions(id, text, survey_id) VALUES (3, 'T ou ?',2);
-
-INSERT INTO defaultdb.comments(id, value, survey_id) VALUES (1, 'Le soleil brille ! ',1);
-
-INSERT INTO defaultdb.answers(id, value, question_id) VALUES (1,2,1);
