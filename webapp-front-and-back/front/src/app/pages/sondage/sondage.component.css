@@ -78,20 +78,19 @@ ul, li {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+
     background: aliceblue;
 
 
 }
 
 .wrap-contact100 {
-    margin-top: 10%;
     width: 800px;
     min-height: 800px;
     background: #fff;
     border-radius: 5px;
-   overflow: hidden;
-    padding: 42px 55px 45px 55px;
+    overflow: hidden;
+   padding: 42px 55px 45px 55px;
 }
 
 

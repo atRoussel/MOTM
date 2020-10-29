@@ -2,22 +2,23 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
-<body class="w3-light-grey">
+<body style="background-color: aliceblue">
 
 <div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057; height: 8%">
     <h1 class="w3-left" style="color: white; font-family: 'Baskerville Old Face' ; margin-left:10px"> Mood Of The Month</h1>
     <img src="/assets/logo_mini.png" class="w3-right" style="height: 90%; margin-top: 3px; margin-right: 0" >
 </div>
 
-<nav class="w3-sidebar w3-collapse w3-sand w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;background-color: #e7e7de" id="mySidebar"><br>
     <div class="w3-container w3-row">
-        <div class="w3-col s8 w3-bar">
+        <div class="w3-col s8 w3-bar" style="margin-top: 10px">
             <span>    Bienvenue, <strong>Administrateur</strong></span><br>
         </div>
     </div>
@@ -26,22 +27,72 @@
         <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
-        <a href="/statistics" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bar-chart-o fa-fw"></i> Statistiques</a>
-        <a href="/user-list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Utilisateurs</a>
+        <a href="/statistics" class="w3-bar-item w3-button w3-padding"style="background-color: #00587a;color:white"><i class="fa fa-bar-chart-o fa-fw"></i> Statistiques</a>
+        <a href="/user-list" class="w3-bar-item w3-button w3-padding" ><i class="fa fa-users fa-fw"></i> Utilisateurs</a>
         <a href="/add-survey" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus fa-fw"></i> Ajouter un sondage</a>
         <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i> Voir sondage en cours</a>
     </div>
 </nav>
 
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-    <header class="w3-container" style="padding-top:22px">
+    <div class="container-fluid" style="width:78%;height:100%;margin-left:300px;margin-top:43px; padding-top: 50px">
+        <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
+            <div class="card-body" >
+                <h1 style="text-align: center">Titre du MOTM</h1>
+            </div>
+        </div>
+        <div class="container-fluid" style="margin-top: 20px">
+        <div class="row" style="height: 100px">
+            <div class=" col col-4"  style="padding-left: 0; padding-right: 10px; min-height: available">
+                <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
+                    <div class="card-body" >
+                        <h5><i class="fa fa-thermometer"></i>  <strong>   Tendance du mois</strong></h5>
+
+                    </div>
+
+            </div>
+            </div>
+            <div class="col col-8" style="padding-right: 0; padding-left: 10px" >
+                <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
+                    <div class="card-body" >
+                        <h5><b><i class="fa fa-tachometer"></i> Chiffres clés</b></h5>
+
+                    </div>
+
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="container-fluid" style="margin-top: 20px">
+            <div class="row" style="height: fit-content">
+                <div class=" col col-8"  style="padding-left: 0; padding-right: 10px">
+                    <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 300px">
+                        <div class="card-body" >
+                            <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
+                            <div id="divChart" >
+                                <canvas id="myChart" width="800px" height="600px" ></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col col-4" style="padding-right: 0; padding-left: 10px" >
+                    <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
+                        <div class="card-body" >
+                            <h5><i class="fa fa-commenting"></i><strong>   Commentaires</strong></h5>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <header class="w3-container" style="padding-top:22px">
         <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
     </header>
     <div class="w3-row-padding w3-margin-bottom">
-        <div id="divChart">
-            <canvas id="myChart"></canvas>
-        </div>
         <div class="w3-quarter">
             <div class="w3-container w3-red w3-padding-16">
                 <div class="w3-left"><i class="fa fa-star w3-xxxlarge"></i></div>
@@ -137,5 +188,10 @@
     }
 </script>
 
+
 </body>
+<script src="bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
