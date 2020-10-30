@@ -47,6 +47,13 @@
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
                     <div class="card-body" >
                         <h5><i class="fa fa-thermometer"></i>  <strong>   Tendance du mois</strong></h5>
+                        <div *ngIf="!answers.length" style="align-content: center; justify-content: center">
+                            <h1>Pas de réponse pour l'instant ! </h1>
+                        </div>
+                        <div *ngIf="answers.length">
+                            <img src={{image}} style="width:75%">
+                        </div>
+
                     </div>
 
             </div>
@@ -86,13 +93,13 @@
         </div>
         </div>
         <div class="container-fluid" style="margin-top: 20px">
-            <div class="row" style="height: fit-content">
+            <div class="row">
                 <div class=" col col-8"  style="padding-left: 0; padding-right: 10px">
                     <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 300px">
-                        <div class="card-body" >
+                        <div class="card-body">
                             <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
                             <div id="divChart" >
-                                <canvas id="myChart" width="800px" height="600px" ></canvas>
+                                <canvas id="myChart" width="800px"></canvas>
                             </div>
                         </div>
 
@@ -102,7 +109,16 @@
                     <div class="card shadow-sm" style="border-color: white; border-radius: 0px">
                         <div class="card-body" >
                             <h5><i class="fa fa-commenting"></i><strong>   Commentaires</strong></h5>
-
+                            <div *ngIf="!comments.length" style="align-content: center; justify-content: center">
+                                <h1>Pas de commentaire pour l'instant ! </h1>
+                            </div>
+                            <div *ngIf="comments.length">
+                                <table class="w3-table w3-striped w3-white">
+                                    <tr *ngFor="let comment of comments">
+                                        <td>{{comment.value}}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
 
                     </div>
