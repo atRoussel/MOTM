@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user.model';
+import {QuestionService} from "../../services/question.service";
 
 @Component({
   selector: 'app-sondage',
@@ -22,7 +23,7 @@ export class SondageComponent implements OnInit {
   users: User[];
   lastSurvey: Survey;
   constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService,
-              private userService: UserService, private router: Router, private _location: Location) { }
+              private userService: UserService, private  questionService: QuestionService, private router: Router, private _location: Location) { }
   ngOnInit(): void {
     this.surveyService.getSurveys().subscribe(surveys => this.lastSurvey = surveys[surveys.length-1]);
     this.userService.getUsers().subscribe(users => this.users = users);
@@ -31,7 +32,7 @@ export class SondageComponent implements OnInit {
   onSubmit() {
     const comment = defaultsDeep({
       id: null,
-      value: this.myTextarea,
+      text: this.myTextarea,
       survey: this.lastSurvey,
     });
     this.commentService.addComment(comment).subscribe(comments => console.log(comments));
@@ -42,6 +43,13 @@ export class SondageComponent implements OnInit {
       question: this.lastSurvey.questions[0]
     })
     this.answerService.addAnswer(answer).subscribe(answers => console.log(answers));
+
+    const question = defaultsDeep({
+      id:null,
+      value: this.myTextarea,
+      survey: this.lastSurvey
+    })
+    this.questionService.addQuestion(question).subscribe(questions => console.log(questions));
   }
   selectChangeHandler (event: any) {
     this.selectedMood = event.target.value;
