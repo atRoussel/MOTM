@@ -28,26 +28,23 @@ export class SondageComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
     document.getElementById('id02').style.display='block';
   }
-  onSubmit() {
+  selectChangeHandler (event: any) {
+    this.selectedMood = event.target.value;
+  }
+  addComment(commentValue, commentSurvey) {
     const comment = defaultsDeep({
       id: null,
-      value: this.myTextarea,
-      survey: this.lastSurvey,
+      value: commentValue,
+      survey: commentSurvey,
     });
     this.commentService.addComment(comment).subscribe(comments => console.log(comments));
 
     const answer = defaultsDeep({
       id: null,
       value: this.selectedMood,
-      question: this.lastSurvey.questions[0]
+      question: commentSurvey.questions[0]
     })
     this.answerService.addAnswer(answer).subscribe(answers => console.log(answers));
-  }
-  selectChangeHandler (event: any) {
-    this.selectedMood = event.target.value;
-  }
-  getValue(str) {
-    this.myTextarea = str;
   }
   refresh() {
     window.location.reload();
