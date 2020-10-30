@@ -40,6 +40,7 @@ export class SondageComponent implements OnInit {
       id: null,
       value: commentValue,
       survey: commentSurvey,
+      user: this.users[0],
     });
     this.commentService.addComment(comment).subscribe(comments => console.log(comments));
 
