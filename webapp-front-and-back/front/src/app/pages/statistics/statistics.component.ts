@@ -61,7 +61,7 @@ export class StatisticsComponent implements OnInit {
       new Chart('myChart', {
         type: 'bar',
         data: {
-          labels: ['1', '2', '3', '4', '5'],
+          labels: ['1-Je ne veux plus vivre', '2-Mal', '3-Bof', '4-Bien', '5-Super!'],
           datasets: [{
             label: 'Nombres de votes',
             data: [this.count1, this.count2, this.count3, this.count4, this.count5],
