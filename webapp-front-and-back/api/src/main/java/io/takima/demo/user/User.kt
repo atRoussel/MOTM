@@ -1,5 +1,8 @@
 package io.takima.demo.user
 
+import com.fasterxml.jackson.annotation.JsonProperty
+import io.takima.demo.comment.Comment
+import io.takima.demo.question.Question
 import io.takima.demo.survey.Survey
 import javax.persistence.*
 
@@ -21,9 +24,13 @@ data class User(
         @JoinTable(name="users_surveys",
         joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name="survey_id", referencedColumnName = "id")])
-        var surveys: List<Survey>? = mutableListOf())
+        var surveys: List<Survey>? = mutableListOf(),
 
+        // Liaison entre users et comments
+        // Un user ne peut laisser qu'un commentaire
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
+        var comments: List<Comment>? = mutableListOf(),)
 {
-        constructor (): this(null, null, null, null, null)
+        constructor (): this(null, null, null, null, null, null)
 
 }

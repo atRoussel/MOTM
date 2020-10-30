@@ -19,16 +19,17 @@ export class AddSurveyComponent implements OnInit {
   surveys: Survey[];
   questions: Question[];
   selectedId: number = null;
-  questionList: string[] = ['Comment ca va ce mois-çi ?'];
 
-  constructor(private surveyService: SurveyService) { }
+  questionList: string[];
+  questionsSize: string[];
+  newQuestion: string;
+
+  constructor(private surveyService: SurveyService, private  questionService: QuestionService) { }
 
   ngOnInit(): void {
+    this.questionList = [];
+    this.questionsSize = [];
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
-  }
-
-  printMoica() {
-    console.log(this.questionList.length);
   }
 
   addSurvey(surveyTitle, surveyDesc, surveyQuestions, surveyId) {
@@ -38,6 +39,19 @@ export class AddSurveyComponent implements OnInit {
       text : surveyQuestions,
       answers: null});
     this.questions.push(question)
+
+    if(this.questionList.length > 0) {
+      this.questionList.forEach(ques => {
+        if(ques !== '') {
+          const oneMoreQuestion = defaultsDeep({
+            id: null,
+            text: ques,
+            answers: null,
+          });
+          this.questions.push(oneMoreQuestion);
+        }
+      });
+    }
 
     const survey = defaultsDeep({
       id: surveyId,
@@ -61,5 +75,9 @@ export class AddSurveyComponent implements OnInit {
     this.surveyService.deleteSurvey(id).subscribe(succes => {
       this.surveys = this.surveys.filter(survey => survey.id !== id)
     });
+  }
+
+  selectChangeHandler (event: any, index: number) {
+    this.questionList[index] = event.target.value;
   }
 }
