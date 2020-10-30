@@ -60,12 +60,12 @@
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données recueillies seront anonymes et ne pourront en aucun être utilisées contre son auteur.
             </p>
             <hr/>
-            <div class="form-group" style="margin-top: 50px;">
+            <div *ngFor="let ques of lastSurvey.questions; let i = index" class="form-group" style="margin-top: 50px;">
                 <label  for="mood">
-                    {{lastSurvey.questions[0].text}}
+                    {{ques.text}}
                 </label>
                 <div>
-                    <select (change)="selectChangeHandler($event)" id="mood" class="browser-default custom-select" name="mood" style="margin-bottom: 20px">
+                    <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select" name="mood" style="margin-bottom: 20px">
                         <option value="0">Sélectionner une réponse</option>
                         <option value="1">Super !</option>
                         <option value="2">Bien</option>
