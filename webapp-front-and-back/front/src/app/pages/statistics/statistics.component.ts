@@ -32,28 +32,28 @@ export class StatisticsComponent implements OnInit {
       this.average = this.sum / answers.length;
 
       if (this.average <= 2){
-        this.image = "/assets/smiley_triste.jpg"
+        this.image = '/assets/smiley_triste.jpg'
       };
       if (this.average > 2 && this.average < 4) {
-        this.image = "/assets/smiley_neutre.png"
+        this.image = '/assets/smiley_neutre.png'
       };
       if (this.average >= 4) {
-        this.image = "/assets/smiley_heureux.png"
+        this.image = '/assets/smiley_heureux.png'
       };
       answers.forEach(answer => {
-        if(answer.value == 1){
+        if(answer.value === 1){
           this.count1 ++
         };
-        if(answer.value == 2){
+        if(answer.value === 2){
           this.count2 ++
         };
-        if(answer.value == 3){
+        if(answer.value === 3){
           this.count3 ++
         };
-        if(answer.value == 4){
+        if(answer.value === 4){
           this.count4 ++
         };
-        if(answer.value == 5){
+        if(answer.value === 5){
           this.count5 ++
         };
       });
@@ -61,7 +61,7 @@ export class StatisticsComponent implements OnInit {
       new Chart('myChart', {
         type: 'bar',
         data: {
-          labels: ['1', '2', '3', '4', '5'],
+          labels: ['1-Je ne veux plus vivre', '2-Mal', '3-Bof', '4-Bien', '5-Super!'],
           datasets: [{
             label: 'Nombres de votes',
             data: [this.count1, this.count2, this.count3, this.count4, this.count5],
