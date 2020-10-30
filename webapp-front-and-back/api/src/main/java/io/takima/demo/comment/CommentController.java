@@ -1,6 +1,7 @@
 package io.takima.demo.comment;
 
 import io.takima.demo.question.Question;
+import io.takima.demo.user.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class CommentController {
 
     @PostMapping
     public Comment addComment(@RequestBody Comment comment) {
+        User commentUser = comment.getUser();
+        List<Comment> commentList = commentUser.getComments();
+        commentList.forEach(com -> com.setUser(commentUser));
         return this.commentDAO.save(comment);
     }
 }
