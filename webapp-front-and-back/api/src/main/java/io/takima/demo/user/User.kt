@@ -1,6 +1,7 @@
 package io.takima.demo.user
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import io.takima.demo.answer.Answer
 import io.takima.demo.comment.Comment
 import io.takima.demo.question.Question
 import io.takima.demo.survey.Survey
@@ -29,8 +30,13 @@ data class User(
         // Liaison entre users et comments
         // Un user ne peut laisser qu'un commentaire
         @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-        var comments: List<Comment>? = mutableListOf(),)
+        var comments: List<Comment>? = mutableListOf(),
+
+        // Liaison entre users et answers
+        // Un user laisse plusieurs réponses
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
+        var answers: List<Answer>? = mutableListOf(),)
 {
-        constructor (): this(null, null, null, null, null, null)
+        constructor (): this(null, null, null, null, null, null, null)
 
 }

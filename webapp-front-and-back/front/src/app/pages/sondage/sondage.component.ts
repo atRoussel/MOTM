@@ -49,7 +49,8 @@ export class SondageComponent implements OnInit {
       const answer = defaultsDeep({
         id: null,
         value: this.responseGrid[i],
-        question: commentSurvey.questions[i]
+        question: commentSurvey.questions[i],
+        user: this.userCo,
       })
       this.answerService.addAnswer(answer).subscribe(answers => console.log(answers));
     });
