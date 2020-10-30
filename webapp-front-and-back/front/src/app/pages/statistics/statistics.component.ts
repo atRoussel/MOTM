@@ -32,13 +32,13 @@ export class StatisticsComponent implements OnInit {
       this.average = this.sum / answers.length;
 
       if (this.average <= 2){
-        this.image = '/assets/smiley_triste.jpg'
+        this.image = '/assets/emoji-laughing.svg'
       };
       if (this.average > 2 && this.average < 4) {
-        this.image = '/assets/smiley_neutre.png'
+        this.image = '/assets/emoji-laughing.svg'
       };
       if (this.average >= 4) {
-        this.image = '/assets/smiley_heureux.png'
+        this.image = '/assets/emoji-laughing.svg'
       };
       answers.forEach(answer => {
         if(answer.value === 1){
@@ -85,6 +85,8 @@ export class StatisticsComponent implements OnInit {
           }]
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           scales: {
             yAxes: [{
               ticks: {
