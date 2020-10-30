@@ -22,6 +22,7 @@ export class SondageComponent implements OnInit {
   users: User[];
   lastSurvey: Survey;
   responseGrid: string[];
+  userCo: User;
 
   constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService,
               private userService: UserService, private router: Router, private _location: Location) { }
@@ -40,7 +41,7 @@ export class SondageComponent implements OnInit {
       id: null,
       value: commentValue,
       survey: commentSurvey,
-      user: this.users[0],
+      user: this.userCo,
     });
     this.commentService.addComment(comment).subscribe(comments => console.log(comments));
 
@@ -59,6 +60,7 @@ export class SondageComponent implements OnInit {
   checkEmail(str) {
     this.users.forEach(user => {
       if(user.mail === str) {
+        this.userCo = user;
         document.getElementById('id02').style.display='none';
       }
     })
