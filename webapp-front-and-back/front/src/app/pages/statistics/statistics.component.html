@@ -44,7 +44,7 @@
 
 
 <div class="container-fluid"
-     style="width:78%;height:100%;margin-left:300px;margin-top:43px; padding-top: 50px; padding-bottom: 50px; min-height: 1000px">
+     style="width:75%;height:100%;margin-left:310px;margin-top:43px; padding-top: 50px; padding-bottom: 50px">
     <div class="card" style="border-color: white; border-radius: 0px; margin-top: 60px">
         <div class="card-body">
             <h1 style="text-align: center">Titre du MOTM</h1>
@@ -54,19 +54,19 @@
 
 
     <!-- CHIFFRES CLES -->
-    <div class="container-fluid" style="margin-top: 20px; margin-bottom: 40px">
-        <div class="row" style="height: 100px; padding-left: 0">
+    <div class="container-fluid" style="margin-top: 20px; margin-bottom: 20px">
+        <div class="row" style="height: 50px; padding-left: 0">
             <div class="col" style="padding-left: 0 ; padding-right: 0">
                 <div class="card" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-3"
-                             style="text-align: center; padding-top:30px; background-color: #0f3057; color: white">
+                             style="text-align: center; padding-top:15px; background-color: #0f3057; color: white">
                             <i class="fa fa-star w3-xxxlarge"></i>
-                            <h4>Moyenne</h4>
-                        </div>
-                        <div class="col-5" style="text-align: center; padding-top:30px; margin: 0 auto">
-                            <h3>{{average}} / 5</h3>
 
+                        </div>
+                        <div class="col-5" style="text-align: center;  margin: 0 auto">
+                            <h3>{{average}} / 5</h3>
+                            <h4 style="font-size: 17px">Moyenne</h4>
                         </div>
                     </div>
                 </div>
@@ -75,12 +75,13 @@
                 <div class="card" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-4"
-                             style="text-align: center; padding-top:30px; background-color: #00587a; color: white">
+                             style="text-align: center;padding-top:15px; background-color: #00587a; color: white">
                             <i class="fa fa-comment w3-xxxlarge"></i>
-                            <h4>Commentaires</h4>
+
                         </div>
-                        <div class="col-5" style="text-align: center; padding-top:30px; margin: 0 auto">
+                        <div class="col-5" style="text-align: center;  margin: 0 auto">
                             <h3>{{comments.length}}</h3>
+                            <h4 style="font-size: 17px">Commentaires</h4>
                         </div>
                     </div>
                 </div>
@@ -90,42 +91,24 @@
                 <div class="card" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-4 w3-teal"
-                             style="text-align: center; padding-top:30px; background-color: #0f3057; color: white">
+                             style="text-align: center; padding-top:15px; background-color: #0f3057; color: white">
                             <i class="fa fa-users w3-xxxlarge"></i>
-                            <h4>Participants</h4>
+
                         </div>
-                        <div class="col-5" style="text-align: center; padding-top:30px; margin: 0 auto">
+                        <div class="col-5" style="text-align: center;  margin: 0 auto">
                             <h3>{{answers.length}}</h3>
+                            <h4 style="font-size: 17px">Participants</h4>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
     </div>
 
-    <!-- CHART-->
-    <div class="container-fluid" style="margin-top: 40px;margin-bottom: 20px; width: 100%">
-        <div class="row" style="height: 500px">
-            <div class="card" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
-                <div class="card-header" style="text-align: center; background-color: white">
-                    <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
-                </div>
-                <div class="card-body">
-
-                    <div id="divChart">
-                        <canvas id="myChart" height="400px"></canvas>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-            <!-- TENDANCES DU MOIS -->
-    <div class="container-fluid" style="margin-top: 20px; margin-bottom: 20px">
-        <div class="row" style="height: 500px">
+    <!-- TENDANCES DU MOIS -->
+    <div class="container-fluid" style="margin-top: 50px; margin-bottom: 20px">
+        <div class="row" style="height: 300px">
             <div class=" col col-4" style="padding-left: 0; padding-right: 10px">
                 <div class="card" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="card-header" style="text-align: center; background-color: white">
@@ -136,7 +119,7 @@
                             <h1>Pas de réponse pour l'instant ! </h1>
                         </div>
                         <div *ngIf="answers.length"
-                             style="width:100%; height:100%; text-align:center; padding-top: 100px">
+                             style="width:100%; height:100%; text-align:center; padding-top: 50px">
                             <img src={{image}} style="margin-left: auto;margin-right: auto; width: 50%">
                         </div>
                     </div>
@@ -153,11 +136,11 @@
                             <h1>Pas de commentaire pour l'instant ! </h1>
                         </div>
                         <div class="card-body">
-                            <div *ngIf="comments.length" style="overflow: auto; padding: 5px; max-height: 400px;">
+                            <div *ngIf="comments.length" style="overflow: auto; max-height: 200px;">
                                 <div *ngFor="let comment of comments">
-                                    <h5>{{comment.value}}</h5>
+                                    <h5 style="font-size: 14px">{{comment.value}}</h5>
 
-                                    <hr/>
+                                    <hr style="margin-top: 5px; margin-bottom: 2px"/>
                                 </div>
 
                             </div>
@@ -168,10 +151,22 @@
         </div>
     </div>
 
+    <!-- CHART-->
+    <div class="container-fluid" style="margin-top: 70px;margin-bottom: 20px">
+        <div class="row" style="height: 500px">
+            <div class="card" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
+                <div class="card-header" style="text-align: center; background-color: white">
+                    <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
+                </div>
+                <div class="card-body">
+                    <div id="divChart">
+                        <canvas id="myChart" height="400px"></canvas>
+                    </div>
 
-
-
-
+                </div>
+            </div>
+        </div>
+    </div>
 
     <hr>
 </div>
