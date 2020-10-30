@@ -19,6 +19,7 @@ export class AddSurveyComponent implements OnInit {
   surveys: Survey[];
   questions: Question[];
   selectedId: number = null;
+  questionList: string[] = ['Comment ca va ce mois-çi ?'];
 
   constructor(private surveyService: SurveyService) { }
 
@@ -26,9 +27,12 @@ export class AddSurveyComponent implements OnInit {
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
   }
 
+  printMoica() {
+    console.log(this.questionList.length);
+  }
 
   addSurvey(surveyTitle, surveyDesc, surveyQuestions, surveyId) {
-    this.questions = []
+    this.questions = [];
     const question = defaultsDeep({
       id: null,
       text : surveyQuestions,

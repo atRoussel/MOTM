@@ -51,12 +51,10 @@
         <h3 style="text-align: center">Revenez plus tard.</h3>
     </div>
     <div class="wrap-contact100 shadow" *ngIf="lastSurvey" >
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
             <span class="contact100-form-title">
                {{lastSurvey.title}}
                 <h3>{{lastSurvey.description}}</h3>
             </span>
-
 
             <p style=" margin-bottom: 20px; font-size: 18px; text-align: center">
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données recueillies seront anonymes et ne pourront en aucun être utilisées contre son auteur.
@@ -78,22 +76,16 @@
                 </div>
             </div>
 
-
-
-                    <div class="form-group purple-border">
-                        <label for="comment">Commentaire</label>
-                        <textarea #comment class="form-control" name = "comment" id="comment"  placeholder="Votre commentaire ici..." rows="3"></textarea>
-                    </div>
-
-
-            <div class="container " style="width: max-content; margin-top: 30%">
-                    <button class="btn btn-info" style="width: 200px; font-size: 20px" onclick="document.getElementById('id01').style.display='block'" type = "button"  (click)='getValue(comment.value)' data-toggle="modal" data-target="id01">
-                     <span> Envoyer </span>
-                    </button>
+            <div class="form-group purple-border">
+                <label for="comment">Commentaire</label>
+                <textarea #comment class="form-control" name = "comment" id="comment"  placeholder="Votre commentaire ici..." rows="3"></textarea>
             </div>
 
-
-        </form>
+            <div class="container " style="width: max-content; margin-top: 30%">
+                    <span class="btn btn-info" style="width: 200px; font-size: 20px" onclick="document.getElementById('id01').style.display='block'" type = "button"  (click)="addComment(comment.value, lastSurvey)" data-toggle="modal" data-target="id01">
+                        <span> Envoyer </span>
+                    </span>
+            </div>
     </div>
 </div>
 
