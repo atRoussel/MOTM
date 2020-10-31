@@ -81,12 +81,12 @@
                 <div>
                     <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select"
                             name="mood" style="margin-bottom: 20px">
-                        <option value="0">Sélectionner une réponse</option>
-                        <option value="1">Super !</option>
-                        <option value="2">Bien</option>
-                        <option value="3">Bof</option>
-                        <option value="4">Mal</option>
-                        <option value="5">Je ne veux plus vivre</option>
+                        <option value="0"> -- Sélectionner une réponse -- </option>
+                        <option value="5">Génial</option>
+                        <option value="4">Bien</option>
+                        <option value="3">Moyen</option>
+                        <option value="2">Mauvais</option>
+                        <option value="1">Affreux</option>
                     </select>
                 </div>
             </div>
@@ -98,15 +98,14 @@
 
             <hr/>
             <div class="container " style="width: max-content; margin-top: 15%">
-                    <span class="btn btn-info" style="width: 200px; font-size: 20px"
-                          onclick="document.getElementById('id01').style.display='block'" type="button"
+                    <span class="btn btn-info" style="width: 200px; font-size: 20px" type="button"
                           (click)="addComment(comment.value, lastSurvey)" data-toggle="modal" data-target="id01">
                         <span> Envoyer </span>
                     </span>
+
             </div>
+            <span *ngIf="!canValidate" style="color: red">Il semblerait que des réponses soient manquantes</span>
         </div>
-
-
     </div>
 </div>
 
