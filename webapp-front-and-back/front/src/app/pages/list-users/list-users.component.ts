@@ -12,6 +12,7 @@ import { defaultsDeep } from 'lodash';
 export class ListUsersComponent implements OnInit {
   users: User[];
   selectedId: number = null;
+  modalTitle = 'Ajout d\'un utilisateur';
 
   constructor(private userService: UserService) { }
 

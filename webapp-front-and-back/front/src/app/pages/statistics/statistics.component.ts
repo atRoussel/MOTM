@@ -31,11 +31,17 @@ export class StatisticsComponent implements OnInit {
       answers.forEach(answer => this.sum = this.sum + +answer.value);
       this.average = this.sum / answers.length;
 
-      if (this.average <= 2){
-        this.image = '/assets/emoji-laughing.svg'
+      if (this.average <= 1){
+        this.image = '/assets/emoji-dizzy.svg'
       };
-      if (this.average > 2 && this.average < 4) {
-        this.image = '/assets/emoji-laughing.svg'
+      if (this.average > 1 && this.average <= 2) {
+        this.image = '/assets/emoji-frown.svg'
+      };
+      if (this.average > 2 && this.average <= 3) {
+        this.image = '/assets/emoji-neutral.svg'
+      };
+      if (this.average > 3 && this.average <= 4) {
+        this.image = '/assets/emoji-smile.svg'
       };
       if (this.average >= 4) {
         this.image = '/assets/emoji-laughing.svg'

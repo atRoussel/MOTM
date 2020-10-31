@@ -71,9 +71,11 @@
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
                 recueillies seront anonymes et ne pourront en aucun être utilisées contre son auteur.
             </p>
+
             <hr/>
-            <div *ngFor="let ques of lastSurvey.questions; let i = index" class="form-group" style="margin-top: 30px;">
-                <label style="margin-bottom: 10px;"for="mood">
+            <p style="color: red; margin-top: 20px"> Tous les champs suivis de * doivent être remplis.</p>
+            <div *ngFor="let ques of lastSurvey.questions; let i = index" class="form-group" style="margin-top: 10px;">
+                <label class="required" style="margin-bottom: 10px;"for="mood">
                     {{ques.text}}
                 </label>
                 <div>

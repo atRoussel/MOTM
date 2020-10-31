@@ -26,3 +26,10 @@
 .alert{
     margin-top: 20px;
 }
+
+
+.required:after {
+    content:"*";
+    color:red;
+    font-size: 18px;
+}
