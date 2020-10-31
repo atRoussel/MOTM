@@ -66,7 +66,6 @@ export class AddSurveyComponent implements OnInit {
       this.surveyService.addSurvey(survey).subscribe(survey => console.log(survey));
       window.location.reload();
     } catch (e) {
-
     }
   }
 
