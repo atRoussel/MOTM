@@ -4,6 +4,7 @@ import {AnswerService} from '../../services/answer.service';
 import {Answer} from '../../models/answer.model';
 import  {Chart} from 'chart.js';
 import {Survey} from "../../models/survey.model";
+import {SurveyService} from "../../services/survey.service";
 
 @Component({
   selector: 'app-statistics',
@@ -18,8 +19,8 @@ export class StatisticsComponent implements OnInit {
   surveyTitles = [];
   sum = 0;
   average;
-  sumBySurvey = 0;
-  averageBySurvey;
+  sumBySurvey = [];
+  averageBySurvey = [];
   image;
   count1 = 0;
   count2 = 0;
@@ -28,7 +29,7 @@ export class StatisticsComponent implements OnInit {
   count5 = 0;
 
 
-  constructor(private commentService: CommentService,private answerService: AnswerService, private surveyService) { }
+  constructor(private commentService: CommentService,private answerService: AnswerService,private surveyService: SurveyService) { }
   ngOnInit(): void{
 
     this.answerService.getAnswers().subscribe(answers => {
@@ -102,39 +103,58 @@ export class StatisticsComponent implements OnInit {
         }
       });
 
-      /*new Chart('LineChart',{
-        type: 'line',
-        data: {
-          labels: this.surveyTitles,
-          datasets: [{
-            label: "Moyenne de l'humeur par sondage",
-            data: [1,7,4],
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 0.2)',
-            ],
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
+      this.surveyService.getSurveys().subscribe(surveys =>{
+        this.surveys = surveys;
+        surveys.forEach(survey => this.surveyTitles.push(survey.title));
+
+        let serie = 0;
+        let debutSerie = 0;
+        let i;
+        let serieSum = 0;
+        let compare = [];
+
+        if (surveys.length != compare.length){
+          for(i = debutSerie; i < answers.length; i++){
+            this.sumBySurvey[serie] = this.sum - serieSum;
+            serieSum = this.sum;
+            debutSerie = surveys.length;
+          };
+          serie ++;
+          compare = surveys;
+          console.log("compare", compare);
+        };
+
+        new Chart('LineChart',{
+          type: 'line',
+          data: {
+            labels: this.surveyTitles,
+            datasets: [{
+              label: "Moyenne de l'humeur par sondage",
+              data: this.sumBySurvey,
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 0.2)',
+              ],
             }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
           }
-        }
-      });*/
+        });
+
+      });
 
     });
-    //this.surveyService.getSurveys().subscribe(surveys =>{
-      //this.surveys = surveys;
-      //surveys.forEach(survey => this.surveyTitles.push(survey.title));
-    //});
 
     this.commentService.getComments().subscribe(comments => this.comments = comments);
 
