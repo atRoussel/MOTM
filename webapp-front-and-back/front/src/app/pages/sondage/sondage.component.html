@@ -55,7 +55,7 @@
 <div class="container-contact100">
     <div *ngIf="!lastSurvey" style="align-content: center; justify-content: center">
         <h1>Pas de sondage pour l'instant ! </h1>
-        <h3 style="text-align: center">Revenez plus tard.</h3>
+        <h3 style="text-align: center">Revenez plus tard...</h3>
     </div>
 
     <div class="wrap-contact100 shadow" *ngIf="lastSurvey">
@@ -65,11 +65,11 @@
         <div style="padding: 42px 55px 45px 55px;">
             <span class="contact100-form-title">
                {{lastSurvey.title}}
-                            <h3>{{lastSurvey.description}}</h3>
+                <h3>{{lastSurvey.description}}</h3>
             </span>
             <p style=" margin-bottom: 20px; font-size: 16px; text-align: center">
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
-                recueillies seront anonymes et ne pourront en aucun être utilisées contre son auteur.
+                recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
             </p>
 
             <hr/>
