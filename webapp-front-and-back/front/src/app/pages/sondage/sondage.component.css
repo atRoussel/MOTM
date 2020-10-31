@@ -85,12 +85,14 @@ ul, li {
 }
 
 .wrap-contact100 {
-    width: 800px;
+    width: 700px;
     min-height: 800px;
     background: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
     border-radius: 5px;
     overflow: hidden;
-   padding: 42px 55px 45px 55px;
+
 }
 
 

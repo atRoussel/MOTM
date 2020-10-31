@@ -10,3 +10,11 @@
     background-color: #008891;
 }
 
+.required:after {
+    content:"*";
+    color:red;
+    font-size: 18px;
+}
+
+
+
