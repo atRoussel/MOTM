@@ -3,6 +3,7 @@ import {CommentService} from '../../services/comment.service';
 import {AnswerService} from '../../services/answer.service';
 import {Answer} from '../../models/answer.model';
 import  {Chart} from 'chart.js';
+import {Survey} from "../../models/survey.model";
 
 @Component({
   selector: 'app-statistics',
@@ -13,8 +14,12 @@ export class StatisticsComponent implements OnInit {
 
   comments: Comment[];
   answers: Answer[];
+  surveys: Survey[];
+  surveyTitles = [];
   sum = 0;
   average;
+  sumBySurvey = 0;
+  averageBySurvey;
   image;
   count1 = 0;
   count2 = 0;
@@ -23,7 +28,7 @@ export class StatisticsComponent implements OnInit {
   count5 = 0;
 
 
-  constructor(private commentService: CommentService,private answerService: AnswerService) { }
+  constructor(private commentService: CommentService,private answerService: AnswerService, private surveyService) { }
   ngOnInit(): void{
 
     this.answerService.getAnswers().subscribe(answers => {
@@ -96,7 +101,40 @@ export class StatisticsComponent implements OnInit {
           }
         }
       });
+
+      /*new Chart('LineChart',{
+        type: 'line',
+        data: {
+          labels: this.surveyTitles,
+          datasets: [{
+            label: "Moyenne de l'humeur par sondage",
+            data: [1,7,4],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 0.2)',
+            ],
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });*/
+
     });
+    //this.surveyService.getSurveys().subscribe(surveys =>{
+      //this.surveys = surveys;
+      //surveys.forEach(survey => this.surveyTitles.push(survey.title));
+    //});
 
     this.commentService.getComments().subscribe(comments => this.comments = comments);
 
