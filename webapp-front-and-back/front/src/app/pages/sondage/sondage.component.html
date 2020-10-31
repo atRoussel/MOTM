@@ -55,7 +55,7 @@
 <div class="container-contact100">
     <div *ngIf="!lastSurvey" style="align-content: center; justify-content: center">
         <h1>Pas de sondage pour l'instant ! </h1>
-        <h3 style="text-align: center">Revenez plus tard.</h3>
+        <h3 style="text-align: center">Revenez plus tard...</h3>
     </div>
 
     <div class="wrap-contact100 shadow" *ngIf="lastSurvey">
@@ -65,11 +65,11 @@
         <div style="padding: 42px 55px 45px 55px;">
             <span class="contact100-form-title">
                {{lastSurvey.title}}
-                            <h3>{{lastSurvey.description}}</h3>
+                <h3>{{lastSurvey.description}}</h3>
             </span>
             <p style=" margin-bottom: 20px; font-size: 16px; text-align: center">
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
-                recueillies seront anonymes et ne pourront en aucun être utilisées contre son auteur.
+                recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
             </p>
 
             <hr/>
@@ -81,12 +81,12 @@
                 <div>
                     <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select"
                             name="mood" style="margin-bottom: 20px">
-                        <option value="0">Sélectionner une réponse</option>
-                        <option value="1">Super !</option>
-                        <option value="2">Bien</option>
-                        <option value="3">Bof</option>
-                        <option value="4">Mal</option>
-                        <option value="5">Je ne veux plus vivre</option>
+                        <option value="0"> -- Sélectionner une réponse -- </option>
+                        <option value="5">Génial</option>
+                        <option value="4">Bien</option>
+                        <option value="3">Moyen</option>
+                        <option value="2">Mauvais</option>
+                        <option value="1">Affreux</option>
                     </select>
                 </div>
             </div>
@@ -98,15 +98,14 @@
 
             <hr/>
             <div class="container " style="width: max-content; margin-top: 15%">
-                    <span class="btn btn-info" style="width: 200px; font-size: 20px"
-                          onclick="document.getElementById('id01').style.display='block'" type="button"
+                    <span class="btn btn-info" style="width: 200px; font-size: 20px" type="button"
                           (click)="addComment(comment.value, lastSurvey)" data-toggle="modal" data-target="id01">
                         <span> Envoyer </span>
                     </span>
+
             </div>
+            <span *ngIf="!canValidate" style="color: red">Il semblerait que des réponses soient manquantes</span>
         </div>
-
-
     </div>
 </div>
 

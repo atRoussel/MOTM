@@ -47,13 +47,13 @@
      style="width:75%;height:100%;margin-left:310px;margin-top:43px; padding-top: 50px; padding-bottom: 50px">
     <div class="card shadow-sm" style="border-color: white; border-radius: 0px; margin-top: 30px">
         <div class="card-body">
-            <div *ngIf="!lastSurvey" style="align-content: center; justify-content: center">
+            <div *ngIf="!mainSurvey" style="align-content: center; justify-content: center">
                 <h1 style="text-align: center">Vous n'avez pas de sondage en cours ! </h1>
                 <h5 style="text-align: center">Créez-en un !</h5>
             </div>
-            <div *ngIf="lastSurvey">
-                <h1 style="text-align: center">{{lastSurvey.title}}</h1>
-                <h5 style="text-align: center">{{lastSurvey.description}}</h5>
+            <div>
+                <h1 style="text-align: center">{{mainSurvey.title}}</h1>
+                <h5 style="text-align: center">{{mainSurvey.description}}</h5>
             </div>
 
         </div>
@@ -72,11 +72,11 @@
 
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
-                            <div *ngIf="!average">
+                            <div *ngIf="!mainSurvey">
                                 <h3>0 / 5</h3>
                             </div>
-                            <div *ngIf="average">
-                                <h3>{{average}} / 5</h3>
+                            <div *ngIf="mainSurvey">
+                                <h3>{{averageResponseList[0]}} / 5</h3>
                             </div>
                             <h4 style="font-size: 15px">Moyenne</h4>
                         </div>
@@ -92,7 +92,8 @@
 
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
-                            <h3>{{comments.length}}</h3>
+                            <h3 *ngIf="mainSurvey.questions[0].answers.length">{{mainComments.length}}</h3>
+                            <h3 *ngIf="!mainSurvey.questions[0].answers.length">0</h3>
                             <h4 style="font-size: 15px">Commentaires</h4>
                         </div>
                     </div>
@@ -108,7 +109,8 @@
 
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
-                            <h3>{{answers.length}}</h3>
+                            <h3 *ngIf="mainSurvey.questions[0].answers.length">{{mainSurvey.comments.length}}</h3>
+                            <h3 *ngIf="!mainSurvey.questions[0].answers.length">0</h3>
                             <h4 style="font-size: 15px">Participants</h4>
                         </div>
                     </div>
@@ -127,12 +129,11 @@
                         <h5><i class="fa fa-thermometer"></i> <strong> Tendance du mois</strong></h5>
                     </div>
                     <div class="card-body">
-                        <div *ngIf="!answers.length" style="text-align: center; justify-content: center">
-                            <h3>Pas de réponse pour l'instant ! </h3>
-                        </div>
-                        <div *ngIf="answers.length"
-                             style="width:100%; height:100%; text-align:center; padding-top: 20px">
-                            <img src={{image}} style="margin-left: auto;margin-right: auto; width: 150px">
+                        <div style="width:100%; height:100%; text-align:center; padding-top: 20px">
+                            <div *ngIf="!mainSurvey.questions[0].answers.length" style="text-align: center; justify-content: center">
+                                <h3>Pas de réponse pour l'instant ! </h3>
+                            </div>
+                            <img *ngIf="mainSurvey.questions[0].answers.length" src={{image}} style="margin-left: auto;margin-right: auto; width: 150px">
                         </div>
                     </div>
                 </div>
@@ -144,14 +145,13 @@
                         <h5><i class="fa fa-commenting"></i><strong> Commentaires</strong></h5>
                     </div>
                     <div class="card-body">
-                        <div *ngIf="!comments.length" style="text-align: center; justify-content: center">
-                            <h3>Pas de commentaire pour l'instant ! </h3>
-                        </div>
                         <div class="card-body">
-                            <div *ngIf="comments.length" style="overflow: auto; max-height: 200px;">
-                                <div *ngFor="let comment of comments">
-                                    <h5 style="font-size: 14px">{{comment.value}}</h5>
-
+                            <div style="overflow: auto; max-height: 200px;">
+                                <div *ngIf="!mainComments.length" style="text-align: center; justify-content: center">
+                                    <h3>Pas de réponse pour l'instant ! </h3>
+                                </div>
+                                <div *ngFor="let comment of mainComments">
+                                    <h5 style="font-size: 14px">{{comment}}</h5>
                                     <hr style="margin-top: 5px; margin-bottom: 2px"/>
                                 </div>
 
@@ -168,7 +168,7 @@
         <div class="row" style="height: 500px">
             <div class="card" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
                 <div class="card-header" style="text-align: center; background-color: white">
-                    <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
+                    <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques : {{mainSurvey.questions[0].text}}</b></h5>
                 </div>
                 <div class="card-body">
                     <div id="divChart">
@@ -186,14 +186,14 @@
         </div>
         <div class="card-body card-container" style=" width: 100%; height: 100% ">
             <div class="row flex-row flex-nowrap">
-                <div *ngFor="let comment of comments">
-                    <div class="col-auto" style="height: 100%; max-width: 350px; margin: 10px; text-align: center">
+                <div *ngFor="let question of mainSurvey.questions;let i = index">
+                    <div class="col-auto" style="height: 100%; width: 350px; margin: 10px; text-align: center">
                         <div class="card">
                             <div class="card-header" style="white-space: normal; background-color: aliceblue">
-                                <h6>Comment trouvez-vous la nouvelle caféteria ?</h6>
+                                <h6>{{question.text}}</h6>
                             </div>
                             <div class="card-body">
-                                <h3>3 / 5</h3>
+                                <h3>{{averageResponseList[i]}} / 5</h3>
                             </div>
                         </div>
 
@@ -209,7 +209,7 @@
         <div class="row" style="height: 500px">
             <div class="card" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
                 <div class="card-header" style="text-align: center; background-color: white">
-                    <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques</b></h5>
+                    <h5><b><i class="fa fa-bar-chart-o"></i> Evolution de la moyenne des derniers sondages </b></h5>
                 </div>
                 <div class="card-body">
                     <div>
@@ -222,7 +222,6 @@
 
     <hr>
 </div>
-
 
 <script>
     // Get the Sidebar
