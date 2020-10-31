@@ -20,7 +20,7 @@ data class Answer (
         var question: Question?,
 
         // Liaison entre comments et users
-        // Un comment appartient à un seul user
+        // Une answer appartient à un seul user
         @ManyToOne
         @JoinColumn(name = "user_id", nullable = false)
         @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

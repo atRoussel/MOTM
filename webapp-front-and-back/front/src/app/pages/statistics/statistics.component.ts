@@ -3,6 +3,8 @@ import {CommentService} from '../../services/comment.service';
 import {AnswerService} from '../../services/answer.service';
 import {Answer} from '../../models/answer.model';
 import  {Chart} from 'chart.js';
+import {Survey} from '../../models/survey.model';
+import {SurveyService} from '../../services/survey.service';
 
 @Component({
   selector: 'app-statistics',
@@ -21,15 +23,17 @@ export class StatisticsComponent implements OnInit {
   count3 = 0;
   count4 = 0;
   count5 = 0;
+  lastSurvey: Survey;
 
 
-  constructor(private commentService: CommentService,private answerService: AnswerService) { }
+  constructor( private surveyService : SurveyService, private commentService: CommentService,private answerService: AnswerService) { }
   ngOnInit(): void{
 
+    this.surveyService.getSurveys().subscribe(surveys => this.lastSurvey = surveys[surveys.length-1]);
     this.answerService.getAnswers().subscribe(answers => {
       this.answers = answers;
       answers.forEach(answer => this.sum = this.sum + +answer.value);
-      this.average = this.sum / answers.length;
+      this.average = (this.sum / answers.length).toFixed(2);
 
       if (this.average <= 1){
         this.image = '/assets/emoji-dizzy.svg'

@@ -18,3 +18,23 @@
 
 }
 
+.scrollable >.row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+.scrollable > .row > .col-auto {
+    display: inline-block;
+    float: none;
+}
+
+
+
+.card-container {
+    width: 1000px;
+    overflow-x: scroll;
+    display: flex;
+    padding: 3rem;
+}
+
