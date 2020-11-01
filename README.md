@@ -47,7 +47,7 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 ```
 
 
-Tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement lors du premier chargement de la DB. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080 (par défaut).
+Lors du premier chargement de la BDD, tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
 
 #### Si la DB ne se lance pas correctement 
 1. Créer votre BDD dans IntelliJ, en renseignant : 
@@ -66,22 +66,22 @@ Tous les scripts sql contenus dans le dossier initdb seront exécutés automatiq
 
 ### Lancement du front :
 
-Ouvrez le dossier front dans une nouvelle fenêtre et dans le terminal, lancez la commande :
+Ouvrer le dossier front dans une nouvelle fenêtre et dans le terminal, lancez la commande :
 `npm i`
 
-Enfin lancez dans le terminal : 
+Enfin lancer dans le terminal : 
 `npm start`
 
 
 ## Entrez dans la plateforme
 
-Après avoir cliquez sur le lien, l'employé devra renseigner son adresse-mail pour répondre aux sondages. Il ne pourra y accéder seulement si son profil à bien été intégré à la listes des utilisateurs.
+Après avoir cliquez sur le lien, l'employé devra renseigner son adresse-mail pour répondre aux sondages. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs.
 
 Cependant il ne pourra pas accéder à l'espace administrateur. Ce dernier est accessible seulement avec l'adresse admin@gmail.com. 
 
 
 ## Gestions des sondages
 
-Pour créer un nouveau sondage, rendez-vous à la section "Ajouter un sondage". Vous y trouverez la liste de tous les sondages que vous avez créé. Pour remplacer le sondage en cours, il suffit d'en créer un nouveau. Le sondage en cours ne pourra pas être supprimé.
+Pour créer un nouveau sondage, rendez-vous à la section "Ajouter un sondage". Vous y trouverez la liste de tous les sondages que vous avez créés. Pour remplacer le sondage en cours, il suffit d'en créer un nouveau. Le sondage en cours ne pourra pas être supprimé.
 
 ## Gestion de l'envoi des mails
