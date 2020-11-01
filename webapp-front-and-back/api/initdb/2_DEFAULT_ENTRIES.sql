@@ -8,15 +8,15 @@ INSERT INTO defaultdb.users (id, name, mail, date) VALUES (7, 'Camille Zole', 'x
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (8, 'Adémar Monoto', 'tki@gmail.com', '2000-12-01');
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (9, 'Eddy Scylla', 'savatwa@gmail.com', '2000-12-01');
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (10, 'Sacha Touille', 'jesus@gmail.com','2000-12-01');
-INSERT INTO defaultdb.users (id, name, mail, date) VALUES (11, 'Athenais Roussel', 'athenaisroussel@gmail.com','1999-02-23');
+INSERT INTO defaultdb.users (id, name, mail, date) VALUES (11, 'Athénaïs Roussel', 'athenaisroussel@gmail.com','1999-02-23');
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (12, 'Lucas Drencevic', 'shadd412@gmail.com','1998-06-04');
 INSERT INTO defaultdb.users (id, name, mail, date) VALUES (13, 'Dimitri Bernadine', 'dimdimfabulousdim@gmail.com','1998-06-04');
 
 INSERT INTO defaultdb.surveys (id, description, title) VALUES (1, 'Sentiments sur le mois de janvier', 'Sondage de Janvier');
 INSERT INTO defaultdb.surveys (id, description, title) VALUES (2, 'En plein hiver, dans quel mood êtes-vous?', 'Sondage de Février');
-INSERT INTO defaultdb.surveys (id, description, title) VALUES (3, 'Mars est la', 'Sondage de Mars');
+INSERT INTO defaultdb.surveys (id, description, title) VALUES (3, 'Mars est là', 'Sondage de Mars');
 
-INSERT INTO defaultdb.questions (id, text, survey_id) VALUES (1, 'Evaluez votre sentiment général', 1);
+INSERT INTO defaultdb.questions (id, text, survey_id) VALUES (1, 'Évaluez votre sentiment général', 1);
 INSERT INTO defaultdb.questions (id, text, survey_id) VALUES (2, 'Comment avez-vous ressenti la charge de travail ?', 1);
 INSERT INTO defaultdb.questions (id, text, survey_id) VALUES (3, 'Notez la présentation de début d\'année', 1);
 INSERT INTO defaultdb.questions (id, text, survey_id) VALUES (4, 'Votre état d\'esprit sur le mois', 2);
@@ -30,9 +30,9 @@ INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (2, 'Incro
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (3, 'Quel mois éblouissant', 1, 7);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (5, 'Moyen', 2, 4);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (6, 'Jai pas trop aimé', 2, 8);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (7, 'Cetait fou', 3, 10);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (7, 'C\'était fou', 3, 10);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (8, 'Meilleur mois de ma vie', 3, 7);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Plutot bof', 3, 6);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Plutôt bof', 3, 6);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (10, 'Je suis si heureux d\'etre dans cette entreprise', 3, 8);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (11, 'Quel mois épatant !', 3, 9);
 
