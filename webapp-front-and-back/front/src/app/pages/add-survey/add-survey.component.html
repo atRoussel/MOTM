@@ -79,7 +79,7 @@
                     </tbody>
                 </table>
             </div>
-
+            <span *ngIf="isDisabled === true">Publication du dernier sondage dans : {{timer}} secondes.</span>
       </div>
     </div>
 </div>
@@ -158,20 +158,20 @@
                     <label style="margin-top: 20px" class="required">
                         Titre
                     </label>
-                    <input #title placeholder="Titre du sondage" type="text" class="form-control" name="name" ngModel required/>
+                    <input #title [disabled]="isDisabled" placeholder="Titre du sondage" type="text" class="form-control" name="name" ngModel required/>
                 </div>
                 <div class="form-group">
                     <label style="margin-top: 20px" for="description" class="required">
                         Description
                     </label>
-                    <input #description placeholder="Description du sondage" type="text" id="description" class="form-control" name="description" ngModel required/>
+                    <input #description [disabled]="isDisabled" placeholder="Description du sondage" type="text" id="description" class="form-control" name="description" ngModel required/>
                 </div>
 
                 <div class="form-group">
                     <label style="margin-top: 20px" class="required" for="question">
                         Question générale pour le mood du mois
                     </label>
-                    <input #question placeholder="Comment allez-vous ce mois-ci ?" type="text" id="question"
+                    <input #question [disabled]="isDisabled" placeholder="Comment allez-vous ce mois-ci ?" type="text" id="question"
                            class="form-control" name="question" ngModel>
                 </div>
                 <hr style="margin-top: 40px"/>
@@ -182,11 +182,11 @@
                             <p>Ajouter des questions personnalisées à votre sondage !</p>
                         </div>
                         <div class="col col-2">
-                            <span class="btn btn-info" (click)="questionsSize.push('')"
+                            <button [disabled]="isDisabled" class="btn btn-info" (click)="questionsSize.push('')"
                                   style="text-align: center; border-radius: 45px; margin-right: 5px"><i
-                                    class="fa fa-plus"></i></span>
-                            <span class="btn btn-danger" (click)="questionsSize.pop(); questionList.pop()"
-                                  style="text-align: center; border-radius: 45px"><i class="fa fa-minus"></i></span>
+                                    class="fa fa-plus"></i></button>
+                            <button [disabled]="isDisabled" class="btn btn-danger" (click)="questionsSize.pop(); questionList.pop()"
+                                  style="text-align: center; border-radius: 45px"><i class="fa fa-minus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -195,15 +195,18 @@
                     <label style="margin-top: 15px">
                         Question n°{{i + 2}}
                     </label>
-                    <input (change)="selectChangeHandler($event, i)" class="form-control" >
+                    <input [disabled]="isDisabled" (change)="selectChangeHandler($event, i)" class="form-control" >
                 </div>
                 <hr style="margin-top: 40px"/>
+                <div>
+                    <span>Nombre de secondes avant publication : </span> <input [disabled]="isDisabled" (change)="selectChangeHandler2($event)" type="number">
+                </div>
                 <div style="margin-top: 40px; margin-right: 0">
-                    <span *ngIf="(title.value.length > 0)&&(description.value.length > 0)&&(question.value.length > 0)"
-                          class="btn btn-info float-right" style="width: 100px"
-                          (click)="addSurvey(title.value, description.value, question.value, selectedId)">Ajouter</span>
-                    <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)"
-                          class="btn btn-secondary float-right" style="width: 100px">Ajouter</span>
+                    <span *ngIf="(title.value.length > 0)&&(description.value.length > 0)&&(question.value.length > 0)&&(isDisabled === false)" class="btn btn-info float-right" style="width: 100px" (click)="addSurvey(title.value, description.value, question.value, selectedId)">Publier</span>
+                    <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)||(isDisabled === true)" class="btn btn-secondary float-right" style="width: 100px">Publier</span>
+                    <div>
+                        <span *ngIf="(isDisabled === true)" (click)="publishNow()" class="btn btn-info float-left" style="width: 100px">Publier immédiatement</span>
+                    </div>
                 </div>
             </form>
         </div>

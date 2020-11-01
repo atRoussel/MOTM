@@ -10,6 +10,7 @@ import {User} from '../../models/user.model';
 import {CommentService} from '../../services/comment.service';
 import {Comment} from '../../models/comment.model';
 import {of} from 'rxjs';
+import {AddSurveyComponent} from '../add-survey/add-survey.component';
 
 @Component({
   selector: 'app-sondage',
@@ -17,6 +18,8 @@ import {of} from 'rxjs';
   styleUrls: ['./sondage.component.css']
 })
 export class SondageComponent implements OnInit {
+  localCounter;
+  surveyWaiting;
   selectedMood = '';
   myTextarea;
   surveys: Survey[];
@@ -32,6 +35,18 @@ export class SondageComponent implements OnInit {
   constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService,
               private userService: UserService, private router: Router, private _location: Location) { }
   ngOnInit(): void {
+    this.localCounter = JSON.parse(localStorage.getItem('surveyTimer'));
+    this.surveyWaiting = JSON.parse(localStorage.getItem('survey'));
+    if((this.localCounter !== undefined)&&(this.localCounter !== null)) {
+      if(this.localCounter < 1) {
+        if((this.surveyWaiting !== undefined)&&(this.localCounter < 1)&&(this.surveyWaiting !== null)) {
+          this.surveyService.addSurvey(this.surveyWaiting).subscribe(survey => console.log(survey));
+          localStorage.removeItem('survey');
+          localStorage.removeItem('surveyTimer');
+          window.location.reload();
+        }
+      } else AddSurveyComponent.mytime(this.localCounter);
+    }
     this.surveyService.getSurveys().subscribe(surveys => this.lastSurvey = surveys[surveys.length-1]);
     this.userService.getUsers().subscribe(users => this.users = users);
     document.getElementById('id02').style.display='block';

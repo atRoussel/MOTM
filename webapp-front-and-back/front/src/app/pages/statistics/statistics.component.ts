@@ -5,6 +5,7 @@ import {Answer} from '../../models/answer.model';
 import  {Chart} from 'chart.js';
 import {SurveyService} from '../../services/survey.service';
 import {Survey} from '../../models/survey.model';
+import {AddSurveyComponent} from '../add-survey/add-survey.component';
 
 @Component({
   selector: 'app-statistics',
@@ -12,6 +13,8 @@ import {Survey} from '../../models/survey.model';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
+  localCounter;
+  surveyWaiting;
   surveys: Survey[];
   reverseSurveys: Survey[];
   surveysTitles: string[];
@@ -36,6 +39,18 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private surveyService: SurveyService, private answerService: AnswerService) { }
   ngOnInit(): void{
+    this.localCounter = JSON.parse(localStorage.getItem('surveyTimer'));
+    this.surveyWaiting = JSON.parse(localStorage.getItem('survey'));
+    if((this.localCounter !== undefined)&&(this.localCounter !== null)) {
+      if(this.localCounter < 1) {
+        if((this.surveyWaiting !== undefined)&&(this.localCounter < 1)&&(this.surveyWaiting !== null)) {
+          this.surveyService.addSurvey(this.surveyWaiting).subscribe(survey => console.log(survey));
+          localStorage.removeItem('survey');
+          localStorage.removeItem('surveyTimer');
+          window.location.reload();
+        }
+      } else AddSurveyComponent.mytime(this.localCounter);
+    }
     this.reverseSurveys = [];
     this.averageResponseList = [];
     this.surveysTitles = [];
