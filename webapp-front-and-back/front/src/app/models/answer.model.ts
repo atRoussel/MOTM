@@ -1,11 +1,11 @@
-import { defaultsDeep } from 'lodash';
+import {defaultsDeep} from 'lodash';
 import {Question} from './question.model';
 import {User} from './user.model';
 
 export class Answer {
     id: number;
     value: number;
-    question: Question;
+    questions: Question;
     user: User;
 
     constructor(answer?: Partial<Answer>) {

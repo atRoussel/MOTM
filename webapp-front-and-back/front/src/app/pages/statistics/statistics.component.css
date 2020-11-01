@@ -1,8 +1,8 @@
-#divChart{
+#divChart {
     display: block;
 }
 
-.main-container{
+.main-container {
     width: 100%;
     min-height: 100vh;
     display: -webkit-box;
@@ -18,20 +18,20 @@
 
 }
 
-.scrollable >.row {
-overflow-x: auto;
+.scrollable > .row {
+    overflow-x: auto;
     white-space: nowrap;
 }
 
- .scrollable > .row > .col-auto {
-display: inline-block;
-     float: none;
- }
+.scrollable > .row > .col-auto {
+    display: inline-block;
+    float: none;
+}
 
-  .card-container {
-width: 1000px;
-      overflow-x: scroll;
-      display: flex;
-      padding: 3rem;
-  }
+.card-container {
+    width: 1000px;
+    overflow-x: scroll;
+    display: flex;
+    padding: 3rem;
+}
 

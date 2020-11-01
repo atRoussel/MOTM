@@ -1,5 +1,4 @@
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -38,7 +37,7 @@ a:hover {
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 }
 
@@ -63,8 +62,6 @@ ul, li {
     font-size: 20px;
     margin-bottom: 10px;
 }
-
-
 
 
 .container-contact100 {
@@ -118,7 +115,7 @@ ul, li {
 }
 
 .modal-backdrop {
-    background-color: rgba(0,0,0,.0001) !important;
+    background-color: rgba(0, 0, 0, .0001) !important;
 
 }
 
@@ -126,15 +123,13 @@ ul, li {
     background-color: rgba(203, 214, 219, 0.9);
 }
 
-
-
 .required:after {
-    content:"*";
-    color:red;
+    content: "*";
+    color: red;
     font-size: 18px;
 }
 
-.card-header{
+.card-header {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;

@@ -1,4 +1,4 @@
-import { defaultsDeep } from 'lodash';
+import {defaultsDeep} from 'lodash';
 import {Question} from './question.model';
 import {Comment} from './comment.model';
 import {Answer} from './answer.model';

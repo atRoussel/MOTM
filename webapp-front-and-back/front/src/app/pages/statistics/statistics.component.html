@@ -14,6 +14,7 @@
 </style>
 <body style="background-color: aliceblue">
 
+<!-- TOP BAR -->
 <div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057; height: 8%">
     <h1 class="w3-left"
         style="color: white; font-family: 'Baskerville Old Face' ; position: relative; margin-left:10px"> Mood Of The
@@ -21,7 +22,9 @@
     <img src="/assets/logo_mini.png" class="w3-right" style="height: 90%; margin-top: 3px; margin-right: 0">
 </div>
 
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left shadow-sm" style="z-index:3;width:300px;background-color: #e7e7de"
+<!-- NAVIGATION MENU -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left shadow-sm"
+     style="z-index:3;width:300px;background-color: #e7e7de"
      id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="margin-top: 10px">
@@ -42,9 +45,11 @@
     </div>
 </nav>
 
-
+<!-- MAIN CONTAINER -->
 <div class="container-fluid"
      style="width:75%;height:100%;margin-left:310px;margin-top:43px; padding-top: 50px; padding-bottom: 50px">
+
+    <!-- AFFICHAGE TITRE ET DESCRIPTION DU SONDAGE -->
     <div class="card shadow-sm" style="border-color: white; border-radius: 0px; margin-top: 30px">
         <div class="card-body">
             <div *ngIf="!mainSurvey" style="align-content: center; justify-content: center">
@@ -55,21 +60,20 @@
                 <h1 style="text-align: center">{{mainSurvey.title}}</h1>
                 <h5 style="text-align: center">{{mainSurvey.description}}</h5>
             </div>
-
         </div>
     </div>
 
-
-    <!-- CHIFFRES CLES -->
+    <!-- CHIFFRES CLEFS -->
     <div class="container-fluid" style="margin-top: 20px; margin-bottom: 20px">
         <div class="row" style="height: 50px; padding-left: 0">
+
+            <!-- MOYENNE -->
             <div class="col" style="padding-left: 0 ; padding-right: 0">
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-3"
                              style="text-align: center; padding-top:15px; background-color: #0f3057; color: white">
                             <i class="fa fa-star w3-xxxlarge"></i>
-
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
                             <div *ngIf="!mainSurvey">
@@ -83,13 +87,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- COMMENTAIRES -->
             <div class="col">
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-4"
                              style="text-align: center;padding-top:15px; background-color: #00587a; color: white">
                             <i class="fa fa-comment w3-xxxlarge"></i>
-
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
                             <h3 *ngIf="mainSurvey.questions[0].answers.length">{{mainComments.length}}</h3>
@@ -98,15 +103,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+
+            <!-- PARTICIPANTS -->
             <div class="col" style="padding-right: 0">
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="row no-gutters">
                         <div class="col-4 w3-teal"
                              style="text-align: center; padding-top:15px; background-color: #0f3057; color: white">
                             <i class="fa fa-users w3-xxxlarge"></i>
-
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
                             <h3 *ngIf="mainSurvey.questions[0].answers.length">{{mainSurvey.comments.length}}</h3>
@@ -115,14 +120,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- TENDANCES DU MOIS -->
+    <!-- TENDANCES DU MOIS ET COMMENTAIRES -->
     <div class="container-fluid" style="margin-top: 50px; margin-bottom: 20px">
         <div class="row" style="height: 300px">
+
+            <!-- TENDANCES DU MOIS -->
             <div class=" col col-4" style="padding-left: 0; padding-right: 10px">
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="card-header" style="text-align: center; background-color: white">
@@ -130,31 +136,32 @@
                     </div>
                     <div class="card-body">
                         <div style="width:100%; height:100%; text-align:center; padding-top: 20px">
-                            <div *ngIf="!mainSurvey.questions[0].answers.length" style="text-align: center; justify-content: center">
+                            <div *ngIf="!mainSurvey.questions[0].answers.length"
+                                 style="text-align: center; justify-content: center">
                                 <h3>Pas de réponse pour l'instant ! </h3>
                             </div>
-                            <img *ngIf="mainSurvey.questions[0].answers.length" src={{image}} style="margin-left: auto;margin-right: auto; width: 150px">
+                            <img *ngIf="mainSurvey.questions[0].answers.length" src={{image}}
+                                 style="margin-left: auto;margin-right: auto; width: 150px">
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- COMMENTAIRES -->
             <div class="col col-8" style="padding-right: 0; padding-left: 10px">
                 <div class="card shadow-sm" style="border-color: white; border-radius: 0px; height: 100%">
                     <div class="card-header" style="text-align: center; background-color: white">
                         <h5><i class="fa fa-commenting"></i><strong> Commentaires</strong></h5>
                     </div>
                     <div class="card-body">
-
-                            <div style="overflow: auto; max-height: 200px;">
-                                <div *ngIf="!mainComments.length" style="text-align: center; justify-content: center">
-                                    <h3>Pas de réponse pour l'instant ! </h3>
-                                </div>
-                                <div *ngFor="let comment of mainComments">
-                                    <h5 style="font-size: 14px">{{comment}}</h5>
-                                    <hr style="margin-top: 5px; margin-bottom: 2px"/>
-                                </div>
-
+                        <div style="overflow: auto; max-height: 200px;">
+                            <div *ngIf="!mainComments.length" style="text-align: center; justify-content: center">
+                                <h3>Pas de réponse pour l'instant ! </h3>
+                            </div>
+                            <div *ngFor="let comment of mainComments">
+                                <h5 style="font-size: 14px">{{comment}}</h5>
+                                <hr style="margin-top: 5px; margin-bottom: 2px"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -162,7 +169,7 @@
         </div>
     </div>
 
-    <!-- CHART-->
+    <!-- GRAPHIQUE -->
     <div class="container-fluid" style="margin-top: 20px;margin-bottom: 20px">
         <div class="row" style="height: 500px">
             <div class="card shadow-sm" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
@@ -179,6 +186,7 @@
         </div>
     </div>
 
+    <!-- QUESTIONS SUPPLÉMENTAIRES-->
     <div class="card shadow-sm" style="border-color: white; height: 360px; border-radius: 0px; margin-top: 30px">
         <div class="card-header" style="text-align: center; background-color: white">
             <h5><b><i class="fa fa-question-circle-o"></i> Questions supplémentaires</b></h5>
@@ -203,7 +211,7 @@
         </div>
     </div>
 
-
+    <!-- GRAPHIQUE GLOBAL -->
     <div class="container-fluid" style="margin-top: 40px;margin-bottom: 20px; width: 100%">
         <div class="row" style="height: 500px">
             <div class="card shadow-sm" style="border-color: white; border-radius: 0px;height: 100%; width: 100%">
@@ -218,36 +226,8 @@
             </div>
         </div>
     </div>
-
     <hr>
 </div>
-
-<script>
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
-
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
-
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-        if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-            overlayBg.style.display = "none";
-        } else {
-            mySidebar.style.display = 'block';
-            overlayBg.style.display = "block";
-        }
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-        mySidebar.style.display = "none";
-        overlayBg.style.display = "none";
-    }
-</script>
-
-
 </body>
 <script src="bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
