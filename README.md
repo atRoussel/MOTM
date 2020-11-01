@@ -144,16 +144,16 @@ Dans l'onglet "_Utilisateurs_", vous pouvez observer la liste des utilisateurs p
 Page principale de la section administrateur, l'onglet "_Statistiques_" vous permet d'observer les résultats du sondage en cours ou d'un ancien sondage. La page permet aussi de voir l'évolution de la moyenne générale de plusieurs sondages sur un seul graphique.
 
 <h5 align="center">
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_1.png" title="Identification" width="500"/>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_1.png" title="DashBoard" width="500"/>
   <br>
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_2.png" title="Identification" width="500"/>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_2.png" title="DashBoard" width="500"/>
   
   
   <br>
  
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_3.png" title="Identification" width="500"/>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_3.png" title="DashBoard" width="500"/>
   <br>
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_4.png" title="Identification" width="500"/>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_4.png" title="DashBoard" width="500"/>
 </h5>
 
 
@@ -163,7 +163,7 @@ C'est dans le dossier "_api_" que un mail prédéfini sera envoyé à chaque uti
 
   <h5 align="center">
 <br>
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_mail.png" title="Ajout sondage" height="200"/>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_mail.png" title="Mail" height="200"/>
   <br>
 </h5>
 
