@@ -35,6 +35,7 @@ INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (8, 'Meill
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Plutôt bof', 3, 6);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (10, 'Je suis si heureux d\'etre dans cette entreprise', 3, 8);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (11, 'Quel mois épatant !', 3, 9);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (12, 'Tout est merveilleux', 3, 12);
 
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (1, 4, 1, 4);
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (2, 3, 2, 4);
@@ -67,5 +68,7 @@ INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (28, 5, 5
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (29, 3, 6, 9);
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (30, 3, 7, 9);
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (31, 5, 8, 9);
-
-
+INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (32, 5, 5, 12);
+INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (33, 1, 6, 12);
+INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (34, 4, 7, 12);
+INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (35, 5, 8, 12);
