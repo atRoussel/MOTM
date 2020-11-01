@@ -29,7 +29,7 @@ INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (1, 'J\'ai
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (2, 'Incroyable', 1, 10);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (3, 'Quel mois éblouissant', 1, 7);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (5, 'Moyen', 2, 4);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (6, 'Jai pas trop aimé', 2, 8);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (6, 'J\'ai pas trop aimé', 2, 8);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (7, 'Cetait fou', 3, 10);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (8, 'Meilleur mois de ma vie', 3, 7);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Plutot bof', 3, 6);
