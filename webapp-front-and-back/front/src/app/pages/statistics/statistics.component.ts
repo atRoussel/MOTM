@@ -13,6 +13,7 @@ import {Survey} from '../../models/survey.model';
 })
 export class StatisticsComponent implements OnInit {
   surveys: Survey[];
+  reverseSurveys: Survey[];
   surveysTitles: string[];
   mainSurvey: Survey;
   mainComments: string[];
@@ -26,38 +27,29 @@ export class StatisticsComponent implements OnInit {
   sum = 0;
   average;
   image;
-  count1 = 0;
-  count2 = 0;
-  count3 = 0;
-  count4 = 0;
-  count5 = 0;
+  count1;
+  count2;
+  count3;
+  count4;
+  count5;
 
 
   constructor(private surveyService: SurveyService, private answerService: AnswerService) { }
   ngOnInit(): void{
+    this.reverseSurveys = [];
     this.averageResponseList = [];
     this.surveysTitles = [];
     this.surveysAverage = [];
     this.mainComments = [];
     this.surveyService.getSurveys().subscribe(surveys => {
       this.mainSurvey = surveys[surveys.length-1];
-      this.mainSurvey.comments.forEach(com => {if(com.value !== ''){this.mainComments.push(com.value)}})
-      this.mainSurvey.questions.forEach(qu => {
-        this.sum = 0;
-        this.average = 0;
-        this.ansCount = 0;
-        this.res = 0;
-        qu.answers.forEach( ans => {
-          this.ansCount ++;
-          this.sum = this.sum + +ans.value
-        })
-        this.res = (this.sum / this.ansCount).toFixed(2);
-        this.averageResponseList.push(this.res);
-      })
-      this.findEmoji(this.averageResponseList[0]);
-      this.graphDatas(this.mainSurvey.questions[0].answers);
+      this.lineGraph();
+      this.getMainComments();
+      this.getAverageMainResponses();
+      this.graphDatas();
     });
     this.surveyService.getSurveys().subscribe(surveys => {
+      this.reverseSurveys = surveys;
       this.surveys = surveys;
       this.surveys.forEach( surv => {
         this.surveysTitles.push(surv.title);
@@ -72,44 +64,7 @@ export class StatisticsComponent implements OnInit {
         this.res = (this.sum / this.ansCount).toFixed(2);
         this.surveysAverage.push(this.res);
       })
-
-      this.historyChart = new Chart('LineChart',{
-        type: 'line',
-        data: {
-          labels: this.surveysTitles,
-          datasets: [{
-            label: 'Moyenne',
-            data: this.surveysAverage,
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 0.2)',
-            ],
-          }]
-        },
-        options: {
-          title: {
-            display: true},
-          responsive: true,
-          maintainAspectRatio: false,
-          tooltips: {
-            mode: 'index',
-            intersect: false,
-          },
-          hover: {
-            mode: 'nearest',
-            intersect: true
-          },
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      });
+      this.lineGraph();
     });
   }
   findEmoji(grade: number) {
@@ -129,8 +84,79 @@ export class StatisticsComponent implements OnInit {
       this.image = '/assets/emoji-laughing.svg';
     }
   }
-  graphDatas(answers: Answer[]) {
-      answers.forEach(answer => {
+  selectChangeHandler (event: any) {
+    this.surveys.forEach(surv => {
+      if(surv.title === event.target.value) {
+        this.mainSurvey = surv;
+      }
+    })
+    this.getAverageMainResponses();
+    this.getMainComments();
+    this.graphDatas();
+    this.lineGraph();
+  }
+  getAverageMainResponses() {
+    this.averageResponseList = [];
+    this.mainSurvey.questions.forEach(qu => {
+      this.sum = 0;
+      this.average = 0;
+      this.ansCount = 0;
+      this.res = 0;
+      qu.answers.forEach( ans => {
+        this.ansCount ++;
+        this.sum = this.sum + +ans.value
+      })
+      this.res = (this.sum / this.ansCount).toFixed(2);
+      this.averageResponseList.push(this.res);
+    })
+    this.findEmoji(this.averageResponseList[0]);
+  }
+  getMainComments() {
+    this.mainComments = [];
+    this.mainSurvey.comments.forEach(com => {if(com.value !== ''){this.mainComments.push(com.value)}});
+  }
+  lineGraph() {
+    this.historyChart = new Chart('LineChart',{
+      type: 'line',
+      data: {
+        labels: this.surveysTitles,
+        datasets: [{
+          label: 'Moyenne',
+          data: this.surveysAverage,
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.2)',
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 0.2)',
+          ],
+        }]
+      },
+      options: {
+        events: [],
+        tooltips: {enabled: false},
+        hover: {mode: null},
+        title: {
+          display: true},
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+  graphDatas() {
+    this.count1 = 0;
+    this.count2 = 0;
+    this.count3 = 0;
+    this.count4 = 0;
+    this.count5 = 0;
+
+    this.mainSurvey.questions[0].answers.forEach(answer => {
         if(answer.value === 1){
           this.count1 ++
         }
@@ -175,8 +201,13 @@ export class StatisticsComponent implements OnInit {
         }]
       },
       options: {
+        events: [],
+        tooltips: {enabled: false},
+        hover: {mode: null},
         responsive: true,
         maintainAspectRatio: false,
+        showTooltips: false,
+        enableInteractivity: false,
         scales: {
           yAxes: [{
             ticks: {

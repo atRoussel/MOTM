@@ -55,7 +55,12 @@
                 <h1 style="text-align: center">{{mainSurvey.title}}</h1>
                 <h5 style="text-align: center">{{mainSurvey.description}}</h5>
             </div>
-
+            <div>
+                <select (click)="selectChangeHandler($event)" id="mood" class="browser-default custom-select"
+                        name="mood" style="margin-bottom: 20px">
+                    <option *ngFor="let surv of reverseSurveys.reverse(); let i = index" > {{surv.title}} </option>
+                </select>
+            </div>
         </div>
     </div>
 
@@ -72,10 +77,10 @@
 
                         </div>
                         <div class="col-5" style="text-align: center;  margin: 0 auto">
-                            <div *ngIf="!mainSurvey">
+                            <div *ngIf="!mainSurvey.questions[0].answers.length">
                                 <h3>0 / 5</h3>
                             </div>
-                            <div *ngIf="mainSurvey">
+                            <div *ngIf="mainSurvey.questions[0].answers.length">
                                 <h3>{{averageResponseList[0]}} / 5</h3>
                             </div>
                             <h4 style="font-size: 15px">Moyenne</h4>
@@ -169,11 +174,10 @@
                 <div class="card-header" style="text-align: center; background-color: white">
                     <h5><b><i class="fa fa-bar-chart-o"></i> Statistiques : {{mainSurvey.questions[0].text}}</b></h5>
                 </div>
-                <div class="card-body">
-                    <div id="divChart">
+                <div>
+                    <div>
                         <canvas id="myChart" height="400px"></canvas>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -191,8 +195,11 @@
                             <div class="card-header" style="white-space: normal; background-color: aliceblue">
                                 <h6>{{question.text}}</h6>
                             </div>
-                            <div class="card-body">
+                            <div *ngIf="mainSurvey.questions[0].answers.length" class="card-body">
                                 <h3>{{averageResponseList[i]}} / 5</h3>
+                            </div>
+                            <div *ngIf="!mainSurvey.questions[0].answers.length" class="card-body">
+                                <h3>0 / 5</h3>
                             </div>
                         </div>
 
