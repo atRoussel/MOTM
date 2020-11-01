@@ -43,10 +43,10 @@ Ouvrez votre invite de commandes et cloner le projet dans un dossier :
 
 
 ### Lancement du back : 
-Ouvrez IntelliJ IDEA et ouvrir le fichier "pom.xml" à la racine de ce répertoire.
+Ouvrez IntelliJ IDEA et ouvrir le fichier _**pom.xml**_ à la racine de ce répertoire.
 
 
-Ouvrez maintenant votre Docker, placez vous dans le dossier webapp-front-and-back du projet et lancez votre base de données en entrant la commande : 
+Ouvrez maintenant votre Docker, placez vous dans le dossier _**webapp-front-and-back**_ du projet et lancez votre base de données en entrant la commande : 
 ```
 docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 -v "`pwd`/initdb:/docker-entrypoint-initdb.d" mariadb
 ```
@@ -54,20 +54,23 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 
 Lors du premier chargement de la BDD, tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
 
+<br>
+
 #### Si la DB ne se lance pas correctement 
-1. Créer votre BDD dans IntelliJ, en renseignant : 
-- Host : 192.168.99.100
-- User : voir fichier src/main/resources/application.properties
-- Password : voir fichier src/main/resources/application.properties
-- Database : defaultdb
+ 1. Créer votre BDD dans IntelliJ, en renseignant :
+ 
+     - Host : 192.168.99.100  
+     - User : voir _**application.properties**_
+     - Password : voir _**application.properties**_
+     - Database : defaultdb
 
-2. Dans votre dossier application.proporties, vérifier que : spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb
+2. Dans votre dossier application.proporties, vérifier que : `spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb`
 
-3. Lancer manuellement 1_TABLES.sql et 2_DEFAULT_ENTRIES.sql
+3. Lancer manuellement `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`
 
 4. Lancer l'application
 
-
+<br>
 
 ### Lancement du front :
 
@@ -83,7 +86,7 @@ Enfin lancer dans le terminal :
  Fonctionnement de l'application
   <br>
 </h1>
-
+<br>
 ## Entrez dans la plateforme
 
 Après avoir cliquez sur le lien, l'employé devra renseigner son adresse-mail pour répondre aux sondages. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs.
