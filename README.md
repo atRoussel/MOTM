@@ -23,14 +23,14 @@ MOTM est une plateforme d'administration et une plateforme utilisateur pour conn
 <h1 align="center">
   <br>
   <br>
-  Installation de l'environnement
+  Environnement et lancement du projet
   <br>
 </h1>
 
 Pour que l'application se lance correctement, il vous faut : 
 - JDK 11 
 - Maven 3.6.3
--  Intellij IDEA Ultimate
+- Intellij IDEA Ultimate
 - Docker For Windows
 
 
@@ -87,6 +87,7 @@ Enfin lancer dans le terminal :
   <br>
 </h1>
 <br>
+
 ## Entrez dans la plateforme
 
 Après avoir cliquez sur le lien, l'employé devra renseigner son adresse-mail pour répondre aux sondages. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs.
