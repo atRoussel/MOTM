@@ -27,6 +27,7 @@ export class SondageComponent implements OnInit {
   updateId: number;
   updateAnsId: number;
   canValidate = false;
+  identification = true;
 
   constructor(private surveyService: SurveyService, private  commentService: CommentService, private answerService: AnswerService,
               private userService: UserService, private router: Router, private _location: Location) { }
@@ -99,9 +100,10 @@ export class SondageComponent implements OnInit {
       if(user.mail === str) {
         this.userCo = user;
         document.getElementById('id02').style.display='none';
+        this.identification = true;
       }
       else{
-        document.getElementById('who').style.display='block';
+        this.identification=false;
       }
     })
   }
