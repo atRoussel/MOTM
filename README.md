@@ -64,7 +64,7 @@ Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le doss
  
      - Host : 192.168.99.100  
      - User : root
-     - Password : voir toor
+     - Password : toor
      - Database : defaultdb
      
     Cliquez ensuite sur _**Test connection**_.
