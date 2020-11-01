@@ -20,7 +20,12 @@
 MOTM est une plateforme d'administration et une plateforme utilisateur pour connaître l'humeur de vos employés sur le dernier mois. En programmant un envoi automatique de mail à tous vos employés, l'application mood of the month enverra un lien à chacun d'entre eux. En suivant le lien, l'employé pourra répondre à un sondage personnalisé, en donnant une note correspondant à son ressenti sur le mois qu'il a passé et s'il le souhaite, en laissant un commentaire anonyme. La plateforme permet aussi d'ajouter des questions supplémentaires à votre sondage !
 
 
-## Installation de l'environnement
+<h1 align="center">
+  <br>
+  <br>
+  Installation de l'environnement
+  <br>
+</h1>
 
 Pour que l'application se lance correctement, il vous faut : 
 - JDK 11 
@@ -72,6 +77,12 @@ Ouvrer le dossier front dans une nouvelle fenêtre et dans le terminal, lancez l
 Enfin lancer dans le terminal : 
 `npm start`
 
+<h1 align="center">
+  <br>
+  <br>
+ Fonctionnement de l'application
+  <br>
+</h1>
 
 ## Entrez dans la plateforme
 
