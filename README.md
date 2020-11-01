@@ -18,7 +18,8 @@
 
 # Le projet
 
-MOTM est une plateforme d'administration et une plateforme utilisateur pour connaître l'humeur de vos employés sur le dernier mois. En programmant un envoi automatique de mail à tous vos employés, l'application mood of the month enverra un lien à chacun d'entre eux. En suivant le lien, l'employé pourra répondre à un sondage personnalisé, en donnant une note correspondant à son ressenti sur le mois qu'il a passé et s'il le souhaite, en laissant un commentaire anonyme. La plateforme permet aussi d'ajouter des questions supplémentaires à votre sondage !
+MOTM est une plateforme pour administrateur et utilisateur afin de connaître l'humeur de vos employés sur le dernier mois. En programmant un envoi automatique de mails à tous vos employés, l'application Mood of The Month enverra un lien à chacun d'entre eux. En suivant le lien, l'employé pourra répondre à un sondage personnalisé, en donnant une note correspondant à son ressenti sur le mois qu'il a passé (et à d'autres questions éventuellement) et s'il le souhaite, en laissant un commentaire anonyme. 
+L'administrateur, quant à lui, peut observer l'évolution des résultats grâce à un dashboard et ce pour le sondage en cours et les anciens sondages.
 
 
 <h1 align="center">
@@ -41,7 +42,7 @@ Ouvrer votre invite de commandes et cloner le projet dans un dossier :
 
 `git clone https://github.com/atRoussel/MOTM.git` 
 
-
+<br>
 
 ### Lancement du back : 
 Ouvrer IntelliJ IDEA et ouvrir le fichier _**pom.xml**_ à la racine de ce répertoire.
