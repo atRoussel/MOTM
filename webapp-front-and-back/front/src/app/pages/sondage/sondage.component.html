@@ -36,20 +36,20 @@
                     <div style="text-align: center">
                         <img src="assets/logo_mini.png" width="150"  style="margin-top:30px;" />
                     </div>
-                    <p style="text-align: center; font-size: 20px">Veuillez inscrire votre adresse-mail pour répondre aux sondages.</p>
+                    <p style="text-align: center; font-size: 20px">Veuillez inscrire votre adresse mail pour répondre aux sondages.</p>
                     <label style="margin-top: 30px; margin-bottom: 10px; font-size: 17px" for="email" >
                         Adresse mail :
                     </label>
                     <input #text type="email" minlength="4" id="email" name="email" class="form-control" ngModel
                            required/>
                     <span *ngIf="(text.value.length < 4)||(!text.value.includes('@'))" style="color: red; margin-top: 10px; font-style: italic">
-                            L'adresse-mail doit contenir "@".
+                            L'adresse mail doit contenir "@".
                         </span>
                 </div>
 
 
                 <div style="margin-top: 30px">
-                    <p *ngIf="!identification" style="text-align: center; margin-bottom: 20px; color: red" >L'adresse-mail renseignée est inconnue. </p>
+                    <p *ngIf="!identification" style="text-align: center; margin-bottom: 20px; color: red" >L'adresse mail renseignée est inconnue. </p>
                     <button *ngIf="text.value.includes('@')" (click)="checkEmail(text.value)" class="btn btn-info float-right"
                             role="button" type="submit" style="margin-bottom: 10px">Connexion
                     </button>
@@ -79,7 +79,7 @@
             </span>
             <p style=" margin-bottom: 20px; font-size: 16px; text-align: center">
                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
-                recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
+                recueillies seront anonymes et ne pourront en aucun cas être utilisées contre leur auteur.
             </p>
 
             <hr/>
@@ -138,7 +138,7 @@
                     <img src="assets/logo_mini.png" width="150"  style="margin-top:30px;" />
                 </div>
                 <p style="text-align: center; font-size: 20px; margin-bottom: 10px">Réponses envoyées ! </p>
-                <p style="text-align: center; font-size: 14px">Merci de votre participation, vos réponses ont bien été envoyées. Si vous voulez les modifiées, vous pouvez remplir une nouvelle fois le sondage. </p>
+                <p style="text-align: center; font-size: 14px">Merci de votre participation, vos réponses ont bien été envoyées. Si vous voulez les modifier, vous pouvez remplir une nouvelle fois le sondage. </p>
             </div>
 
         </div>
