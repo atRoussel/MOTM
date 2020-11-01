@@ -112,8 +112,8 @@ ul, li {
     padding-bottom: 44px;
 }
 
-a:hover {
-    background-color: darkgrey;
+.nav-link:hover {
+    background-color: #495a6e;
 
 }
 
