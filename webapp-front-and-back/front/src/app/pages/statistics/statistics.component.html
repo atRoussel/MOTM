@@ -41,7 +41,7 @@
         <a href="/user-list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> Utilisateurs</a>
         <a href="/add-survey" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus fa-fw"></i> Ajouter un
             sondage</a>
-        <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i> Voir sondage en cours</a>
+        <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-spinner fa-fw"></i> Sondage en cours</a>
     </div>
 </nav>
 
@@ -63,7 +63,7 @@
             <div>
                 <select (click)="selectChangeHandler($event)" id="mood" class="browser-default custom-select"
                         name="mood" style="margin-bottom: 20px">
-                    <option *ngFor="let surv of reverseSurveys.reverse(); let i = index" > {{surv.title}} </option>
+                    <option *ngFor="let surv of reverseSurveys.reverse(); let i = index"> {{surv.title}} </option>
                 </select>
             </div>
         </div>

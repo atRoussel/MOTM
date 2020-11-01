@@ -1,45 +1,21 @@
 package io.takima.demo;
 
-import io.takima.demo.user.UserDAO;
-import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.beans.Statement;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
 
 @EnableJpaRepositories
 @SpringBootConfiguration
@@ -55,12 +31,14 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Récupere les emails des utilisateurs
         List<String> usersEmails = get("http://localhost:8080/users");
+        // Envoie des mails
         TimerTask repeatedTask = new TimerTask() {
             public void run() {
                 usersEmails.forEach(email-> {
                     try {
-                        //sendStaticMail(email);
+                        sendStaticMail(email);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -69,14 +47,14 @@ public class Application implements CommandLineRunner {
         };
         Timer timer = new Timer("Timer");
 
+        // Répétition de l'envoi des mails tous les mois
         long delay = 1000L;
         long period = 1000L * 60 * 60 * 24 * 30; // 1000L = 1 seconde
         timer.scheduleAtFixedRate(repeatedTask, delay, period);
-        System.out.println("Done");
     }
 
+    // Contruction de la liste des emails des utilisateurs
     public List<String> get(String url) throws IOException{
-
         String source ="";
         URL oracle = new URL(url);
         URLConnection yc = oracle.openConnection();
@@ -98,9 +76,9 @@ public class Application implements CommandLineRunner {
         return emailsList;
     }
 
+    // Envoi d'email avec un contenu html
     public void sendStaticMail(String email) throws Exception {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
         helper.setFrom("moodofthemonth.epf@gmail.com");
         helper.setTo(email);
@@ -111,7 +89,7 @@ public class Application implements CommandLineRunner {
 "<div class='card-body'>"+
 "<h1 class='card-title' style='color:black; margin-bottom:30px; margin-top:10px'>Mood Of The Month !</h1>"+
  "<p class='card-text' style='text-align:center; color: black'>Réponds au sondage et donne ton avis sur le mois qui vient de s'écouler !</p>"+ " " +
-                "<a style='margin-bottom:30px' href='#' class='card-link'>http://localhost:4200/</a>"+
+                "<a style='margin-bottom:30px' href='http://localhost:4200/' class='card-link'>http://localhost:4200/</a>"+
 "</div>"+
 "</div>"+
 "</body>"+
