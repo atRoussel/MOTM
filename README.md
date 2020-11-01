@@ -55,21 +55,23 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 ```
 
 
-Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le dossier `initdb` seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
+Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le dossier `initdb` seront exécutés automatiquement. Exécutez _**Application.java**_, et vérifiez que la BDD fonctionne sur http://localhost:8080.
 
 <br>
 
-#### Si la DB ne se lance pas correctement 
- 1. Créez votre BDD dans IntelliJ, en renseignant :
+#### Si la BDD ne se lance pas correctement 
+ 1. Créez votre BDD dans IntelliJ,onglet DataBase > + > Data Source > mariadb, en renseignant :
  
      - Host : 192.168.99.100  
-     - User : voir _**application.properties**_
-     - Password : voir _**application.properties**_
+     - User : root
+     - Password : toor
      - Database : defaultdb
+     
+    Cliquez ensuite sur _**Test connection**_.
 
 2. Dans votre dossier application.properties, vérifiez que la ligne suivante est correcte : `spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb`
 
-3. Lancez manuellement `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`à l'aide de la commade _Run_.
+3. Pour les fichiers `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`, faites respectivement : Clique droit sur le fichier > Run > Ajouter defaultdb dans _**Target data source/ schema**_ (icon +) > Run.
 
 4. Lancez enfin _**Application.java**_
 
