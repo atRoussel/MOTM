@@ -12,19 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-
-
         html, body, h1, h2, h3, h4, h5 {
             font-family: "Raleway", sans-serif
         }
     </style>
 </head>
+
 <body style="background-color: aliceblue; padding-bottom: 100px">
+
+<!-- TOP BAR -->
 <div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057; height: 8%">
     <h1 class="w3-left" style="color: white; font-family: 'Baskerville Old Face' ; margin-left:10px"> Mood Of The
         Month</h1>
     <img src="/assets/logo_mini.png" class="w3-right" style="height: 90%; margin-top: 3px; margin-right: 0">
 </div>
+
+<!-- NAVIGATION MENU -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left shadow-sm" style="z-index:3;width:300px" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="margin-top: 10px">
@@ -45,12 +48,14 @@
     </div>
 </nav>
 
+<!-- MAIN CONTAINER -->
 <div class="container-fluid"
      style="width:78%;height:100%;margin-left:300px;margin-top:43px;margin-bottom: 40px;padding-top: 50px">
+
+    <!-- LISTE SONDAGES -->
     <div class="card">
         <div class="card-header" style="background-color:#008891; color: white"> Liste des sondages</div>
         <div class="card-body">
-
             <div *ngIf="surveys.length===0">
                 <h5 style="text-align: center">Votre liste de sondage est vide ! </h5>
             </div>
@@ -79,12 +84,13 @@
                     </tbody>
                 </table>
             </div>
-            <span *ngIf="isDisabled === true">Publication du dernier sondage dans : {{timer}} secondes.</span>
+            <p *ngIf="isDisabled === true" style="font-size: 16px; color: orange; margin-top: 20px; margin-left: 5px; font-style: italic"><i class="fa fa-exclamation-triangle" style="color: orange"></i>
+ Publication du prochain sondage dans : {{timer}} secondes.</p>
       </div>
     </div>
 </div>
 
-
+<!-- MODAL APERCU SONDAGE -->
 <div class="modal modal-backdrop" id="id01"  tabindex="-1" role="dialog" style="align-self: center ">
     <div class="modal-dialog modal-dialog-centered "  role="document">
         <div class="modal-content" style="padding: 0; margin-top: 0" >
@@ -146,7 +152,7 @@
     </div>
 </div>
 
-
+<!-- AJOUT SONDAGE -->
 <div class="container-fluid" style="width:60%;height:100%;margin-left:30%;padding-top: 10px">
     <div class="card  shadow-sm" style="margin-top: 50px;align-self: center">
         <div class="card-header"> Ajout d'un sondage </div>
@@ -155,6 +161,8 @@
                   style="color: red"> Tous les champs suivis d'un * doivent être remplis.</span>
             <form>
                 <div class="form-group">
+
+                    <!-- AJOUT INFORMATIONS OBLIGATOIRES -->
                     <label style="margin-top: 20px" class="required">
                         Titre
                     </label>
@@ -176,6 +184,7 @@
                 </div>
                 <hr style="margin-top: 40px"/>
 
+                <!-- AJOUT QUESTIONS PERSONALISEES -->
                 <div class="container-fluid" style="width: 100%">
                     <div class="row">
                         <div class="col col-10">
@@ -190,30 +199,41 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group" *ngFor="let quest of questionsSize; let i = index">
                     <label style="margin-top: 15px">
                         Question n°{{i + 2}}
                     </label>
                     <input [disabled]="isDisabled" (change)="selectChangeHandler($event, i)" class="form-control" >
                 </div>
-                <hr style="margin-top: 40px"/>
-                <div>
-                    <span>Nombre de secondes avant publication : </span> <input [disabled]="isDisabled" (change)="selectChangeHandler2($event)" type="number">
+                <p style="text-align: center; font-size: 12px; margin-top: 40px; font-style: italic">Attention ! Les
+                    options de réponse pour les questions sont limitées à : <br> Génial - Bien - Moyen - Mauvais -
+                    Affreux </p>
+                <hr style="margin-top: 30px; margin-bottom: 20px"/>
+
+                <!-- AJOUT TIMER -->
+                <p >Vous voulez différer votre publication ? C'est possible !  </p>
+                <div class="row" style="margin-left: 5px">
+                    <div class="col col-sm-auto" style="margin: 8px; padding: 0">
+                        <p>Nombre de secondes avant publication :   </p>
+                    </div>
+                    <div class="col col-sm-auto" style="margin: 0; padding: 0">
+                        <input [disabled]="isDisabled" class="form-control" (change)="selectChangeHandler2($event)" style="width: 200px" type="number">
+                    </div>
                 </div>
                 <div style="margin-top: 40px; margin-right: 0">
                     <span *ngIf="(title.value.length > 0)&&(description.value.length > 0)&&(question.value.length > 0)&&(isDisabled === false)" class="btn btn-info float-right" style="width: 100px" (click)="addSurvey(title.value, description.value, question.value, selectedId)">Publier</span>
                     <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)||(isDisabled === true)" class="btn btn-secondary float-right" style="width: 100px">Publier</span>
                     <div>
-                        <span *ngIf="(isDisabled === true)" (click)="publishNow()" class="btn btn-info float-left" style="width: 100px">Publier immédiatement</span>
+                        <span *ngIf="(isDisabled === true)" (click)="publishNow()" class="btn btn-info float-left" style="width: auto">Publier immédiatement</span>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
 </div>
 </body>
+
+
 <script src="bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
