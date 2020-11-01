@@ -51,7 +51,7 @@ export class StatisticsComponent implements OnInit {
           this.ansCount ++;
           this.sum = this.sum + +ans.value
         })
-        this.res = (this.sum / this.ansCount).toFixed();
+        this.res = (this.sum / this.ansCount).toFixed(2);
         this.averageResponseList.push(this.res);
       })
       this.findEmoji(this.averageResponseList[0]);
@@ -69,7 +69,7 @@ export class StatisticsComponent implements OnInit {
           this.ansCount ++;
           this.sum = this.sum + +ans.value
         })
-        this.res = (this.sum / this.ansCount).toFixed();
+        this.res = (this.sum / this.ansCount).toFixed(2);
         this.surveysAverage.push(this.res);
       })
 

@@ -54,8 +54,10 @@
           <td>{{user.mail}}</td>
           <td>{{user.date}}</td>
           <td>
-            <button type="button" class="btn btn-danger deleteButton" style="margin-left:10px; margin-right: 10px" (click)="deleteUser(user.id)"><i class="fa fa-trash"></i></button>
-            <button type="button" class="btn btn-info" style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057" onclick="document.getElementById('id01').style.display='block'" (click)="modalTitle='Modification d\'un utilisateur';text.value = user.name; mail.value = user.mail; birthDate.value = user.date; selectedId = user.id" ><i class="fa fa-pencil-square-o"></i></button>
+            <span *ngIf="user.id === 1" type="button" class="btn btn-secondary" style="margin-left:10px; margin-right: 10px"><i class="fa fa-trash"></i></span>
+            <button *ngIf="user.id !== 1" type="button" class="btn btn-danger deleteButton" style="margin-left:10px; margin-right: 10px" (click)="deleteUser(user.id)"><i class="fa fa-trash"></i></button>
+            <button *ngIf="user.id !== 1" type="button" class="btn btn-info" style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057" onclick="document.getElementById('id01').style.display='block'" (click)="modalTitle='Modification d\'un utilisateur';text.value = user.name; mail.value = user.mail; birthDate.value = user.date; selectedId = user.id" ><i class="fa fa-pencil-square-o"></i></button>
+            <span *ngIf="user.id === 1" type="button" class="btn btn-secondary" style="margin-left:10px; margin-right: 10px" ><i class="fa fa-pencil-square-o"></i></span>
           </td>
         </tr>
         </tbody>
