@@ -100,6 +100,9 @@ export class SondageComponent implements OnInit {
         this.userCo = user;
         document.getElementById('id02').style.display='none';
       }
+      else{
+        document.getElementById('who').style.display='block';
+      }
     })
   }
 }

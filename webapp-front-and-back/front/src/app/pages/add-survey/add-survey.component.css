@@ -18,3 +18,95 @@
 
 
 
+.purple-border textarea {
+    border: 1px solid lightgray;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+}
+
+
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.label {
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.modal{
+    overflow: auto;
+}
+
+
+
+
+.container-contact100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.wrap-contact100 {
+    width: 700px;
+    min-height: 800px;
+    background: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+
+/*------------------------------------------------------------------
+[ Form ]*/
+
+.contact100-form {
+    width: 100%;
+}
+
+.contact100-form-title {
+    display: block;
+    font-size: 25px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 44px;
+}
+
+a:hover {
+    background-color: darkgrey;
+
+}
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,.0001) !important;
+
+}
+
+.modal-backdrop-co {
+    background-color: rgba(203, 214, 219, 0.9);
+}
+
+
+
+

@@ -28,11 +28,12 @@
 </nav>
 
 <div class="modal modal-backdrop-co" id="id02" tabindex="-1" role="dialog" style="align-self: center">
-    <div class="modal-dialog " role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="card-header "> Identification</div>
+            <div class="card-header"  style="background-color: #0f3057; color: white"> Identification</div>
             <div class="card-body" style="padding-right: 5%">
                 <div class="form-group">
+                    <h5>Veuillez inscrire votre adresse-mail pour répondre aux sondages.</h5>
                     <label style="margin-top: 20px" for="email">
                         Adresse mail
                     </label>
@@ -42,11 +43,13 @@
                             L'adresse-mail doit contenir "@".
                         </span>
                 </div>
-                <button *ngIf="(text.value.length > 0)" (click)="checkEmail(text.value)" class="btn btn-info"
-                        role="button" type="submit" style="margin-left:70%;margin-bottom: 10px">Enregistrer
+
+                <p id="who" style="display: none">Vous etes qui ?</p>
+                <button *ngIf="(text.value.length > 0)" (click)="checkEmail(text.value)" class="btn btn-info float-right"
+                        role="button" type="submit" style="margin-bottom: 10px">Enregistrer
                 </button>
-                <span *ngIf="(text.value.length < 1)" class="btn btn-secondary"
-                      style="margin-left:70%;margin-bottom: 10px">Enregistrer</span>
+                <span *ngIf="(text.value.length < 1)" class="btn btn-secondary float-right"
+                      style="margin-bottom: 10px">Enregistrer</span>
             </div>
         </div>
     </div>
@@ -73,7 +76,7 @@
             </p>
 
             <hr/>
-            <p style="color: red; margin-top: 20px"> Tous les champs suivis de * doivent être remplis.</p>
+            <p style="color: red; margin-top: 20px"> Tous les champs suivis d'un * doivent être remplis.</p>
             <div *ngFor="let ques of lastSurvey.questions; let i = index" class="form-group" style="margin-top: 10px;">
                 <label class="required" style="margin-bottom: 10px;"for="mood">
                     {{ques.text}}
@@ -97,14 +100,16 @@
             </div>
 
             <hr/>
-            <div class="container " style="width: max-content; margin-top: 15%">
-                    <span class="btn btn-info" style="width: 200px; font-size: 20px" type="button"
+            <p style="text-align: center; margin-top: 20px"> Vous ne pouvez pas répondre plusieurs fois à ce sondage. Si vous le remplissez une deuxième fois, vos réponses seront modifiées.</p>
+
+            <div class="container " style="width: max-content; margin-top: 30px">
+                    <span class="btn btn-info" style="width: 200px; font-size: 20px; margin-bottom: 20px" type="button"
                           (click)="addComment(comment.value, lastSurvey)" data-toggle="modal" data-target="id01">
                         <span> Envoyer </span>
                     </span>
 
             </div>
-            <span *ngIf="!canValidate" style="color: red">Il semblerait que des réponses soient manquantes</span>
+            <p *ngIf="!canValidate" style="color: red; text-align: center">Il semblerait que des réponses soient manquantes. Vérifiez que vous avez bien tout rempli !</p>
         </div>
     </div>
 </div>

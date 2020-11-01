@@ -134,6 +134,12 @@ a:hover {
     font-size: 18px;
 }
 
+.card-header{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
 
 
 

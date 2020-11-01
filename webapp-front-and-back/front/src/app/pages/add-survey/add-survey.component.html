@@ -72,7 +72,9 @@
                         <td>
                             <span *ngIf="survey.id !== surveys[surveys.length -1].id" (click)="deleteSurvey(survey.id)" type="button" class="btn btn-danger" style="margin-left:10px; margin-right: 10px"><i class="fa fa-trash"></i></span>
                             <span *ngIf="survey.id === surveys[surveys.length -1].id" type="button" class="btn btn-secondary" style="margin-left:10px; margin-right: 10px"><i class="fa fa-trash"></i></span>
-                            <button type="button" class="btn btn-danger" style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057"><i class="fa fa-chevron-right"></i></button>
+                            <button type="button" class="btn btn-danger"
+                                    style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057"
+                                    onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-chevron-right"></i></button>
                             <span *ngIf="survey.id === surveys[surveys.length -1].id" >Sondage en cours ...</span>
                         </td>
                     </tr>
@@ -85,21 +87,83 @@
 </div>
 
 
+<div class="modal modal-backdrop" id="id01"  tabindex="-1" role="dialog" style="align-self: center ">
+    <div class="modal-dialog modal-dialog-centered "  role="document">
+        <div class="modal-content" style="padding: 0; margin-top: 0" >
+            <div class="card-body" style="padding: 0; margin-top: 0">
+                <div class="container-contact100" style="padding: 0; margin-top: 0">
+                        <div style="height: 30px; background-color: #0f3057;  width:100%; padding: 5px; margin-top:0">
+                           <span onclick="document.getElementById('id01').style.display='none'" >
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </span>
+                        </div>
+                        <div style="padding: 42px 55px 45px 55px;">
+            <span class="contact100-form-title">
+                Titre du MOTM
+
+                <h3 style="font-size: 15px">Description du MOTM</h3>
+            </span>
+                            <p style=" margin-bottom: 20px; font-size: 12px; text-align: center">
+                                Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
+                                recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
+                            </p>
+
+                            <hr/>
+                            <p style="color: red; margin-top: 10px; font-size: 12px"> Tous les champs suivis de * doivent être remplis.</p>
+                            <div *ngFor="let ques of questions; let i = index" class="form-group" style="margin-top: 10px;">
+                                <label class="required" style="margin-bottom: 10px;"for="mood">
+                                    Comment ca va ?
+                                </label>
+                                <div>
+                                    <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select"
+                                            name="mood" style="margin-bottom: 20px">
+                                        <option value="0"> -- Sélectionner une réponse -- </option>
+                                        <option value="5">Génial</option>
+                                        <option value="4">Bien</option>
+                                        <option value="3">Moyen</option>
+                                        <option value="2">Mauvais</option>
+                                        <option value="1">Affreux</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group purple-border">
+                                <label for="comment" style="margin-bottom: 5px; font-size: 12px;">Commentaire :</label>
+                                <textarea #comment class="form-control" name="comment" id="comment"
+                                          placeholder="Votre commentaire ici..." rows="3" style="margin-bottom: 15%"></textarea>
+                            </div>
+
+                            <hr/>
+                            <div class="container " style="width: max-content; margin-top: 60px">
+                    <span class="btn btn-info" style="width: 200px; font-size: 15px" type="button">
+                        <span> Envoyer </span>
+                    </span>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container-fluid" style="width:60%;height:100%;margin-left:30%;padding-top: 10px">
     <div class="card  shadow-sm" style="margin-top: 50px;align-self: center">
         <div class="card-header"> Ajout d'un sondage </div>
         <div class="card-body" style="padding-right: 5%">
             <span *ngIf="(title.value.length < 1)||(description.value.length < 1)||(question.value.length < 1)"
-                  style="color: red"> Tous les champs suivis de * doivent être remplis.</span>
+                  style="color: red"> Tous les champs suivis d'un * doivent être remplis.</span>
             <form>
                 <div class="form-group">
-                    <label style="margin-top: 20px">
+                    <label style="margin-top: 20px" class="required">
                         Titre
                     </label>
                     <input #title placeholder="Titre du sondage" type="text" class="form-control" name="name" ngModel required/>
                 </div>
                 <div class="form-group">
-                    <label style="margin-top: 20px" for="description">
+                    <label style="margin-top: 20px" for="description" class="required">
                         Description
                     </label>
                     <input #description placeholder="Description du sondage" type="text" id="description" class="form-control" name="description" ngModel required/>
