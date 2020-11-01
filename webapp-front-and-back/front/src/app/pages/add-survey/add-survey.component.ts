@@ -19,6 +19,7 @@ export class AddSurveyComponent implements OnInit {
   surveys: Survey[];
   questions: Question[];
   selectedId: number = null;
+  selectedSurvey: Survey;
 
   questionList: string[];
   questionsSize: string[];
@@ -27,6 +28,7 @@ export class AddSurveyComponent implements OnInit {
   constructor(private surveyService: SurveyService, private  questionService: QuestionService) { }
 
   ngOnInit(): void {
+    this.selectedSurvey = new Survey();
     this.questionList = [];
     this.questionsSize = [];
     this.surveyService.getSurveys().subscribe(surveys => this.surveys = surveys);
@@ -77,5 +79,8 @@ export class AddSurveyComponent implements OnInit {
 
   selectChangeHandler (event: any, index: number) {
     this.questionList[index] = event.target.value;
+  }
+  getSelectedSurvey(surv: Survey) {
+    this.selectedSurvey = surv;
   }
 }
