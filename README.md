@@ -55,21 +55,23 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 ```
 
 
-Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le dossier `initdb` seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
+Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le dossier `initdb` seront exécutés automatiquement. Exécutez _**Application.java**_, et vérifiez que la BDD fonctionne sur http://localhost:8080.
 
 <br>
 
-#### Si la DB ne se lance pas correctement 
- 1. Créez votre BDD dans IntelliJ, en renseignant :
+#### Si la BDD ne se lance pas correctement 
+ 1. Créez votre BDD dans IntelliJ,onglet DataBase > + > Data Source > mariadb, en renseignant :
  
      - Host : 192.168.99.100  
-     - User : voir _**application.properties**_
-     - Password : voir _**application.properties**_
+     - User : root
+     - Password : toor
      - Database : defaultdb
+     
+    Cliquez ensuite sur _**Test connection**_.
 
 2. Dans votre dossier application.properties, vérifiez que la ligne suivante est correcte : `spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb`
 
-3. Lancez manuellement `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`à l'aide de la commade _Run_.
+3. Pour les fichiers `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`, faites respectivement : Clique droit sur le fichier > Run > Ajouter defaultdb dans _**Target data source/ schema**_ (icon +) > Run.
 
 4. Lancez enfin _**Application.java**_
 
@@ -97,12 +99,25 @@ Une fois que le serveur est chargé, l'application est disponible à l'adresse h
 
 Après avoir cliquez sur le lien, l'employé devra renseigner son adresse mail pour répondre au sondage. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs; son mail doit donc appartenir à la base de données. 
 
-//Screen pop-up indentification
+<h5 align="center">
+<br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_identification.png" title="Identification" height="400"/>
+    </kdb>
+  <br>
+</h5>
 
 Vous pouvez utiliser le mail admin@gmail.com pour vous connecter à l'application et donc répondre au sondage, et accéder à l'espace administrateur.
 
 Une fois connecté, vous pouvez répondre aux questions du sondage, et laisser un commentaire. Si un utilisateur répond plusieurs fois au même sondage, cela ne fera que modifier ses réponses précédentes.  
 
+<h5 align="center">
+<br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_sondage.png" title="Sondage" height="600"/>
+    </kdb>
+  <br>
+</h5>
 
 
 ## Gestions des sondages
@@ -117,24 +132,71 @@ Pour la publication, deux options s'offrent à vous :
     
 Vous avez également la possibilité de changer d'avis, et de publier votre sondage même si le compte à rebours n'est pas terminé.
     
-  //Screen ajout sondage  
+  <h5 align="center">
+<br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_sondage_ajout.png" title="Ajout sondage" height="400"/>
+    </kdb>
+  <br>
+</h5>
 
 
 ## Gestion des utilisateurs
 
 Dans l'onglet "_Utilisateurs_", vous pouvez observer la liste des utilisateurs présents dans la base de données, en ajouter, les supprimer ou les modifier. Seul le compte admin@gmail.com ne peut pas être supprimé ou modifié.
 
-## La page _Statistiques_
+## La page Statistiques
 
 Page principale de la section administrateur, l'onglet "_Statistiques_" vous permet d'observer les résultats du sondage en cours ou d'un ancien sondage. La page permet aussi de voir l'évolution de la moyenne générale de plusieurs sondages sur un seul graphique.
 
-//Screen dash
+<h5 align="center">
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_1.png" title="DashBoard" width="800"/>
+  </kbd>
+  <br>
+  <br>
+  Vue générale
+  <br>
+  <br>
+  <br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_2.png" title="DashBoard" width="500"/>
+  </kbd>
+  <br>
+  <br>
+  Graphique pour la question générale
+  <br>
+  <br>
+ <br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_3.png" title="DashBoard" width="500"/>
+  </kbd>
+  <br>
+  <br>  
+  Section pour les questions supplémentaires
+  <br>
+  <br>
+  <br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_4.png" title="DashBoard" width="500"/>
+  </kbd>
+  <br>
+  <br>
+  Graphique de l'évolution globale des moyennes
+  
+</h5>
 
 
 ## Gestion de l'envoi des mails
 
 C'est dans le dossier "_api_" que un mail prédéfini sera envoyé à chaque utilisateur présent dans la base de données. Seul les adresses gmail bénéficieront du formatage html.
 
-//Screen -mail
+  <h5 align="center">
+<br>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_mail.png" title="Mail" height="200"/>
+    </kdb>
+  <br>
+</h5>
 
 
