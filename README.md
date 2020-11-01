@@ -29,10 +29,10 @@ MOTM est une plateforme d'administration et une plateforme utilisateur pour conn
 </h1>
 
 Pour que l'application se lance correctement, il vous faut : 
-- JDK 11 <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/jdk_logo.png" title="JDK 11" width="35" /> 
-- Maven 3.6.3
-- Intellij IDEA Ultimate
-- Docker For Windows
+  - JDK 11 
+  - Maven 3.6.3
+  - Intellij IDEA Ultimate
+  - Docker For Windows
 
 
 ## Lancement du projet
