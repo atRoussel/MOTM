@@ -8,9 +8,10 @@
 </h1>
 
 <h4 align="center">Récoltez le mood de vos employés ! </h4>
-
-'ScreenShot'
 <br>
+<img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_1.png" title="MOTM" />
+
+
 <br>
 <br>
 
