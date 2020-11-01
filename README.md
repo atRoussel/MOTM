@@ -34,53 +34,56 @@ Pour que l'application se lance correctement, il vous faut :
   - Maven 3.6.3
   - Intellij IDEA Ultimate
   - Docker For Windows
+  - Un navigateur web (Google Chrome conseillé)
 
 
 ## Lancement du projet
 
-Ouvrer votre invite de commandes et cloner le projet dans un dossier : 
+Créez un nouveau dossier puis ouvrez un invite de commandes et clonez le projet dans ce dossier : 
 
 `git clone https://github.com/atRoussel/MOTM.git` 
 
 <br>
 
 ### Lancement du back : 
-Ouvrer IntelliJ IDEA et ouvrir le fichier _**pom.xml**_ à la racine de ce répertoire.
+Lancez IntelliJ IDEA et ouvrez le fichier _**pom.xml**_ (dossier "api") en tant que projet.
 
 
-Ouvrer maintenant votre Docker, placez vous dans le dossier _**webapp-front-and-back**_ du projet et lancez votre base de données en entrant la commande : 
+Ouvrez maintenant votre Docker en tant qu'administrateur, placez vous dans le dossier _**webapp-front-and-back**_ du projet et lancez votre base de données en entrant la commande : 
 ```
 docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 -v "`pwd`/initdb:/docker-entrypoint-initdb.d" mariadb
 ```
 
 
-Lors du premier chargement de la BDD, tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
+Lors du premier chargement de la BDD, tous les scripts SQL contenus dans le dossier `initdb` seront exécutés automatiquement. Lancez l'application via IntelliJ, et vérifiez qu'elle fonctionne sur http://localhost:8080.
 
 <br>
 
 #### Si la DB ne se lance pas correctement 
- 1. Créer votre BDD dans IntelliJ, en renseignant :
+ 1. Créez votre BDD dans IntelliJ, en renseignant :
  
      - Host : 192.168.99.100  
      - User : voir _**application.properties**_
      - Password : voir _**application.properties**_
      - Database : defaultdb
 
-2. Dans votre dossier application.proporties, vérifier que : `spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb`
+2. Dans votre dossier application.properties, vérifiez que la ligne suivante est correcte : `spring.datasource.url=jdbc:mariadb://192.168.99.100:3306/defaultdb`
 
-3. Lancer manuellement `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`
+3. Lancez manuellement `1_TABLES.sql` et `2_DEFAULT_ENTRIES.sql`à l'aide de la commade _Run_.
 
-4. Lancer l'application
+4. Lancez enfin _**Application.java**_
 
 <br>
 
 ### Lancement du front :
 
-Ouvrer le dossier front dans une nouvelle fenêtre et dans le terminal, lancez la commande :
+Ouvrez le dossier _**front**_ dans une nouvelle fenêtre et dans le terminal, lancez la commande :
 `npm i`
 
-Enfin lancer dans le terminal : 
+Enfin, lancez dans le terminal : 
 `npm start`
+
+Une fois que le serveur est chargé, l'application est disponible à l'adresse http://localhost:4200
 
 <h1 align="center">
   <br>
@@ -90,21 +93,48 @@ Enfin lancer dans le terminal :
 </h1>
 <br>
 
-## Entrez dans la plateforme
+## Entrer dans la plateforme
 
-Après avoir cliquez sur le lien, l'employé devra renseigner son adresse-mail pour répondre aux sondages. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs.
+Après avoir cliquez sur le lien, l'employé devra renseigner son adresse mail pour répondre au sondage. Il ne pourra y accéder seulement si son profil à bien été intégré à la liste des utilisateurs; son mail doit donc appartenir à la base de données. 
 
-Cependant il ne pourra pas accéder à l'espace administrateur. Ce dernier est accessible seulement avec l'adresse admin@gmail.com. 
+//Screen pop-up indentification
+
+Vous pouvez utiliser le mail admin@gmail.com pour vous connecter à l'application et donc répondre au sondage, et accéder à l'espace administrateur.
+
+Une fois connecté, vous pouvez répondre aux questions du sondage, et laisser un commentaire. Si un utilisateur répond plusieurs fois au même sondage, cela ne fera que modifier ses réponses précédentes.  
+
 
 
 ## Gestions des sondages
 
-Pour créer un nouveau sondage, rendez-vous à la section "Ajouter un sondage". Vous y trouverez la liste de tous les sondages que vous avez créés. 
+Pour créer un nouveau sondage, rendez-vous à la section "_Ajouter un sondage_". Vous y trouverez la liste de tous les sondages que vous avez créés. 
 
-Il pourra alors créer un sondage avec un titre, une description, une question générale pour connaître son mood du mois. Il aura aussi la possibilité d'ajouter des questions supplémentaires.
+Vous pourrez alors créer un sondage avec un titre, une description, une question générale pour connaître le mood du mois. Vous aurez aussi la possibilité d'ajouter des questions supplémentaires.
 
-Pour la publication, deux options d'offres à lui : 
-    - soit, il décide de publier le sondage immédiatement,
-    - soit, il peut différer la publication.
+Pour la publication, deux options s'offrent à vous : 
+    - soit publiez le sondage immédiatement,
+    - soit différez la publication du sondage.
+    
+Vous avez également la possibilité de changer d'avis, et de publier votre sondage même si le compte à rebours n'est pas terminé.
+    
+  //Screen ajout sondage  
+
+
+## Gestion des utilisateurs
+
+Dans l'onglet "_Utilisateurs_", vous pouvez observer la liste des utilisateurs présents dans la base de données, en ajouter, les supprimer ou les modifier. Seul le compte admin@gmail.com ne peut pas être supprimé ou modifié.
+
+## La page _Statistiques_
+
+Page principale de la section administrateur, l'onglet "_Statistiques_" vous permet d'observer les résultats du sondage en cours ou d'un ancien sondage. La page permet aussi de voir l'évolution de la moyenne générale de plusieurs sondages sur un seul graphique.
+
+//Screen dash
+
 
 ## Gestion de l'envoi des mails
+
+C'est dans le dossier "_api_" que un mail prédéfini sera envoyé à chaque utilisateur présent dans la base de données. Seul les adresses gmail bénéficieront du formatage html.
+
+//Screen -mail
+
+
