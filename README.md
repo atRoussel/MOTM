@@ -29,25 +29,25 @@ MOTM est une plateforme d'administration et une plateforme utilisateur pour conn
 </h1>
 
 Pour que l'application se lance correctement, il vous faut : 
-- JDK 11 <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/jdk_logo.png" title="JDK 11" width="35" /> 
-- Maven 3.6.3
-- Intellij IDEA Ultimate
-- Docker For Windows
+  - JDK 11 
+  - Maven 3.6.3
+  - Intellij IDEA Ultimate
+  - Docker For Windows
 
 
 ## Lancement du projet
 
-Ouvrez votre invite de commandes et cloner le projet dans un dossier : 
+Ouvrer votre invite de commandes et cloner le projet dans un dossier : 
 
 `git clone https://github.com/atRoussel/MOTM.git` 
 
 
 
 ### Lancement du back : 
-Ouvrez IntelliJ IDEA et ouvrir le fichier _**pom.xml**_ à la racine de ce répertoire.
+Ouvrer IntelliJ IDEA et ouvrir le fichier _**pom.xml**_ à la racine de ce répertoire.
 
 
-Ouvrez maintenant votre Docker, placez vous dans le dossier _**webapp-front-and-back**_ du projet et lancez votre base de données en entrant la commande : 
+Ouvrer maintenant votre Docker, placez vous dans le dossier _**webapp-front-and-back**_ du projet et lancez votre base de données en entrant la commande : 
 ```
 docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 -v "`pwd`/initdb:/docker-entrypoint-initdb.d" mariadb
 ```
@@ -98,6 +98,12 @@ Cependant il ne pourra pas accéder à l'espace administrateur. Ce dernier est a
 
 ## Gestions des sondages
 
-Pour créer un nouveau sondage, rendez-vous à la section "Ajouter un sondage". Vous y trouverez la liste de tous les sondages que vous avez créés. Pour remplacer le sondage en cours, il suffit d'en créer un nouveau. Le sondage en cours ne pourra pas être supprimé.
+Pour créer un nouveau sondage, rendez-vous à la section "Ajouter un sondage". Vous y trouverez la liste de tous les sondages que vous avez créés. 
+
+Il pourra alors créer un sondage avec un titre, une description, une question générale pour connaître son mood du mois. Il aura aussi la possibilité d'ajouter des questions supplémentaires.
+
+Pour la publication, deux options d'offres à lui : 
+    - soit, il décide de publier le sondage immédiatement,
+    - soit, il peut différer la publication.
 
 ## Gestion de l'envoi des mails
