@@ -25,7 +25,7 @@
         Month</h1>
     <img src="/assets/logo_mini.png" class="w3-right" style="height: 90%; margin-top: 3px; margin-right: 0">
 </div>
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px" id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left shadow-sm" style="z-index:3;width:300px" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s8 w3-bar" style="margin-top: 10px">
             <span>    Bienvenue, <strong>Administrateur</strong></span><br>
@@ -90,10 +90,10 @@
         <div class="modal-content" style="padding: 0; margin-top: 0" >
             <div class="card-body" style="padding: 0; margin-top: 0">
                 <div class="container-contact100" style="padding: 0; margin-top: 0">
-                        <div style="height: 30px; background-color: #0f3057;  width:100%; padding: 5px; margin-top:0">
+                        <div style="height: 50px; background-color: #0f3057;  width:100%; padding: 5px; margin-top:0">
                            <span onclick="document.getElementById('id01').style.display='none'" >
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white; margin-right: 10px">
+              <span aria-hidden="true" >&times;</span>
             </button>
                     </span>
                         </div>
@@ -105,18 +105,18 @@
                             </span>
                             <p style=" margin-bottom: 20px; font-size: 12px; text-align: center">
                                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
-                                recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
+                                recueillies seront anonymes et ne pourront en aucun cas être utilisées contre leur auteur.
                             </p>
 
                             <hr/>
-                            <p style="color: red; margin-top: 10px; font-size: 12px"> Tous les champs suivis de * doivent être remplis.</p>
+                            <p style="color: red; margin-top: 10px; font-size: 12px"> Tous les champs suivis d'un * doivent être remplis.</p>
                             <div *ngFor="let ques of selectedSurvey.questions; let i = index" class="form-group" style="margin-top: 10px;">
-                                <label class="required" style="margin-bottom: 10px;"for="mood">
+                                <label class="required" style="margin-bottom: 10px; font-size: 12px"for="mood">
                                     {{ques.text}}
                                 </label>
                                 <div>
                                     <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select"
-                                            name="mood" style="margin-bottom: 20px">
+                                            name="mood" style="margin-bottom: 20px; font-size: 12px">
                                         <option value="0"> -- Sélectionner une réponse -- </option>
                                         <option value="5">Génial</option>
                                         <option value="4">Bien</option>
@@ -129,11 +129,12 @@
                             <div class="form-group purple-border">
                                 <label for="comment" style="margin-bottom: 5px; font-size: 12px;">Commentaire :</label>
                                 <textarea #comment class="form-control" name="comment" id="comment"
-                                          placeholder="Votre commentaire ici..." rows="3" style="margin-bottom: 15%"></textarea>
+                                          placeholder="Votre commentaire ici..." rows="3" style="margin-bottom: 15%; font-size: 12px"></textarea>
                             </div>
 
                             <hr/>
-                            <div class="container " style="width: max-content; margin-top: 60px">
+                            <p style="text-align: center; margin-top: 20px; font-size: 10px"> Vous ne pouvez pas répondre plusieurs fois à ce sondage. Si vous le remplissez une deuxième fois, vos réponses seront modifiées.</p>
+                            <div class="container " style="width: max-content; margin-top: 30px">
                                 <span class="btn btn-info" style="width: 200px; font-size: 15px" type="button">
                                     <span> Envoyer </span>
                                 </span>
@@ -170,7 +171,7 @@
                     <label style="margin-top: 20px" class="required" for="question">
                         Question générale pour le mood du mois
                     </label>
-                    <input #question placeholder="Comment allez-vous ce mois-çi ?" type="text" id="question"
+                    <input #question placeholder="Comment allez-vous ce mois-ci ?" type="text" id="question"
                            class="form-control" name="question" ngModel>
                 </div>
                 <hr style="margin-top: 40px"/>
