@@ -112,6 +112,7 @@ export class AddSurveyComponent implements OnInit {
             localStorage.setItem('survey', JSON.stringify(survey));
             // Début du timer de publication
             AddSurveyComponent.mytime(this.counter);
+            this.localCounter = this.counter;
             this.startCountdown()
         } catch (e) {
         }
