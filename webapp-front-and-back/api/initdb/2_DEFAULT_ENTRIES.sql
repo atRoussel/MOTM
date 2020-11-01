@@ -32,9 +32,9 @@ INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (5, 'Moyen
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (6, 'J\'ai pas trop aimé', 2, 8);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (7, 'C\'etait fou', 3, 10);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (8, 'Meilleur mois de ma vie', 3, 7);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Plutôt bof', 3, 6);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (10, 'Je suis si heureux d\'etre dans cette entreprise', 3, 8);
-INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (11, 'Quel mois épatant !', 3, 9);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (9, 'Allez le FOOT ! Le FOOT!', 3, 6);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (10, 'Je ne m\'attendais à rien et je suis quand même déçu...', 3, 8);
+INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (11, 'Tu es un pigeon, Harry', 3, 9);
 INSERT INTO defaultdb.comments (id, value, survey_id, user_id) VALUES (12, 'Tout est merveilleux', 3, 12);
 
 INSERT INTO defaultdb.answers (id, value, question_id, user_id) VALUES (1, 4, 1, 4);
