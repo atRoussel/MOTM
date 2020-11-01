@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user.model';
 import {UserService} from '../../services/user.service';
 import {NgForm} from '@angular/forms';
@@ -7,9 +7,9 @@ import {AddSurveyComponent} from '../add-survey/add-survey.component';
 import {SurveyService} from '../../services/survey.service';
 
 @Component({
-  selector: 'app-list-users',
-  templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
+    selector: 'app-list-users',
+    templateUrl: './list-users.component.html',
+    styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
   localCounter;
@@ -36,21 +36,22 @@ export class ListUsersComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
-  addUser(userName, userMail, userDate, userId) {
-    const user = defaultsDeep({
-      id: userId,
-      name: userName,
-      mail: userMail,
-      date: userDate
-    });
-    // tslint:disable-next-line:no-shadowed-variable
-    this.userService.addUser(user).subscribe(user => console.log(user));
-    window.location.reload();
-  }
+    addUser(userName, userMail, userDate, userId) {
+        const user = defaultsDeep({
+            id: userId,
+            name: userName,
+            mail: userMail,
+            date: userDate
+        });
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(succes => {
-      this.users = this.users.filter(user => user.id !== id)
-    });
-  }
+        // tslint:disable-next-line:no-shadowed-variable
+        this.userService.addUser(user).subscribe(user => console.log(user));
+        window.location.reload();
+    }
+
+    deleteUser(id: number) {
+        this.userService.deleteUser(id).subscribe(succes => {
+            this.users = this.users.filter(user => user.id !== id)
+        });
+    }
 }

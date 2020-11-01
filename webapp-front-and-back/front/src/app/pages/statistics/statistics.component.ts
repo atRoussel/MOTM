@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CommentService} from '../../services/comment.service';
 import {AnswerService} from '../../services/answer.service';
 import {Answer} from '../../models/answer.model';
 import  {Chart} from 'chart.js';

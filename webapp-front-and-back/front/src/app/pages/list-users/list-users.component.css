@@ -1,19 +1,18 @@
-.body{
+.body {
     background-color: aliceblue;
     padding-bottom: 100px;
 }
-
 
 .w3-bar {
     height: 50px;
 }
 
-.w3-sidebar{
-    width:300px;
+.w3-sidebar {
+    width: 300px;
 
 }
 
-.modal-backdrop{
+.modal-backdrop {
     background-color: rgba(203, 214, 219, 0.9);
 }
 
@@ -23,14 +22,12 @@
     font-weight: bold;
 }
 
-
-.alert{
+.alert {
     margin-top: 20px;
 }
 
-
 .required:after {
-    content:"*";
-    color:red;
+    content: "*";
+    color: red;
     font-size: 18px;
 }

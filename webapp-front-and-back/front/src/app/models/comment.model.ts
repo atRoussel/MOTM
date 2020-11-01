@@ -1,4 +1,4 @@
-import { defaultsDeep } from 'lodash';
+import {defaultsDeep} from 'lodash';
 import {Survey} from './survey.model';
 import {User} from './user.model';
 
@@ -8,7 +8,7 @@ export class Comment {
     survey: Survey;
     user: User;
 
-    constructor(comment? : Partial <Comment>) {
+    constructor(comment?: Partial<Comment>) {
         defaultsDeep(this, comment);
     }
 }

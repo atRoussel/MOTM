@@ -6,26 +6,23 @@
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    color:white;
+    color: white;
     background-color: #008891;
 }
 
 .required:after {
-    content:"*";
-    color:red;
+    content: "*";
+    color: red;
     font-size: 18px;
 }
-
-
 
 .purple-border textarea {
     border: 1px solid lightgray;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 }
-
 
 ul, li {
     margin: 0px;
@@ -41,11 +38,11 @@ ul, li {
     margin-bottom: 7px;
 }
 
-.modal{
+.modal {
     overflow: auto;
 }
 
-.modal-backdrop{
+.modal-backdrop {
     background-color: rgba(203, 214, 219, 0.9);
 }
 
@@ -62,7 +59,6 @@ ul, li {
     align-items: center;
 
 
-
 }
 
 .wrap-contact100 {
@@ -75,10 +71,6 @@ ul, li {
     overflow: hidden;
 
 }
-
-
-/*------------------------------------------------------------------
-[ Form ]*/
 
 .contact100-form {
     width: 100%;
@@ -95,7 +87,6 @@ ul, li {
 
 a:hover {
     background-color: darkgrey;
-
 }
 
 

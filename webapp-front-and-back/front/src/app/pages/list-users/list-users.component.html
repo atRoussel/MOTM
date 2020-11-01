@@ -12,10 +12,14 @@
 </style>
 
 <body style="background-color: aliceblue; padding-bottom: 100px">
+
+<!-- TOP BAR -->
 <div class="w3-bar w3-top w3-large" style="z-index:4; background-color:#0f3057; height: 8%">
   <h1 class="w3-left" style="color: white; font-family: 'Baskerville Old Face' ; margin-left:10px"> Mood Of The Month</h1>
   <img src="/assets/logo_mini.png" class="w3-right" style="height: 90%; margin-top: 3px; margin-right: 0" >
 </div>
+
+<!-- NAVIGATION MENU -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left shadow-sm" style="z-index:3;width:300px;background-color: #e7e7de" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s8 w3-bar" style="margin-top: 10px">
@@ -33,7 +37,11 @@
     <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i> Voir sondage en cours</a>
   </div>
 </nav>
+
+<!-- MAIN CONTAINER -->
 <div class="container-fluid" style="width:78%;height:100%;margin-left:300px;margin-top:43px; padding-top: 50px">
+
+  <!-- LISTE UTILISATEURS -->
   <div class="card">
     <div class="card-header" style="background-color:#008891; color: white"> Liste des utilisateurs </div>
     <div class="card-body">
@@ -64,9 +72,10 @@
       </table>
     </div>
     <button class="btn btn-info float-right" onclick="document.getElementById('id01').style.display='block'" role="button" style=" width: fit-content; align-self: flex-end; margin-right:20px; margin-bottom: 20px; background-color: #00587a;border-color: #00587a; color: white">Ajouter utilisateur</button>
-
   </div>
 
+
+  <!--MODAL AJOUT/MODIFICATION UTILISATEURS-->
   <div class="modal modal-backdrop" id="id01"  tabindex="-1" role="dialog" style="align-self: center">
     <div class="modal-dialog modal-dialog-centered "role="document">
       <div class="modal-content">
@@ -75,7 +84,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
               <span aria-hidden="true">&times;</span>
             </button>
-                    </span>
+            </span>
           </div>
           <div class="card-body" style="padding-right: 5%">
             <form >
