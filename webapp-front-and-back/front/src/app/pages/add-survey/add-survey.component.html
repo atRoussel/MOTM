@@ -72,9 +72,7 @@
                         <td>
                             <span *ngIf="survey.id !== surveys[surveys.length -1].id" (click)="deleteSurvey(survey.id)" type="button" class="btn btn-danger" style="margin-left:10px; margin-right: 10px"><i class="fa fa-trash"></i></span>
                             <span *ngIf="survey.id === surveys[surveys.length -1].id" type="button" class="btn btn-secondary" style="margin-left:10px; margin-right: 10px"><i class="fa fa-trash"></i></span>
-                            <button type="button" class="btn btn-danger"
-                                    style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057"
-                                    onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-chevron-right"></i></button>
+                            <button (click)="getSelectedSurvey(survey)" type="button" class="btn btn-danger" style="margin-left:10px; margin-right: 10px; background-color: #0f3057; border-color: #0f3057" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-chevron-right"></i></button>
                             <span *ngIf="survey.id === surveys[surveys.length -1].id" >Sondage en cours ...</span>
                         </td>
                     </tr>
@@ -100,11 +98,11 @@
                     </span>
                         </div>
                         <div style="padding: 42px 55px 45px 55px;">
-            <span class="contact100-form-title">
-                Titre du MOTM
+                            <span class="contact100-form-title">
+                                {{selectedSurvey.title}}
 
-                <h3 style="font-size: 15px">Description du MOTM</h3>
-            </span>
+                                <h3 style="font-size: 15px">{{selectedSurvey.description}}</h3>
+                            </span>
                             <p style=" margin-bottom: 20px; font-size: 12px; text-align: center">
                                 Ce questionnaire mensuel nous permet de suivre le bien-être de nos employés. Toutes les données
                                 recueillies seront anonymes et ne pourront en aucun être cas utilisées contre leur auteur.
@@ -112,9 +110,9 @@
 
                             <hr/>
                             <p style="color: red; margin-top: 10px; font-size: 12px"> Tous les champs suivis de * doivent être remplis.</p>
-                            <div *ngFor="let ques of questions; let i = index" class="form-group" style="margin-top: 10px;">
+                            <div *ngFor="let ques of selectedSurvey.questions; let i = index" class="form-group" style="margin-top: 10px;">
                                 <label class="required" style="margin-bottom: 10px;"for="mood">
-                                    Comment ca va ?
+                                    {{ques.text}}
                                 </label>
                                 <div>
                                     <select (change)="selectChangeHandler($event, i)" id="mood" class="browser-default custom-select"
@@ -136,10 +134,9 @@
 
                             <hr/>
                             <div class="container " style="width: max-content; margin-top: 60px">
-                    <span class="btn btn-info" style="width: 200px; font-size: 15px" type="button">
-                        <span> Envoyer </span>
-                    </span>
-
+                                <span class="btn btn-info" style="width: 200px; font-size: 15px" type="button">
+                                    <span> Envoyer </span>
+                                </span>
                             </div>
                         </div>
                 </div>
@@ -171,7 +168,7 @@
 
                 <div class="form-group">
                     <label style="margin-top: 20px" class="required" for="question">
-                        Question générale pour le mood du mois :
+                        Question générale pour le mood du mois
                     </label>
                     <input #question placeholder="Comment allez-vous ce mois-çi ?" type="text" id="question"
                            class="form-control" name="question" ngModel>
@@ -190,11 +187,8 @@
                             <span class="btn btn-danger" (click)="questionsSize.pop(); questionList.pop()"
                                   style="text-align: center; border-radius: 45px"><i class="fa fa-minus"></i></span>
                         </div>
-
-
                     </div>
                 </div>
-
 
                 <div class="form-group" *ngFor="let quest of questionsSize; let i = index">
                     <label style="margin-top: 15px">
