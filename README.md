@@ -101,7 +101,9 @@ Après avoir cliquez sur le lien, l'employé devra renseigner son adresse mail p
 
 <h5 align="center">
 <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_identification.png" title="Identification" height="400"/>
+    </kdb>
   <br>
 </h5>
 
@@ -111,7 +113,9 @@ Une fois connecté, vous pouvez répondre aux questions du sondage, et laisser u
 
 <h5 align="center">
 <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_sondage.png" title="Sondage" height="600"/>
+    </kdb>
   <br>
 </h5>
 
@@ -130,7 +134,9 @@ Vous avez également la possibilité de changer d'avis, et de publier votre sond
     
   <h5 align="center">
 <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_sondage_ajout.png" title="Ajout sondage" height="400"/>
+    </kdb>
   <br>
 </h5>
 
@@ -139,21 +145,45 @@ Vous avez également la possibilité de changer d'avis, et de publier votre sond
 
 Dans l'onglet "_Utilisateurs_", vous pouvez observer la liste des utilisateurs présents dans la base de données, en ajouter, les supprimer ou les modifier. Seul le compte admin@gmail.com ne peut pas être supprimé ou modifié.
 
-## La page _Statistiques_
+## La page Statistiques
 
 Page principale de la section administrateur, l'onglet "_Statistiques_" vous permet d'observer les résultats du sondage en cours ou d'un ancien sondage. La page permet aussi de voir l'évolution de la moyenne générale de plusieurs sondages sur un seul graphique.
 
 <h5 align="center">
-  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_1.png" title="DashBoard" width="500"/>
+  <kbd>
+  <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_1.png" title="DashBoard" width="800"/>
+  </kbd>
   <br>
+  <br>
+  Vue générale
+  <br>
+  <br>
+  <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_2.png" title="DashBoard" width="500"/>
-  
-  
+  </kbd>
   <br>
- 
+  <br>
+  Graphique pour la question générale
+  <br>
+  <br>
+ <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_3.png" title="DashBoard" width="500"/>
+  </kbd>
   <br>
+  <br>  
+  Section pour les questions supplémentaires
+  <br>
+  <br>
+  <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/dashboard_4.png" title="DashBoard" width="500"/>
+  </kbd>
+  <br>
+  <br>
+  Graphique de l'évolution globale des moyennes
+  
 </h5>
 
 
@@ -163,7 +193,9 @@ C'est dans le dossier "_api_" que un mail prédéfini sera envoyé à chaque uti
 
   <h5 align="center">
 <br>
+  <kbd>
   <img src="https://github.com/atRoussel/MOTM/blob/main/webapp-front-and-back/front/src/assets/capture_mail.png" title="Mail" height="200"/>
+    </kdb>
   <br>
 </h5>
 
